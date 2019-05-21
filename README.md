@@ -50,14 +50,6 @@
 ## Association
 - belongs_to :user
 
-# paymentsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|card_number|string|null: false|
-|user_id|references|null: false, foreign_key: true|
-## Association
-- belongs_to :user
-
 # itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
