@@ -133,3 +133,11 @@
 |item_id|string|null: false|
 ## Association
 - belongs_to :item
+
+# newsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|title|sting|null: false|
+|content|string|null: false|
+## Association
+- nothing
