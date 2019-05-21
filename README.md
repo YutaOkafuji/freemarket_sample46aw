@@ -10,6 +10,8 @@
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
+|sales_proceed|integer|null: false|
+|point|integer|null: false|
 ## Association
 - has_many :items, through: :comments
 - has_many :deals, through: :deal_has_users
@@ -112,3 +114,22 @@
 ## Association
 - belongs_to :deal
 - belongs_to :user
+
+# item_detailテーブル
+|Column|Type|Options|
+|------|----|-------|
+|size|integer|null: false|
+|brand|string||
+|condition|integer|null: false|
+|item_id|references|null: false, foreign_key: true|
+## Association
+- belongs_to :item
+
+# categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|parent_id|string|null: false|
+|item_id|string|null: false|
+## Association
+- belongs_to :item
