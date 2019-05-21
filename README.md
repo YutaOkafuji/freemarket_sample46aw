@@ -1,7 +1,7 @@
 # usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
+|nickname|string|null: false, length: { maximum: 20 }|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |introduction|text||
@@ -13,14 +13,14 @@
 ## Association
 - has_many :items, through: :comments
 - has_many :deals, through: :deal_has_users
-- has_many :delivry_addresses
-- has_one :user-address
+- has_many :delivery_addresses
+- has_one :user_address
 - has_one :avatar
 
 # user_addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|zip_code|string||
+|zip_code|string|length: { maximum: 8 }|
 |prefecture|string||
 |city|string||
 |street_number|string||
@@ -32,12 +32,12 @@
 # delivery_addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|zip_code|string|null: false|
+|zip_code|string|null: false, length: { maximum: 8 }|
 |prefecture|string|null: false|
 |city|string|null: false|
 |street_number|string|null: false|
 |building|string||
-|telephone|integer||
+|telephone|string||
 |user_id|references|null: false, foreign_key: true|
 ## Association
 - belongs_to :user
@@ -53,9 +53,9 @@
 # itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false, length: { maximum: 40 }|
 |price|integer|null: false|
-|description|text|null: false|
+|description|text|null: fals, length: { maximum: 1000 }|
 |sale_status|integer|null: false|
 |buy_status|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
@@ -64,7 +64,7 @@
 - has_many :item_images
 - has_one :shipping_origin
 - has_one :category
-- has_one :item_deal
+- has_one :item_detail
 
 # item_imagesテーブル
 |Column|Type|Options|
@@ -104,7 +104,7 @@
 ## Association
 - belongs_to :user, through: :deal_has_users
 
-# deal_has_users
+# deal_has_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |deal_id|references|null: false, foreign_key: true|
