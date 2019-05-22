@@ -48,7 +48,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string||
-|user:id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 ## Association
 - belongs_to :user
 
@@ -57,7 +57,7 @@
 |------|----|-------|
 |name|string|null: false, length: { maximum: 40 }|
 |price|integer|null: false|
-|description|text|null: fals, length: { maximum: 1000 }|
+|description|text|null: false, length: { maximum: 1000 }|
 |sale_status|integer|null: false|
 |buy_status|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
@@ -101,7 +101,7 @@
 # dealsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|valuation|||
+|valuation|integer||
 |user_id|references|null: false, foreign_key: true|
 ## Association
 - belongs_to :user, through: :deal_has_users
@@ -133,6 +133,8 @@
 |item_id|string|null: false|
 ## Association
 - belongs_to :item
+- belongs_to :parent, class_name: :Category
+- has_many :children, class_name: :Category, foreign_key: :parent_id
 
 # newsテーブル
 |Column|Type|Options|
