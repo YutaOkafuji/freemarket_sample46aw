@@ -12,7 +12,8 @@
 |sales_proceed|integer|null: false|
 |point|integer|null: false|
 ## Association
-- has_many :items, through: :comments
+- has_many :items
+- has_many :comments
 - has_many :deals, through: :deal_has_users
 - has_many :delivery_addresses
 - has_one :profile
@@ -61,7 +62,8 @@
 |buy_status|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
 ## Association
-- belongs_to :user, through: :comments
+- belongs_to :user
+- has_many :comments
 - has_many :item_images
 - has_one :shipping_origin
 - has_one :category
