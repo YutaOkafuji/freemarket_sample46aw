@@ -1,10 +1,8 @@
 # usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false, length: { maximum: 20 }|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-|introduction|text||
 |birthday|date||
 |family_name|string|null: false|
 |first_name|string|null: false|
@@ -16,8 +14,17 @@
 - has_many :items, through: :comments
 - has_many :deals, through: :deal_has_users
 - has_many :delivery_addresses
+- has_one :profile
 - has_one :user_address
 - has_one :avatar
+
+# profilesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false, length: { maximum: 20 }|
+|introduction|text||
+## Association
+- belongs_to :user
 
 # user_addressesテーブル
 |Column|Type|Options|
