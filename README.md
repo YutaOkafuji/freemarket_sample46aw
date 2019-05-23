@@ -8,6 +8,7 @@
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
+|avatar|string||
 |sales_proceed|integer|null: false|
 |point|integer|null: false|
 ## Association
@@ -16,7 +17,6 @@
 - has_many :delivery_addresses
 - has_one :profile
 - has_one :user_address
-- has_one :avatar
 
 # profilesテーブル
 |Column|Type|Options|
@@ -47,14 +47,6 @@
 |street_number|string|null: false|
 |building|string||
 |telephone|string||
-|user_id|references|null: false, foreign_key: true|
-## Association
-- belongs_to :user
-
-# avatarsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|image|string||
 |user_id|references|null: false, foreign_key: true|
 ## Association
 - belongs_to :user
