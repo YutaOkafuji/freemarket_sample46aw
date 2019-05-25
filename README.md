@@ -1,13 +1,9 @@
 # usersテーブル
 |Column|Type|Options|
 |------|----|-------|
+|nickname|string|null: false, length: { maximum: 20 }|
 |email|text|null: false, unique: true|
 |password|string|null: false|
-|birthday|date||
-|family_name|string|null: false|
-|first_name|string|null: false|
-|family_name_kana|string|null: false|
-|first_name_kana|string|null: false|
 |avatar|text||
 |profit|integer|null: false|
 |point|integer|null: false|
@@ -22,8 +18,13 @@
 # profilesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false, length: { maximum: 20 }|
 |introduction|text||
+|birthday|date||
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|user_id|references|null: false, foreign_key: true|
 ## Association
 - belongs_to :user
 
