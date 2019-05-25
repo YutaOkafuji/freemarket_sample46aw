@@ -1,15 +1,15 @@
 # usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|email|string|null: false, unique: true|
+|email|text|null: false, unique: true|
 |password|string|null: false|
 |birthday|date||
 |family_name|string|null: false|
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|avatar|string||
 |sales_proceed|integer|null: false|
+|avatar|text||
 |point|integer|null: false|
 ## Association
 - has_many :items
