@@ -8,8 +8,8 @@
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|sales_proceed|integer|null: false|
 |avatar|text||
+|profit|integer|null: false|
 |point|integer|null: false|
 ## Association
 - has_many :items
