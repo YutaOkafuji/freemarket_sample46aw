@@ -1,7 +1,6 @@
 # usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false, length: { maximum: 20 }|
 |email|text|null: false, unique: true|
 |password|string|null: false|
 |avatar|text||
@@ -18,6 +17,7 @@
 # profilesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|nickname|string|null: false, length: { maximum: 20 }|
 |introduction|text||
 |birthday|date||
 |family_name|string|null: false|
