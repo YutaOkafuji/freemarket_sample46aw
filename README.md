@@ -7,12 +7,12 @@
 |profit|integer|null: false|
 |point|integer|null: false|
 ## Association
-- has_many :items
+- has_many :items, dependent: :destroy
 - has_many :comments
 - has_many :deals, through: :deals_users
-- has_many :delivery_addresses
-- has_one :profile
-- has_one :user_address
+- has_many :delivery_addresses, dependent: :destroy
+- has_one :profile, dependent: :destroy
+- has_one :user_address, dependent: :destroy
 
 # profilesテーブル
 |Column|Type|Options|
@@ -64,11 +64,11 @@
 |user_id|references|null: false, foreign_key: true|
 ## Association
 - belongs_to :user
-- has_many :comments
-- has_many :item_images
-- has_one :shipping_origin
-- has_one :category
-- has_one :item_detail
+- has_many :comments, dependent: :destroy
+- has_many :item_images, dependent: :destroy
+- has_one :shipping_origin, dependent: :destroy
+- has_one :category, dependent: :destroy
+- has_one :item_detail, dependent: :destroy
 
 # item_imagesテーブル
 |Column|Type|Options|
