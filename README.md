@@ -14,7 +14,7 @@
 ## Association
 - has_many :items
 - has_many :comments
-- has_many :deals, through: :deal_has_users
+- has_many :deals, through: :deals_users
 - has_many :delivery_addresses
 - has_one :profile
 - has_one :user_address
@@ -105,9 +105,9 @@
 |valuation|integer||
 |user_id|references|null: false, foreign_key: true|
 ## Association
-- belongs_to :user, through: :deal_has_users
+- belongs_to :user, through: :deals_users
 
-# deal_has_usersテーブル
+# deals_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |deal_id|references|null: false, foreign_key: true|
