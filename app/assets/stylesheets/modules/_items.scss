@@ -1,0 +1,35 @@
+.topmain-visual{
+    background-image: image-url("main_bg_pc.jpg");
+    background-size: cover;
+   
+    height: 390px;
+    .topmain-inner{
+      position: relative;
+      height: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      img {
+        height: 100%;
+      }
+      &__content {
+        width: 860px;
+        top: 50px;
+        position: absolute;
+        h2 {
+          font-weight: bold;
+          font-size: 60px;
+          color: $black;
+          line-height: 1.2;
+        }
+        p {
+          font-size: 18px;
+          color: $black;
+          margin: 16px 0 0 ;
+          line-height:1.77778;
+        }
+      }
+      &__store--clearfix {
+        position:absolute;
+      }
+    }
+  }

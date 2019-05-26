@@ -1,18 +1,21 @@
 -# .owl-carousel
 .topmain-visual
-  .topmain-visual__content
-    %h2 スマホでかんたん
-    %br
-    フリマアプリ
-    %p メルカリはスマホカメラからすぐに出品できる
-    %br
-    購入時も安心な独自システムのアプリです。
-  .topmain-visual__store--clearfix
-    %a.store__icon{ href: "https://itunes.apple.com/jp/app/id667861049?l=ja&amp;mt=8",target:"_blank" }
-      = image_tag 'app-store.svg'
-    %a.store__icon{ href: "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&amp;hl=ja",target:"_blank" }
-      = image_tag 'google-play.svg'
-    -# = image_tag 'main_content_pc.png'
+  .topmain-inner
+    .topmain-inner__content
+      %h2
+        フリマでかんたん
+        %br>/
+        スマホアプリ
+      %p 
+        メルカリはスマホカメラからすぐに出品できる
+        %br>/
+        購入時も安心な独自システムのアプリです
+      .topmain-inner__store--clearfix
+        %a.store__icon{ href: "https://itunes.apple.com/jp/app/id667861049?l=ja&amp;mt=8",target:"_blank" }
+          = image_tag 'app-store.svg'
+        %a.store__icon{ href: "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&amp;hl=ja",target:"_blank" }
+          = image_tag 'google-play.svg'
+    = image_tag 'main_content_pc.png'
 %section.main-container
   %h2.main-conteiner__title
     商品一覧
