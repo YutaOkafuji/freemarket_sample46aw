@@ -29,7 +29,22 @@
         }
       }
       &__store--clearfix {
+        margin: 24px 0 0;
+        width: 100%;
         position:absolute;
+        a {
+          text-decoration: none;
+          margin: 0 0 0 8px;
+        }
+        img {
+          width: 170px;
+          height: 50px;
+        }
       }
+    }
+    .hand-talent-image{
+      position: absolute;
+      right: 0;
+      height: 100%;
     }
   }
