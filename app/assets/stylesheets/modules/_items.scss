@@ -48,3 +48,28 @@
       height: 100%;
     }
   }
+.main-container{
+  background-color: $main_background;
+  &__title{
+    font-size: 28px;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .item-container{
+    margin: 0 auto;
+    width: 940px;
+    h3 {
+      font-size: 22px;
+      text-align: center;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+      a {
+        color: $blue;
+        text-decoration: none;
+      }
+    }
+  }
+}
