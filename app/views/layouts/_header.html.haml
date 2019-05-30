@@ -1,39 +1,38 @@
-.header
-  .header-inner
-    .header-inner__upper
-      .header-inner__upper__logo
-        =link_to image_tag('logo.svg', alt: "mercari"), "https://www.mercari.com/jp/"
-      = form_tag("https://www.mercari.com/jp/", class: "header-inner__upper__form") do
-        = text_field_tag :keyword, '何をお探しですか？', {class: "header-inner__upper__form__input-box"}
-        -# .header__lower__form__icon-search
-        = label_tag :image, {class: "header-inner__upper__form__icon-search"} do
+%header.top-header
+  .top-header-inner
+    .top-header-inner-top
+      =link_to image_tag('logo.svg', alt: "mercari", class: "top-header-inner-top-logo"), "https://kari"
+      = form_tag("https://www.mercari.com/jp/", class: "top-header-inner-top-form") do
+        = text_field_tag :keyword, '何をお探しですか？', {class: "top-header-inner-top-form__input-box"}
+        -# .top-header__lower__form__icon-search
+        = label_tag :image, {class: "top-header-inner-top-form__icon-search"} do
           %i.fa.fa-search
-    .header-inner__lower
-      %nav.header-inner__lower__left
-        %ul.header-inner__lower__left__navi
-          %li.header-inner__lower__left__navi__category
-            =link_to "https://www.mercari.com/jp/", {class: "header-inner__lower__left__navi__category__icon"} do
+    .top-header-inner__lower
+      %nav.top-header-inner__lower__left
+        %ul.top-header-inner__lower__left__navi
+          %li.top-header-inner__lower__left__navi__category
+            =link_to "https://www.mercari.com/jp/", {class: "top-header-inner__lower__left__navi__category__icon"} do
               %i.fas.fa-list-ul
               %span
                 カテゴリから探す
-          %li.header-inner__lower__left__navi__brand
-            =link_to "https://www.mercari.com/jp/", {class: "header-inner__lower__left__navi__brand__icon"} do
+          %li.top-header-inner__lower__left__navi__brand
+            =link_to "https://www.mercari.com/jp/", {class: "top-header-inner__lower__left__navi__brand__icon"} do
               %i.fas.fa-tag
               %span
                 ブランドから探す
-      %nav.header-inner__lower__right
-        %ul.header-inner__lower__right__navi
-          %li.header-inner__lower__right__navi__bell
-            =link_to "https://www.mercari.com/jp/", {class: "header-inner__lower__right__navi__bell__icon"} do
+      %nav.top-header-inner__lower__right
+        %ul.top-header-inner__lower__right__navi
+          %li.top-header-inner__lower__right__navi__bell
+            =link_to "https://www.mercari.com/jp/", {class: "top-header-inner__lower__right__navi__bell__icon"} do
               %i.far.fa-bell.fa-lg{'aria-hidden': :true}
               %span
                 お知らせ
-          %li.header-inner__lower__right__navi__check
-            =link_to "https://www.mercari.com/jp/", {class: "header-inner__lower__right__navi__check__icon"} do
+          %li.top-header-inner__lower__right__navi__check
+            =link_to "https://www.mercari.com/jp/", {class: "top-header-inner__lower__right__navi__check__icon"} do
               %i.fa.fa-check.fa-lg{'aria-hidden': :true}
               %span
                 やることリスト
-          %li.header-inner__lower__right__navi__profile
-            =link_to image_tag('member_photo_noimage_thumb.png', class: "header-inner__lower__right__navi__profile__icon"), "https://www.mercari.com/jp/"
+          %li.top-header-inner__lower__right__navi__profile
+            =link_to image_tag('member_photo_noimage_thumb.png', class: "top-header-inner__lower__right__navi__profile__icon"), "https://www.mercari.com/jp/"
             %span
               マイページ
