@@ -49,7 +49,7 @@
     }
   }
 .main-container{
-  background-color: $main_background;
+  background: $main_background;
   &__title{
     font-size: 28px;
     text-align: center;
@@ -58,7 +58,7 @@
   .item-container{
     margin: 0 auto;
     width: 940px;
-    h3 {
+    h3.item-container__title {
       font-size: 22px;
       text-align: center;
       margin-block-start: 1em;
@@ -69,6 +69,55 @@
       a {
         color: $blue;
         text-decoration: none;
+      }
+    }
+    .item-content{
+      .item-content__box{
+        margin: 0 0 0 20px;
+        width: 213px;
+        position: relative;
+        // float: left;
+        background-color: $white;
+      a {
+        display: block;
+        color: $black;
+        text-decoration: none;
+        .item-content__item_image{
+          width: 220px;
+          height: 220px;
+          overflow: hidden;
+          position: relative;
+          padding: 0 0 100%;
+          img{
+            // position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+          }
+          .content-body{
+            padding: 16px;
+            height: 110px;
+            display: block;
+            font-2{
+              font-size: 16px;
+              font-weight: 400;
+              color: $black;
+            }
+            &__item-name{
+              overflow: hidden;
+              // position: absolute;
+              font-weight: 400;
+              height: 3em;
+              line-height: 1.5;
+              word-break: break-word;
+            }
+
+          }
+        }
+      }
       }
     }
   }
