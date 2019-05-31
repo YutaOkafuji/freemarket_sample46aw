@@ -1,0 +1,45 @@
+.mypage-side_bar{
+  float: left;
+  width: 280px;
+  margin: 0 40px 0 0; 
+}
+.mypage-nav__list{
+  color: $black;
+  background: $white;
+  font-size: 14px;
+  &__head{
+    margin-top: 40px;
+    font-size: 16px;
+  }
+  li{
+    border-top: 1px solid #eee;
+  }
+  li:first-child{
+    border: 0;
+  }
+  &__item{
+    position: relative;
+    display: block;
+    height: 16px;
+    padding: 16px;
+    background: $white;
+    font-size: 14px;
+    color: $black;
+    .fas.fa-chevron-right{
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      color: #ccc;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      -webkit-transition: all ease-out .2s;
+      transition: all ease-out .2s;
+    }
+  }
+    &__item.active{
+      background: #eee;
+      .fas.fa-chevron-right{
+        color: $black;
+      }
+  }
+}
