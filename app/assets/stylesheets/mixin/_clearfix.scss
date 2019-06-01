@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 @mixin clearfix {
+=======
+@mixin clearfix() {
+>>>>>>> create_topPage_05-25
   &:after {
     content: '';
     display: block;
     clear: both;
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> create_topPage_05-25
