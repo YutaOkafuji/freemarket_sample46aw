@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -16,7 +14,6 @@
  *= require owl.carousel
  *= require owl.theme
  */
->>>>>>> create_topPage_05-25
 
 @import"./reset";
 @import"config/valiable";
@@ -24,18 +21,13 @@
 @import"mixin/clearfix";
 @import"font-awesome-sprockets";
 @import"font-awesome";
-<<<<<<< HEAD
 @import"modules/header";
 @import"modules/footer";
-=======
 @import"modules/items";
->>>>>>> create_topPage_05-25
 
 *{
   font-family:"Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 }
-<<<<<<< HEAD
-=======
 
 div {
   display:block;
@@ -45,4 +37,3 @@ a {
   text-decoration: none;
   color: $blue;
 }
->>>>>>> create_topPage_05-25
