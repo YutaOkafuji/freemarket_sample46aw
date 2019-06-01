@@ -1,21 +1,11 @@
-@import "mixin/clearfix";
-
-* {
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-}
-
 .top-app-banner {
   height: 260px;
   width: 100%;
   background-image: image-url("download_bg_pc.jpg");
   &-inner {
+    @include centering;
     height: 260px;
     width: 750px;
-    margin: 0 auto;
     color: $white;
     position: relative;
     &-left {
@@ -47,7 +37,6 @@ a {
               margin-left: 16px;
             }
             a {
-              // display: inline-block;
               line-height: 68px;
               img {
                 height: 40px;
@@ -76,10 +65,10 @@ a {
   padding: 0 20px 10px;
   background-color: $footerblack;
   &-top {
-    width: 1020px;
-    margin: 0 auto;
-    color: $white;
     @include clearfix;
+    @include centering;
+    width: 1020px;
+    color: $white;
     .top-footer-cell {
       width: 23%;
       margin-top: 18px;
@@ -95,12 +84,9 @@ a {
       &:last-child {
         width: auto;
       }
-      &__head {
-      }
       ul {
         li {
           margin-top: 14px;
-          line-height: 18px;
           &:first-child {
             margin-top: 16px;
           }
@@ -111,10 +97,10 @@ a {
           &.social-link {
             float: left;
             a {
+              display: block;
               i {
-                width: 30px;
                 margin: 5px 18px 0 0;
-                font-size: 36px;
+                font-size: 30px;
                 color: $white;
               }
             }
@@ -139,12 +125,9 @@ a {
     a {
       margin-right: 10px;
       font-size: 0;
-      // display: inline-block;
-      
       img {
       width: 124px;
       height: 33px;
-      // filter: grayscale(100%) contrast(1000%) invert(100%);
       vertical-align: middle;
       }
     }
