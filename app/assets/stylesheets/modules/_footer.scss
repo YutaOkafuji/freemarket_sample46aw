@@ -8,17 +8,17 @@ a {
   text-decoration: none;
 }
 
-.app-banner {
+.top-app-banner {
   height: 260px;
   width: 100%;
   background-image: image-url("download_bg_pc.jpg");
-  &-pc {
+  &-inner {
     height: 260px;
     width: 750px;
     margin: 0 auto;
     color: $white;
     position: relative;
-    &-inner_left {
+    &-left {
       position: absolute;
       top: 50%;
       transform : translate(0,-50%);
@@ -33,7 +33,7 @@ a {
       &__icon {
         height: 68px;
         margin-top: 20px;
-        &__img {
+        &--img {
           height: 68px;
           width: 68px;
           float: left;
@@ -65,7 +65,7 @@ a {
         }
       }
     }
-    &-inner_right {
+    &-right {
       position: absolute;
       top: 0;
       right: 0;
@@ -78,20 +78,20 @@ a {
   }
 }
 
-.footer {
+.top-footer {
   // height:391px;
   // width: 1280px;
   padding: 0 20px 10px;
   background-color: $footerblack;
   // box-sizing: border-box;
-  &__top {
+  &-top {
     // height: 298px;
     width: 1020px;
     margin: 0 auto;
     color: $white;
     // clear: both;
     @include clearfix;
-    .footer-cell {
+    .top-footer-cell {
       width: 23%;
       margin-top: 18px;
       padding-right: 40px;
@@ -136,19 +136,19 @@ a {
           }
         }
       }
-      &_left {
+      &__left {
         width: 50%;
         padding-right: 10px;
         float: left;
       }
-      &_right {
+      &__right {
         width: 50%;
         padding-left: 10px;
         float: left;
       }
     }
   }
-  &__bottom {
+  &-bottom {
     width: 1020px;
     margin: 30px auto 20px;
     a {
@@ -172,7 +172,7 @@ a {
   }
 }
 
-.footer-sell-btn {
+.top-footer-sell-btn {
   bottom: 32px;
   right: 32px;
   width: 160px;
