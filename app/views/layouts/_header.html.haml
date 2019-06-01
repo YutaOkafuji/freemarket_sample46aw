@@ -10,12 +10,12 @@
       %nav.top-header-left-navi
         %ul.top-header-left-navi-list
           %li.top-header-left-navi-list__item
-            =link_to "https://kari", {class: "top-header-left-navi-list__item--category"} do
+            =link_to "https://kari", {class: "top-header-left-navi-list__item-link"} do
               %i.fas.fa-list-ul
               %span
-                カテゴリから探す
+                カテゴリーから探す
           %li.top-header-left-navi-list__item
-            =link_to "https://kari", {class: "top-header-left-navi-list__item--brand"} do
+            =link_to "https://kari", {class: "top-header-left-navi-list__item-link"} do
               %i.fas.fa-tag
               %span
                 ブランドから探す
@@ -32,6 +32,7 @@
               %span
                 やることリスト
           %li.top-header-right-navi-list__item
-            =link_to image_tag('member_photo_noimage_thumb.png', class: "top-header-right-navi-list__item--icon"), "https://kari"
-            %span
-              マイページ
+            =link_to "https://kari" do
+              = image_tag('member_photo_noimage_thumb.png', class: "top-header-right-navi-list__item--icon")
+              %span
+                マイページ
