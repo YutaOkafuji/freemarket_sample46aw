@@ -1,42 +1,40 @@
 .top-header {
   &-inner{
+    @include centering;
     width: 1020px;
-    margin: 0 auto;
     padding: 8px 0 0;
     .top-header-top {
       align-items: center;
       display: flex;
-      
       justify-content: space-between;
       &-logo {
-        display: flex;
-        align-items: center;
         width: 134px;
         height: 36px;
+        display: block;
       }
       &-form {
-        position: relative;
         margin-left: 45px;
         width: 100%;
+        position: relative;
         &__input {
-          background-color: $main_background;
-          border-radius: 4px;
           width: 100%;
           height: 40px;
           padding: 0 50px 0 10px;
           border: 1px solid $lightgray;
+          background-color: $main_background;
+          border-radius: 4px;
           color: gray;
         }
         &__search {
           .fa {
+            height: 40px;
+            width: 40px;
             position: absolute;
             display: flex;
             top: 0;
             right: 0;
             align-items: center;
             justify-content: center;
-            height: 40px;
-            width: 40px;
             background: #666666;
             color: $white;
             border-radius: 0 4px 4px 0 / 0 4px 4px 0;
@@ -70,11 +68,11 @@
               border-radius: 50%;
               i {
                 color: $red;
+                margin-right: 4px;
               }
               span {
                 color: $black;
                 font-weight: bold;
-                margin-left: 10px;
               }
             }
           }
@@ -91,16 +89,15 @@
               padding: 0 28px;
             }
             &--icon {
-              color: $lightgray;
-              width: 32px;
               height: 32px;
               vertical-align: middle;
               text-align: center;
               border-radius: 50%;
+              color: $lightgray;
             }
             span {
-              color:$black;
               margin-left: 10px;
+              color:$black;
             }
           }
         }
