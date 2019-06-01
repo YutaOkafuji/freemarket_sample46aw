@@ -5,9 +5,9 @@
         スマホでかんたんフリマアプリ
       %p
         今すぐ無料ダウンロード！
-      .top-app-banner-inner-left__icon.clearfix
+      .top-app-banner-inner-left__icon
         =image_tag('custom-banner-icon.png', class: "top-app-banner-inner-left__icon--img")
-        %ul.clearfix
+        %ul
           %li
             =link_to image_tag('app-store.svg', class: ""), "https://www.mercari.com/jp/"
           %li
@@ -28,6 +28,8 @@
           =link_to "プレスリリース", "https://kari"
         %li
           =link_to "公式ブログ", "https://kari"
+        %li
+          =link_to "メルカリロゴ利用ガイドライン", "https://kari"
         %li.social-link
           =link_to "https://kari" do
             %i.fab.fa-twitter
