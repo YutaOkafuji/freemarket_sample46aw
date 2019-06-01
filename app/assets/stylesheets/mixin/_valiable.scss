@@ -2,3 +2,15 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+@mixin btn {
+  background: $red; 
+  border: 1px solid $red; 
+  color: $white; 
+  display: block; 
+  width: 100%; 
+  line-height: 48px; 
+  font-size: 14px; 
+  cursor: pointer; 
+  text-align: center;
+}
