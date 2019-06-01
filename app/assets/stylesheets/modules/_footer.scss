@@ -55,9 +55,7 @@ a {
                 vertical-align: middle;
               }
             }
-
           }
-
         }
       }
     }
@@ -140,7 +138,9 @@ a {
     margin: 30px auto 20px;
     a {
       margin-right: 10px;
-      display: inline-block;
+      font-size: 0;
+      // display: inline-block;
+      
       img {
       width: 124px;
       height: 33px;
