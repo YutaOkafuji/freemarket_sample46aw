@@ -18,7 +18,12 @@
         position: relative;
         margin-left: 45px;
         width: 100%;
+<<<<<<< HEAD
         &__input {
+=======
+        // display: flex;
+        &__input-box {
+>>>>>>> origin/create_Header_Footer_05-25
           background-color: $main_background;
           border-radius: 4px;
           width: 100%;
@@ -56,6 +61,7 @@
         float: left;
         &-list{
           display: flex;
+<<<<<<< HEAD
           &__item {
             height: 44px;
             line-height: 32px;
@@ -63,13 +69,53 @@
               padding-left: 22px;
             }
             &-link {
+=======
+          &__category {
+            display: inline-block;
+            &__icon {
+              // position: relative;
+              // display: flex;
+              // color: $red;
+              width: 32px;
+              height: 32px;
+              vertical-align: middle;
+              // margin: 0 auto;
+              text-align: center;
+              border-radius: 50%;
+              i {
+                display: inline-block;
+                color: $red;
+                // vertical-align: -webkit-baseline-middle;
+              }
+              span {
+                // display: inline-block;
+                // vertical-align: -webkit-baseline-middle;
+                color: black;
+              }
+            }
+          }
+          &__brand {
+            display: inline-block;
+            // margin-left: 11px;
+            padding-left: 22px;
+            &__icon {
+              // position: relative;
+              // display: flex;
+              // color: $red;
+>>>>>>> origin/create_Header_Footer_05-25
               width: 32px;
               height: 32px;
               vertical-align: middle;
               text-align: center;
               border-radius: 50%;
               i {
+<<<<<<< HEAD
                 color: $red;
+=======
+                display: inline-block;
+                color: $red;
+                // vertical-align: -webkit-baseline-middle;
+>>>>>>> origin/create_Header_Footer_05-25
               }
               span {
                 color: $black;
