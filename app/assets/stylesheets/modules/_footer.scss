@@ -39,12 +39,8 @@ a {
           float: left;
         }
         ul {
-          // line-height: 68px;
           margin-left: 24px;
           float: left;
-          // display: flex;
-          // align-items: center;
-          // justify-content: center;
           li {
             float: left;
             &:last-child {
@@ -79,24 +75,18 @@ a {
 }
 
 .top-footer {
-  // height:391px;
-  // width: 1280px;
   padding: 0 20px 10px;
   background-color: $footerblack;
-  // box-sizing: border-box;
   &-top {
-    // height: 298px;
     width: 1020px;
     margin: 0 auto;
     color: $white;
-    // clear: both;
     @include clearfix;
     .top-footer-cell {
       width: 23%;
       margin-top: 18px;
       padding-right: 40px;
       float: left;
-      // clear: both;
       &.full-width {
         width: 43%;
       }
@@ -117,13 +107,10 @@ a {
             margin-top: 16px;
           }
           a {
-            // color: $white;
             font-size: 12px;
-            // opacity: 0.7;
             color: rgba(255,255,255,0.7);
           }
           &.social-link {
-            // display: inline-block;
             float: left;
             a {
               i {

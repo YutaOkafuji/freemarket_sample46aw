@@ -6,12 +6,8 @@
     .top-header-top {
       align-items: center;
       display: flex;
-      // padding: 6px 10px 0;
       
       justify-content: space-between;
-      // -webkit-box-align: center;
-      // -webkit-box-pack: justify;
-      // align-items: center;
       &-logo {
         display: flex;
         align-items: center;
@@ -22,7 +18,6 @@
         position: relative;
         margin-left: 45px;
         width: 100%;
-        // display: flex;
         &__input {
           background-color: $main_background;
           border-radius: 4px;
@@ -33,21 +28,12 @@
           color: gray;
         }
         &__search {
-          // position: absolute;
-          // display: flex;
-          // top: 0;
-          // right: 0;
-          // justify-content: center;
-          // height: 40px;
-          // width: 40px;
           .fa {
             position: absolute;
             display: flex;
             top: 0;
             right: 0;
-            // -webkit-box-align: center;
             align-items: center;
-            // -webkit-box-pack: center;
             justify-content: center;
             height: 40px;
             width: 40px;
@@ -60,10 +46,6 @@
       }
     }
     .top-header-bottom {
-      // display: flex;
-      // color: #ccc;
-
-      // justify-content: space-between;
       height: 44px;
       margin: 8px 0 0;
       font-size: 14px;
@@ -79,54 +61,33 @@
           &__item {
             display: inline-block;
             &:nth-child(2) {
-              // display: inline-block;
-              // margin-left: 11px;
               padding-left: 22px;
             }
             &--category {
-              // position: relative;
-              // display: flex;
-              // color: $red;
               width: 32px;
               height: 32px;
               vertical-align: middle;
-              // margin: 0 auto;
               text-align: center;
               border-radius: 50%;
               i {
                 display: inline-block;
                 color: $red;
-                // vertical-align: -webkit-baseline-middle;
               }
               span {
-                // display: inline-block;
-                // vertical-align: -webkit-baseline-middle;
                 color: black;
               }
             }
-          // }
-          // .top-header-brand-list {
-          //   display: inline-block;
-          //   // margin-left: 11px;
-          //   padding-left: 22px;
             &--brand {
-              // position: relative;
-              // display: flex;
-              // color: $red;
               width: 32px;
               height: 32px;
               vertical-align: middle;
-              // margin: 0 auto;
               text-align: center;
               border-radius: 50%;
               i {
                 display: inline-block;
                 color: $red;
-                // vertical-align: -webkit-baseline-middle;
               }
               span {
-                // display: inline-block;
-                // vertical-align: -webkit-baseline-middle;
                 color: black;
               }
             }
@@ -143,17 +104,12 @@
               padding: 0 28px;
             }
             &--icon {
-              // display: inline-block;
               color: #ccc;
               width: 32px;
               height: 32px;
               vertical-align: middle;
-              // margin: 0 auto;
               text-align: center;
               border-radius: 50%;
-              i {
-                // vertical-align: -webkit-baseline-middle;
-              }
               span {
                 color: black;
               }
@@ -171,9 +127,6 @@
               // margin: 0 auto;
               text-align: center;
               border-radius: 50%;
-              i {
-                // vertical-align: -webkit-baseline-middle;
-              }
               span {
                 color: black;
               }
@@ -182,35 +135,17 @@
           &__profile {
             display: inline-block;
             &__icon {
-              // display: inline-block;
               color: #ccc;
               width: 32px;
               height: 32px;
               vertical-align: middle;
-              // margin: 0 auto;
               text-align: center;
               border-radius: 50%;
-              i {
-                // vertical-align: -webkit-baseline-middle;
-              }
               span {
                 color: black;
               }
             }
           }
-            // &__bell {
-            //   // display: flex;
-            //   margin-right: 13px;
-            // }
-            // &__check {
-            //   margin-right: 13px;
-            // }
-            // &__profile {
-              // margin-left: 6px;
-              // width: 32px;
-              // height: 32px;
-              // border-radius: 50%;
-            // }
         }
       }
     }
