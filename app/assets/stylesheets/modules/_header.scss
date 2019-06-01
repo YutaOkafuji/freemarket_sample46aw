@@ -50,46 +50,31 @@
       margin: 8px 0 0;
       font-size: 14px;
       &:after {
-        content: '';
-        display: block;
-        clear: both;
+        @include clearfix;
       }
       .top-header-left-navi {
         float: left;
         &-list{
           display: flex;
           &__item {
-            display: inline-block;
+            height: 44px;
+            line-height: 32px;
             &:nth-child(2) {
               padding-left: 22px;
             }
-            &--category {
+            &-link {
               width: 32px;
               height: 32px;
               vertical-align: middle;
               text-align: center;
               border-radius: 50%;
               i {
-                display: inline-block;
-                color: $red;
-              }
-              span {
-                color: $black;
-              }
-            }
-            &--brand {
-              width: 32px;
-              height: 32px;
-              vertical-align: middle;
-              text-align: center;
-              border-radius: 50%;
-              i {
-                display: inline-block;
                 color: $red;
               }
               span {
                 color: $black;
                 font-weight: bold;
+                margin-left: 10px;
               }
             }
           }
@@ -100,7 +85,8 @@
         &-list {
           display: flex;
           &__item {
-            display: inline-block;
+            height: 44px;
+            line-height: 32px;
             &:nth-child(2) {
               padding: 0 28px;
             }
@@ -111,9 +97,10 @@
               vertical-align: middle;
               text-align: center;
               border-radius: 50%;
-              span {
-                color:$black;
-              }
+            }
+            span {
+              color:$black;
+              margin-left: 10px;
             }
           }
         }
