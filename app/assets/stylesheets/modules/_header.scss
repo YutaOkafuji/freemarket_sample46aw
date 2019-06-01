@@ -24,7 +24,7 @@
           width: 100%;
           height: 40px;
           padding: 0 50px 0 10px;
-          border: 1px solid #ccc;
+          border: 1px solid $lightgray;
           color: gray;
         }
         &__search {
@@ -74,7 +74,7 @@
                 color: $red;
               }
               span {
-                color: black;
+                color: $black;
               }
             }
             &--brand {
@@ -88,7 +88,8 @@
                 color: $red;
               }
               span {
-                color: black;
+                color: $black;
+                font-weight: bold;
               }
             }
           }
@@ -104,45 +105,14 @@
               padding: 0 28px;
             }
             &--icon {
-              color: #ccc;
+              color: $lightgray;
               width: 32px;
               height: 32px;
               vertical-align: middle;
               text-align: center;
               border-radius: 50%;
               span {
-                color: black;
-              }
-            }
-          }
-          &__check {
-            display: inline-block;
-            padding: 0 28px;
-            &__icon {
-              // display: inline-block;
-              color: #ccc;
-              width: 32px;
-              height: 32px;
-              vertical-align: middle;
-              // margin: 0 auto;
-              text-align: center;
-              border-radius: 50%;
-              span {
-                color: black;
-              }
-            }
-          }
-          &__profile {
-            display: inline-block;
-            &__icon {
-              color: #ccc;
-              width: 32px;
-              height: 32px;
-              vertical-align: middle;
-              text-align: center;
-              border-radius: 50%;
-              span {
-                color: black;
+                color:$black;
               }
             }
           }
