@@ -40,7 +40,6 @@ gem 'font-awesome-sass'
 gem 'kaminari'
 gem 'haml-rails'
 gem 'erb2haml'
-gem 'owlcarousel-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

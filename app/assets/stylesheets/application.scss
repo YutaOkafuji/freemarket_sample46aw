@@ -11,8 +11,6 @@
  * file per style scope.
  *
  *= require_self
- *= require owl.carousel
- *= require owl.theme
  */
 
 @import"./reset";
@@ -23,14 +21,10 @@
 @import"font-awesome";
 @import"modules/header";
 @import"modules/footer";
-@import"modules/items";
 
 *{
   font-family:"Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-}
-
-div {
-  display:block;
+  box-sizing: border-box;
 }
 
 a {
