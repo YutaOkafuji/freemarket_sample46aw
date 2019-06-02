@@ -4,7 +4,7 @@
     .login-content
       .login-content__sign-up
         %p.login-content__sign-up--remarks アカウントをお持ちでない方はこちら
-        =link_to root_path, class: "login-content__sign-up--btn" do
+        =link_to "/users/sign_up", class: "login-content__sign-up--btn" do
           新規会員登録
       .login-content__api
         =link_to root_path, class: "login-content__api--facebook" do
