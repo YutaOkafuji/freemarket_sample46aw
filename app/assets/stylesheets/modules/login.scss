@@ -2,25 +2,24 @@
   display: block;
   .login-content{
     width: 456px;
-    margin: 0 auto;
-    background-color: #fff;
+    @include centering;
+    background-color: $white;
 
     &__sign-up{
       padding: 40px 64px;
       text-align: center;
 
-      &__remarks{
+      &--remarks{
         font-size: 14px;
-        box-sizing: border-box;
         margin: 0;
       }
 
-      &__btn{
+      &--btn{
         display: block;
         margin: 8px 0 0;
-        border: 1px solid #0099e8;
-        background: #0099e8;
-        color: #fff;
+        border: 1px solid $blue;
+        background: $blue;
+        color: $white;
         line-height: 40px;
         text-align: center;
         font-size: 14px;
@@ -31,10 +30,10 @@
       border-top: 1px solid #eee;
       padding: 32px 64px;
 
-      &__facebook{
+      &--facebook{
         position: relative;
         background: #385185;
-        color: #fff;
+        color: $white;
         display:block;
         width: 100%;
         line-height: 48px;
@@ -42,14 +41,17 @@
         border: 1px solid transparent;
         cursor: pointer;
         text-align: center;
-        text-decoration: none;
 
-        i {
-          
+        .fa-facebook-square{
+          position: absolute;
+          top: 9px;
+          left: 16px;
+          font-size: 30px;
+          vertical-align: center;
         }
       }
 
-      &__google{
+      &--google{
         display: block;
         width: 100%;
         line-height: 48px;
@@ -57,35 +59,34 @@
         border: 1px solid transparent;
         cursor: pointer;
         text-align: center;
-        position: relative;
         margin: 16px 0 0;
-        background: #fff url('google.svg') no-repeat 3px top;
+        background: $white url('google.svg') no-repeat 3px top;
         border: #979797 solid 1px;
-        color: #333;
-        text-decoration: none;
+        color: $black;
       }
     }
 
     .login-content__form{
       padding: 0 64px 32px;
 
-      input{
+      &--text-field{
         margin: 24px 0 0 0;
         width: 100%;
         height: 48px;
         padding: 10px 16px 8px;
         border-radius: 4px;
-        border: 1px solid #ccc;
-        background: #fff;
+        border: 1px solid $lightgray;
+        background: $white;
         line-height: 1.5;
         font-size: 16px;
       }
 
       .btn{
         margin: 24px 0 0 0;
-        background: #ea352d;
-        border: 1px solid #ea352d;
-        color: #fff; display: block;
+        background: $red;
+        border: 1px solid $red;
+        color: $white;
+        display: block;
         width: 100%;
         line-height: 48px;
         font-size: 14px;
@@ -94,13 +95,11 @@
         text-align: center;
       }
   
-      .login-content__remarks{
+      &__remarks{
         cursor: pointer;
         font-size: 14px;
         display: block;
         margin: 40px 0 0;
-        color: #0099e8;
-        text-decoration: none;
       }
     }
   }
