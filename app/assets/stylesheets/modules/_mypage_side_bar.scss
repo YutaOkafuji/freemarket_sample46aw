@@ -12,7 +12,7 @@
     font-size: 16px;
   }
   li{
-    border-top: 1px solid #eee;
+    border-top: 1px solid $mypage-gray;
   }
   li:first-child{
     border: 0;
@@ -29,7 +29,7 @@
       position: absolute;
       top: 50%;
       right: 16px;
-      color: #ccc;
+      color: $lightgray;
       -webkit-transform: translate(0, -50%);
       transform: translate(0, -50%);
       -webkit-transition: all ease-out .2s;
@@ -37,7 +37,7 @@
     }
   }
     &__item.active{
-      background: #eee;
+      background: $mypage-gray;
       .fas.fa-chevron-right{
         color: $black;
       }
