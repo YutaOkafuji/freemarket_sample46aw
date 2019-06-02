@@ -39,7 +39,7 @@
         display: inline-block; font-size: 12px;
 
         a{
-          color: #333;
+          color: $black;
           cursor: pointer;
           display: block;
         }
@@ -53,7 +53,7 @@
     height: 65px;
     margin: 40px auto 0;
 
-    &__image{
+    &--image{
       width: 80;
       height: 65px;
     }
