@@ -1,6 +1,5 @@
-@mixin mypage-information-tabs($tab_number: 2) {
-  .mypage-information__tabs{
-
+@mixin mypage-info-tabs($tab_number: 2) {
+  .mypage-info__tabs{
     border: 0;
     background: $mypage-gray;
     font-size: 0;
@@ -30,8 +29,8 @@
   }
 }
 
-@mixin mypage-information-head(){
-  .mypage-information__head{
+@mixin mypage-info-head(){
+  .mypage-info__head{
     padding: 0 16px;
     background: $mypage-white;
     font-size: 16px;
@@ -39,13 +38,13 @@
   }
 }
 
-@mixin mypage-information-tab-content(){
-  .mypage-information__tab-content{
+@mixin mypage-info-tab-content(){
+  .mypage-info__tab-content{
     
-    .mypage-information-item__list{
+    .mypage-info-list{
       display: block;
       
-      .mypage-information-item{
+      .mypage-info-card{
         position: relative;
         height: 80px;
         
@@ -62,7 +61,7 @@
             margin: 0;
           }
           
-          &__body{
+          .card-body{
             margin: 0 40px 0 68px;
             
             &__text{
@@ -93,7 +92,7 @@
         }
       }
   
-      .mypage-information-item--not-found{
+      .mypage-info-card--not-found{
         padding: 160px 0 60px;
         background: url("logo-gray-icon.svg");
         background-repeat: no-repeat;

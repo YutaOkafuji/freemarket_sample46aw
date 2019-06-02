@@ -12,13 +12,13 @@
           %div
             出品数
             %span.bold 0
-    %section.mypage-information--notification
-      .mypage-information
-        %ul.mypage-information__tabs
+    %section.mypage-info
+      .mypage-info-notification
+        %ul.mypage-info__tabs
           -#  todo jQuery作業
               ・タブ(li)がクリックされた時
               ・クリックされたタブにactiveクラスをつけて、もう片方のactiveクラスを消す
-                mypage-information-item__listのactiveクラスも同様に処理し、
+                mypage-info-listのactiveクラスも同様に処理し、
                 idをmypage-tab-notification、mypage-tab-todoを使って、
                 そのidを持つリストのみを表示するようにする。
           %li.active
@@ -27,93 +27,93 @@
           %li
             %h3
               =link_to "やることリスト", root_path
-        .mypage-information__tab-content
+        .mypage-info__tab-content
           -# これ使ってね
-            %ul.mypage-information-item__list.active{id: "mypage-tab-todo"}
-              %li.mypage-information-item
-                =link_to root_path, class: "mypage-information-item__link" do
+            %ul.mypage-info-list.active{id: "mypage-tab-todo"}
+              %li.mypage-info-card
+                =link_to root_path, class: "mypage-info-card__link" do
                   %figure
                     %img{ src: "https://static.mercdn.net/images/mercari_profile.png", width: 48, height: 48 }
-                  .mypage-information-item__link__body
-                    .mypage-information-item__link__body__text 《通知内容!!!!!!!!!!》
+                  .card-body
+                    .card-body__text 《通知内容!!!!!!!!!!》
                     %time
                       %i.far.fa-clock
                       %span 何分何時間前
                   %i.fas.fa-chevron-right
-          %ul.mypage-information-item__list.active{id: "mypage-tab-notification"}
-            %li.mypage-information-item
-              =link_to root_path, class: "mypage-information-item__link" do
+          %ul.mypage-info-list.active{id: "mypage-tab-notification"}
+            %li.mypage-info-card
+              =link_to root_path, class: "mypage-info-card__link" do
                 %figure
                   %img{ src: "https://static.mercdn.net/images/mercari_profile.png", width: 48, height: 48 }
-                .mypage-information-item__link__body
-                  .mypage-information-item__link__body__text 《通知内容!!!!!!!!!!》
+                .card-body
+                  .card-body__text 《通知内容!!!!!!!!!!》
                   %time
                     %i.far.fa-clock
                     %span 何分何時間前
                 %i.fas.fa-chevron-right
-            %li.mypage-information-item
-              =link_to root_path, class: "mypage-information-item__link" do
+            %li.mypage-info-card
+              =link_to root_path, class: "mypage-info-card__link" do
                 %figure
                   %img{ src: "https://static.mercdn.net/images/mercari_profile.png", width: 48, height: 48 }
-                .mypage-information-item__link__body
-                  .mypage-information-item__link__body__text 《通知内容!!!!!!!!!!》
+                .card-body
+                  .card-body__text 《通知内容!!!!!!!!!!》
                   %time
                     %i.far.fa-clock
                     %span 何分何時間前
                 %i.fas.fa-chevron-right
-            %li.mypage-information-item
-              =link_to root_path, class: "mypage-information-item__link" do
+            %li.mypage-info-card
+              =link_to root_path, class: "mypage-info-card__link" do
                 %figure
                   %img{ src: "https://static.mercdn.net/images/mercari_profile.png", width: 48, height: 48 }
-                .mypage-information-item__link__body
-                  .mypage-information-item__link__body__text 《通知内容!!!!!!!!!!》
+                .card-body
+                  .card-body__text 《通知内容!!!!!!!!!!》
                   %time
                     %i.far.fa-clock
                     %span 何分何時間前
                 %i.fas.fa-chevron-right
-            %li.mypage-information-item
-              =link_to root_path, class: "mypage-information-item__link" do
+            %li.mypage-info-card
+              =link_to root_path, class: "mypage-info-card__link" do
                 %figure
                   %img{ src: "https://static.mercdn.net/images/mercari_profile.png", width: 48, height: 48 }
-                .mypage-information-item__link__body
-                  .mypage-information-item__link__body__text 《通知内容!!!!!!!!!!》
+                .card-body
+                  .card-body__text 《通知内容!!!!!!!!!!》
                   %time
                     %i.far.fa-clock
                     %span 何分何時間前
                 %i.fas.fa-chevron-right
-            %li.mypage-information-item
-              =link_to root_path, class: "mypage-information-item__link" do
+            %li.mypage-info-card
+              =link_to root_path, class: "mypage-info-card__link" do
                 %figure
                   %img{ src: "https://static.mercdn.net/images/mercari_profile.png", width: 48, height: 48 }
-                .mypage-information-item__link__body
-                  .mypage-information-item__link__body__text 《通知内容!!!!!!!!!!》
+                .card-body
+                  .card-body__text 《通知内容!!!!!!!!!!》
                   %time
                     %i.far.fa-clock
                     %span 何分何時間前
                 %i.fas.fa-chevron-right
             %li.mypage-item__go-list
               =link_to "一覧を見る", root_path 
-    %section.mypage-information--purchase
-      .mypage-information
-        %h2.mypage-information__head 購入した商品
+    %section.mypage-info
+      .mypage-info-purchase
+        %h2.mypage-info__head 購入した商品
         -#  todo jQuery作業
             ・タブ(li)がクリックされた時
             ・クリックされたタブにactiveクラスをつけて、もう片方のactiveクラスを消す
-              mypage-information-item__listのactiveクラスも同様に処理し、
+              mypage-info-listのactiveクラスも同様に処理し、
               idをmypage-tab-notification、mypage-tab-todoを使って、
               そのidを持つリストのみを表示するようにする。
-        %ul.mypage-information__tabs
+        %ul.mypage-info__tabs
           %li.active
             %h3
               =link_to "取引中", root_path
           %li
             %h3
               =link_to "過去の取引", root_path
-        .mypage-information__tab-content
-          %ul.mypage-information-item__list{id:"transction-now"}
-            %li.mypage-information-item--not-found 取引中の商品がありません
+        .mypage-info__tab-content
+          %ul.mypage-info-list{id:"transction-now"}
+            %li.mypage-info-card--not-found 取引中の商品がありません
           -# これ使ってね
-            .mypage-information__tab-content
-              %ul.mypage-information-item__list{id:"transction-old"}
-                %li.mypage-information-item--not-found 過去に取引した商品がありません
+            .mypage-info__tab-content
+              %ul.mypage-info-list{id:"transction-old"}
+                %li.mypage-info-card--not-found 過去に取引した商品がありません
   =render "users/mypage_side_bar"
