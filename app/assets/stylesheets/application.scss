@@ -26,3 +26,39 @@
 *{
   font-family:"Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 }
+
+body{
+  position: relative;
+  min-height: 100%;
+  background: $main_background;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: $black;
+  line-height: 1;
+}
+
+a{
+  color: #0099e8;
+  text-decoration: none;
+}
+
+img{
+  vertical-align: middle;
+}
+
+.bold{
+  font-weight: 600;
+}
+
+ul, ol{
+  list-style: none;
+}
+
+h2 {
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+h3{
+  font-size: 22px;
+}
