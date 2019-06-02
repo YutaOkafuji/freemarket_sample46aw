@@ -87,14 +87,15 @@
         a {
           color: $black;
           display: block;
-          &__item-image{
-            width: 213px;
-            height: 220px;
-            overflow: hidden;
-            position: relative;
-            padding: 0 0 100%;
-          }
         }
+        &--item-image{
+          width: 213px;
+          height: 220px;
+          overflow: hidden;
+          position: relative;
+          padding: 0 0 100%;
+        }
+        
         .content-body{
           padding: 16px;
           height: 110px;
