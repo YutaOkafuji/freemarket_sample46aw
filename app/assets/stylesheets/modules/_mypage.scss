@@ -67,10 +67,23 @@
   .mypage-information--notification{
     margin: 0;
     background: $white;
+    
+    .mypage-information{
+      $tab-num-notification: 2;
+      @include mypage-information-tabs($tab-num-notification);
+      @include mypage-information-tab-content();
+    }
   }
 
   .mypage-information--purchase{
     margin: 40px 0 0;
     background: $white;
+
+    .mypage-information{
+      $tab-num-purchase: 2;
+      @include mypage-information-head();
+      @include mypage-information-tabs($tab-num-purchase);
+      @include mypage-information-tab-content();
+    }  
   } 
 }
