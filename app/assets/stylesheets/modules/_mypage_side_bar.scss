@@ -35,6 +35,11 @@
       -webkit-transition: all ease-out .2s;
       transition: all ease-out .2s;
     }
+    &:hover{
+    background: $mypage-white;
+    text-decoration: none;
+    opacity: 1;
+    }
   }
     &__item.active{
       background: $mypage-gray;
