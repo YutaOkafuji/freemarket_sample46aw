@@ -1,14 +1,14 @@
-.top-app-banner {
+.top-footer-banner {
   height: 260px;
   width: 100%;
   background-image: image-url("download_bg_pc.jpg");
-  &-inner {
+  &__inner {
     @include centering;
     height: 260px;
     width: 750px;
     color: $white;
     position: relative;
-    &-left {
+    .inner-left {
       position: absolute;
       top: 50%;
       transform : translate(0,-50%);
@@ -48,7 +48,7 @@
         }
       }
     }
-    &-right {
+    .inner-right {
       position: absolute;
       top: 0;
       right: 0;
@@ -64,12 +64,12 @@
 .top-footer {
   padding: 0 20px 10px;
   background-color: $footerblack;
-  &-top {
+  &__upper {
     @include clearfix;
     @include centering;
     width: 1020px;
     color: $white;
-    .top-footer-cell {
+    .footer-cell {
       width: 23%;
       margin-top: 18px;
       padding-right: 40px;
@@ -119,7 +119,7 @@
       }
     }
   }
-  &-bottom {
+  &__lower {
     width: 1020px;
     margin: 30px auto 20px;
     a {
@@ -131,7 +131,7 @@
       vertical-align: middle;
       }
     }
-    &__right {
+    &--right {
       width: 745px;
       display: inline-block;
       margin-top: 12px;

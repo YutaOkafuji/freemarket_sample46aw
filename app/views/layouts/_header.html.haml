@@ -1,38 +1,38 @@
 %header.top-header
   .top-header-inner
-    .top-header-top
-      =link_to image_tag('logo.svg', alt: "mercari", class: "top-header-top-logo"), "https://www.mercari.com/jp/"
-      = form_with(url: "https://kari", class: "top-header-top-form") do
-        = text_field_tag :keyword, '何かお探しですか？', {class: "top-header-top-form__input"}
-        = label_tag :image, {class: "top-header-top-form__search"} do
+    .header-upper
+      =link_to image_tag('logo.svg', alt: "mercari", class: "header-upper__logo"), "https://www.mercari.com/jp/"
+      = form_with(url: "https://kari", class: "header-upper__form") do
+        = text_field_tag :keyword, '何かお探しですか？', {class: "header-upper__form--input"}
+        = label_tag :image, {class: "header-upper__form--search"} do
           %i.fa.fa-search
-    .top-header-bottom
-      %nav.top-header-left-navi
-        %ul.top-header-left-navi-list
-          %li.top-header-left-navi-list__item
-            =link_to "https://kari", {class: "top-header-left-navi-list__item-link"} do
+    .header-lower
+      %nav.left-navi
+        %ul.left-navi__list
+          %li.list-item
+            =link_to "https://kari", {class: "list-item__link"} do
               %i.fas.fa-list-ul
               %span
                 カテゴリーから探す
-          %li.top-header-left-navi-list__item
-            =link_to "https://kari", {class: "top-header-left-navi-list__item-link"} do
+          %li.list-item
+            =link_to "https://kari", {class: "list-item__link"} do
               %i.fas.fa-tag
               %span
                 ブランドから探す
-      %nav.top-header-right-navi
-        %ul.top-header-right-navi-list
-          %li.top-header-right-navi-list__item
-            =link_to "https://kari", {class: "top-header-right-navi-list__item--icon"} do
+      %nav.right-navi
+        %ul.right-navi__list
+          %li.list-item
+            =link_to "https://kari", {class: "list-item__icon"} do
               %i.far.fa-bell.fa-lg{'aria-hidden': :true}
               %span
                 お知らせ
-          %li.top-header-right-navi-list__item
-            =link_to "https://kari", {class: "top-header-right-navi-list__item--icon"} do
+          %li.list-item
+            =link_to "https://kari", {class: "list-item__icon"} do
               %i.fa.fa-check.fa-lg{'aria-hidden': :true}
               %span
                 やることリスト
-          %li.top-header-right-navi-list__item
+          %li.list-item
             =link_to "https://kari" do
-              = image_tag('member_photo_noimage_thumb.png', class: "top-header-right-navi-list__item--icon")
+              = image_tag('member_photo_noimage_thumb.png', class: "list-item__icon")
               %span
                 マイページ

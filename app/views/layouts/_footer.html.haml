@@ -1,23 +1,23 @@
-.top-app-banner
-  .top-app-banner-inner
-    .top-app-banner-inner-left
+.top-footer-banner
+  .top-footer-banner__inner
+    .inner-left
       %h2
         スマホでかんたんフリマアプリ
       %p
         今すぐ無料ダウンロード！
-      .top-app-banner-inner-left__icon
-        =image_tag('custom-banner-icon.png', class: "top-app-banner-inner-left__icon--img")
+      .inner-left__icon
+        =image_tag('custom-banner-icon.png', class: "inner-left__icon--img")
         %ul
           %li
             =link_to image_tag('app-store.svg', class: ""), "https://itunes.apple.com/jp/app/id667861049?l=ja&amp;mt=8"
           %li
             =link_to image_tag('google-play.svg', class: ""), "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&amp;hl=ja"
-    .top-app-banner-inner-right
+    .inner-right
       =image_tag('download_content_pc.png')
 %footer.top-footer
-  .top-footer-top
-    .top-footer-cell
-      %h2.top-footer-cell_head
+  .top-footer__upper
+    .footer-cell
+      %h2
         メルカリについて
       %ul
         %li
@@ -36,8 +36,8 @@
         %li.social-link
           =link_to "https://kari" do
             %i.fab.fa-facebook-square
-    .top-footer-cell
-      %h2.top-footer-cell_head
+    .footer-cell
+      %h2
         ヘルプ＆ガイド
       %ul
         %li
@@ -56,10 +56,10 @@
           =link_to "偽ブランド品撲滅への取り組み", "https://kari"
         %li
           =link_to "メルカリボックス", "https://kari"
-    .top-footer-cell.full-width
+    .footer-cell.full-width
       %h2
         プライバシーと利用規約
-      .top-footer-cell__left
+      .footer-cell__left
         %ul
           %li
             =link_to "プライバシーポリシー", "https://kari"
@@ -69,7 +69,7 @@
             =link_to "あんしんスマホサポート制度に関する利用特約", "https://kari"
           %li
             =link_to "コンプライアンスポリシー", "https://kari"
-      .top-footer-cell__right
+      .footer-cell__right
         %ul
           %li
             =link_to "個人データの安全管理に係る基本方針", "https://kari"
@@ -81,7 +81,7 @@
             =link_to "法令遵守と犯罪防止のために", "https://kari"
           %li
             =link_to "返品・返金ポリシー", "https://kari"
-    .top-footer-cell
+    .footer-cell
       %h2
         国
       %ul
@@ -90,9 +90,9 @@
         %li
           =link_to "United States", "https://kari"
 
-  .top-footer-bottom
+  .top-footer__lower
     =link_to image_tag('logo-white.svg', alt: "mercari"), "https://www.mercari.com/jp/"
-    %span.top-footer-bottom__right
+    %span.top-footer__lower--right
       © 2019 Mercari
 
 =link_to "https://kari", class: "top-footer-sell-btn" do
