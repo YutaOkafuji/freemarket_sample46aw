@@ -1,0 +1,24 @@
+%body
+  = render partial: "devise/shared/links_header"
+  .main
+    .login-content
+      .login-content__sign-up
+        %p.login-content__sign-up__remarks アカウントをお持ちでない方はこちら
+        %a.login-content__sign-up__btn 新規会員登録
+      .login-content__api
+        =link_to root_path, class: "login-content__api__facebook" do
+          Facebookでログイン
+          %i.fa.facebook-square
+        =link_to root_path, class: "login-content__api__google" do
+          Googleでログイン
+      .form
+        .login-content__form
+          .login-content__form__email-field
+            %input
+          .login-content__form__pass-field
+            %input
+          .login-content__form__recaptcha
+            %input
+          %button.btn ログイン
+          %a.login-content__remarks パスワードお忘れの方
+  = render partial: "devise/shared/links_footer"
