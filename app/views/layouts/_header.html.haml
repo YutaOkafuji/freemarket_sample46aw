@@ -2,7 +2,7 @@
   .top-header-inner
     .top-header-top
       =link_to image_tag('logo.svg', alt: "mercari", class: "top-header-top-logo"), "https://www.mercari.com/jp/"
-      = form_tag("https://kari", class: "top-header-top-form") do
+      = form_with(url: "https://kari", class: "top-header-top-form") do
         = text_field_tag :keyword, '何かお探しですか？', {class: "top-header-top-form__input"}
         = label_tag :image, {class: "top-header-top-form__search"} do
           %i.fa.fa-search
