@@ -6,7 +6,7 @@
     position: relative;
     height: 100%;
     max-width: 860px;
-    margin: 0 auto;
+    @include centering();
     img {
       height: 100%;
     }
@@ -60,7 +60,7 @@
   }
   .item-container{
     @include clearfix();
-    margin: 0 auto;
+    @include centering();
     width: 940px;
     h3.item-container__title {
       font-size: 22px;

@@ -1,4 +1,3 @@
--# .owl-carousel
 .topmain-visual
   .topmain-inner
     .topmain-inner__content
@@ -11,10 +10,10 @@
         %br>/
         購入時も安心な独自システムのアプリです
       .topmain-inner__store--clearfix
-        %a.store__icon{ href: "https://itunes.apple.com/jp/app/id667861049?l=ja&amp;mt=8",target:"_blank" }
-          = image_tag 'app-store.svg'
-        %a.store__icon{ href: "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&amp;hl=ja",target:"_blank" }
-          = image_tag 'google-play.svg'
+        =link_to image_tag('app-store.svg', class: ""), 
+        "https://itunes.apple.com/jp/app/id667861049?l=ja&amp;mt=8"
+        =link_to image_tag('google-play.svg', class:""), 
+        "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&amp;hl=ja" 
     .hand-talent-image
       = image_tag 'main_content_pc.png' 
 %section.top-main-container
