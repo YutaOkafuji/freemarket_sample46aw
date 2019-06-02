@@ -4,13 +4,13 @@
     .signup-content
       %h2.signup-content__title 新規会員登録
       .signup-content__registers
-        .register-btns
-          =link_to root_path, class: "register-btns__mail" do
+        .register-btn
+          =link_to root_path, class: "register-btn--mail" do
             %i.far.fa-envelope
             %span メールアドレスで登録
-          =link_to root_path, class: "register-btns__facebook" do
+          =link_to root_path, class: "register-btn--facebook" do
             %i.fab.fa-facebook-square
             %span Facebookで登録
-          =link_to root_path, class: "register-btns__google" do
+          =link_to root_path, class: "register-btn--google" do
             Googleで登録
   = render partial: "devise/shared/links_footer"

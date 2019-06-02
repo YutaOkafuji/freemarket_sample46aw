@@ -13,9 +13,9 @@
     padding: 64px;
     border-top: 1px solid $main_background;
 
-    .register-btns{
+    .register-btn{
 
-      &__mail{
+      &--mail{
         background: #eee;
         color: $black;
         position: relative;
@@ -36,7 +36,7 @@
         }
       }
 
-      &__facebook{
+      &--facebook{
         position: relative;
         background: #385185;
         color: $white;
@@ -57,7 +57,7 @@
         }
       }
 
-      &__google{
+      &--google{
         display: block;
         width: 100%;
         line-height: 48px;
