@@ -1,0 +1,107 @@
+.main{
+  display: block;
+  .login-content{
+    width: 456px;
+    margin: 0 auto;
+    background-color: #fff;
+
+    &__sign-up{
+      padding: 40px 64px;
+      text-align: center;
+
+      &__remarks{
+        font-size: 14px;
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      &__btn{
+        display: block;
+        margin: 8px 0 0;
+        border: 1px solid #0099e8;
+        background: #0099e8;
+        color: #fff;
+        line-height: 40px;
+        text-align: center;
+        font-size: 14px;
+      }
+    }
+
+    &__api{
+      border-top: 1px solid #eee;
+      padding: 32px 64px;
+
+      &__facebook{
+        position: relative;
+        background: #385185;
+        color: #fff;
+        display:block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+
+        i {
+          
+        }
+      }
+
+      &__google{
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        text-align: center;
+        position: relative;
+        margin: 16px 0 0;
+        background: #fff url('google.svg') no-repeat 3px top;
+        border: #979797 solid 1px;
+        color: #333;
+        text-decoration: none;
+      }
+    }
+
+    .login-content__form{
+      padding: 0 64px 32px;
+
+      input{
+        margin: 24px 0 0 0;
+        width: 100%;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+
+      .btn{
+        margin: 24px 0 0 0;
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff; display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        text-align: center;
+      }
+  
+      .login-content__remarks{
+        cursor: pointer;
+        font-size: 14px;
+        display: block;
+        margin: 40px 0 0;
+        color: #0099e8;
+        text-decoration: none;
+      }
+    }
+  }
+}
