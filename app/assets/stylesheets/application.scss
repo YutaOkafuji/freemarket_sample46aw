@@ -25,6 +25,7 @@
 
 *{
   font-family:"Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  box-sizing: border-box;
 }
 
 body{
@@ -37,9 +38,9 @@ body{
   line-height: 1;
 }
 
-a{
-  color: #0099e8;
+a {
   text-decoration: none;
+  color: $blue;
 }
 
 img{
