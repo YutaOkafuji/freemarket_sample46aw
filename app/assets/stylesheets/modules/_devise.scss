@@ -25,7 +25,8 @@
 .devise-footer{
   width: 456px;
   height: 220px;
-  margin: 0 auto;
+  @include centering;
+  margin-bottom: 0;
   padding: 40px 0;
 
   &__nav{
