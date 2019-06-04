@@ -1,16 +1,17 @@
 %body
-  = render partial: "devise/shared/links_header"
-  .main
-    .signup-content
-      %h2.signup-content__title 新規会員登録
-      .signup-content__registers
-        .register-btn
-          =link_to root_path, class: "register-btn--mail" do
-            %i.far.fa-envelope
-            %span メールアドレスで登録
-          =link_to root_path, class: "register-btn--facebook" do
-            %i.fab.fa-facebook-square
-            %span Facebookで登録
-          =link_to root_path, class: "register-btn--google" do
-            Googleで登録
-  = render partial: "devise/shared/links_footer"
+  .devise-content
+    = render partial: "devise/shared/links_header"
+    .main
+      .signup-content
+        %h2.signup-content__title 新規会員登録
+        .signup-content__registers
+          .register-btn
+            =link_to root_path, class: "register-btn--mail" do
+              %i.far.fa-envelope
+              %span メールアドレスで登録
+            =link_to root_path, class: "register-btn--facebook" do
+              %i.fab.fa-facebook-square
+              %span Facebookで登録
+            =link_to root_path, class: "register-btn--google" do
+              Googleで登録
+    = render partial: "devise/shared/links_footer"
