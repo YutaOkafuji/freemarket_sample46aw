@@ -40,6 +40,7 @@ gem 'font-awesome-sass'
 gem 'kaminari'
 gem 'haml-rails'
 gem 'erb2haml'
+gem 'owlcarousel-rails'
 gem 'devise'
 
 group :development, :test do
