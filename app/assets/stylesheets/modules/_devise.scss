@@ -1,3 +1,7 @@
+.devise-content{
+  position: relative;  
+  padding: 0 0 220px 0;
+}
 .devise-header{
   height: 128px;
   margin: 0;
@@ -25,9 +29,12 @@
 .devise-footer{
   width: 456px;
   height: 220px;
-  @include centering;
-  margin-bottom: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
   padding: 40px 0;
+  @include centering;
 
   &__nav{
     text-align: center;
@@ -37,7 +44,9 @@
       padding: 0;
 
       li{
-        display: inline-block; font-size: 12px;
+        display: inline-block;
+        font-size: 12px;
+        margin: 0 8px;
 
         a{
           color: $black;
