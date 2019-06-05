@@ -12,6 +12,8 @@
     line-height: 72px;
     }
 
+    a:hover{
+      text-decoration: none;
     }
     
     li{
@@ -43,6 +45,8 @@
 @mixin mypage-info-tab-content(){
   .mypage-info__tab-content{
     
+    a:hover{
+      text-decoration: none;
     }
 
     .mypage-info-list{
@@ -133,6 +137,8 @@
           line-height: 56px;
           text-align: center;
         }
+        a:hover{
+          background: $mypage-white;
         }
       }
     }

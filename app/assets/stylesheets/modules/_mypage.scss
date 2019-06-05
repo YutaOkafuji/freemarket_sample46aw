@@ -10,6 +10,11 @@
     float: right;
     width: 700px;
     
+    a:hover{
+      text-decoration: underline;
+      opacity: .7;
+    }
+    
     .mypage-user{
       height: 200px;
       position: relative;
