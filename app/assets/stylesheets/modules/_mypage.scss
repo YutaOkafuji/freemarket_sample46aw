@@ -14,7 +14,7 @@
       text-decoration: underline;
       opacity: .7;
     }
-    
+
     .mypage-user{
       height: 200px;
       position: relative;
@@ -73,13 +73,13 @@
     background: $white;
     @include mypage-info-tab-content();
     
-    .mypage-info-notification{
+    &--notification{
       margin: 0;
       $tab-num-notification: 2;
       @include mypage-info-tabs($tab-num-notification);
     }
 
-    .mypage-info-purchase{
+    &--purchase{
       margin: 40px 0 0;
       $tab-num-purchase: 2;
       @include mypage-info-head();
