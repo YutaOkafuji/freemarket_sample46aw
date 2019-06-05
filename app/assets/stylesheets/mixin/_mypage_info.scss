@@ -11,6 +11,8 @@
     font-size: 16px;
     line-height: 72px;
     }
+
+    }
     
     li{
       width: (100% / $tab_number);
@@ -41,6 +43,8 @@
 @mixin mypage-info-tab-content(){
   .mypage-info__tab-content{
     
+    }
+
     .mypage-info-list{
       display: block;
       
@@ -91,7 +95,13 @@
           }
         }
       }
-  
+
+      .mypage-info-card:hover{
+        background: #fafafa;
+        opacity: 1;
+        text-decoration: none;
+      }
+
       .mypage-info-card--not-found{
         padding: 160px 0 60px;
         background: url("logo-gray-icon.svg");
@@ -122,6 +132,7 @@
           color: $black;
           line-height: 56px;
           text-align: center;
+        }
         }
       }
     }
