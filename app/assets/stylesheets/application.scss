@@ -22,7 +22,7 @@
 @import"modules/items";
 
 *{
-  font-family:"Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   box-sizing: border-box;
 }
 
@@ -34,7 +34,6 @@ body{
   position: relative;
   min-height: 100%;
   background: $main_background;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   font-size: 14px;
   color: $black;
   line-height: 1;
