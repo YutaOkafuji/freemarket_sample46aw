@@ -1,0 +1,81 @@
+.setting-main{
+  
+  .setting-profiles{
+    width: 700px;
+    float: right;
+    background: $white;
+    
+    .setting-profile{
+      &__title{
+        font-size: 24px;
+        padding: 8px 24px;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      &__top{
+        background-image:url(setting-profilesBG.jpg);
+        padding: 72px 16px 24px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        font-size: 0;
+
+        &__avatar{
+          display: inline-block;
+          overflow: hidden;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          vertical-align: middle;
+          box-sizing: border-box;
+          margin: 0;
+        }
+
+        &__nickname{
+          width: 220px;
+          margin: 0 0 0 8px;
+          vertical-align: middle;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid $lightgray;
+          background: $white;
+          line-height: 1.5;
+          font-size: 16px;
+          box-sizing: border-box;
+        }
+      }
+
+      &__bottom{
+        padding: 40px 16px;
+
+        &__text{
+          min-height: 216px;
+          display: block;
+          width: 100%;
+          padding: 10px;
+          border: 1px solid $lightgray;
+          background: $white;
+          font-size: 16px;
+          line-height: 1.5;
+          box-sizing: border-box;
+        }
+
+        &__btn{
+          margin: 16px 0 0;
+          background: $red;
+          border: 1px solid $red;
+          color: $white;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          cursor: pointer;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

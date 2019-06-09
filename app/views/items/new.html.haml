@@ -1,0 +1,220 @@
+//ヘッダーはマージ前に消去する
+%header.exhibition-header
+  %h1.exhibition-header__logo
+    =link_to image_tag('logo.svg', alt: "mercari", class: ""), "https://www.mercari.com/jp/"
+
+%main.exhibition-main
+  .exhibition-main__container
+    %h2.sell-head
+      商品の情報を入力
+    %form
+      .sell-content
+        %h3.sell-content__upload-head
+          出品画像
+          %span.required
+            必須
+        %p.sell-content__explanation
+          最大10枚までアップロードできます
+        .sell-content__upload-box
+          %input{type: "file", class: "sell-content__upload-box--form"}
+          %p
+            ドラッグアンドドロップ
+            %br
+            またはクリックしてファイルをアップロード
+      .sell-content
+        .sell-content__form-group
+          %label
+            商品名
+            %span.required
+              必須
+          %input{class: "sell-content__form-group--input", placeholder: "商品名（必須40文字まで）"}
+        .sell-content__form-group
+          %label
+            商品の説明
+            %span.required
+              必須
+          %textarea{class: "sell-content__form-group--textarea", rows: "5", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+      .sell-content.clearfix
+        %h1.left-section
+          商品の詳細
+        .right-section
+          %ul
+            %li.form-group
+              %label
+                カテゴリー
+                %span.required
+                  必須
+              .select-section
+                %select.form-select
+                  %option{value: ""}---
+                  %option{value: "1"}レディース
+                  %option{value: "2"}メンズ
+                  %option{value: "3"}ベビー・キッズ
+                  %option{value: "4"}インテリア・住まい・小物
+                  %option{value: "5"}本・音楽・ゲーム
+                  %option{value: "6"}おもちゃ・ホビー・グッズ
+                  %option{value: "7"}コスメ・香水・美容
+                  %option{value: "8"}家電・スマホ・カメラ
+                  %option{value: "9"}スポーツ・レジャー
+                  %option{value: "10"}ハンドメイド
+                  %option{value: "11"}チケット
+                  %option{value: "12"}自転車・オートバイ
+                  %option{value: "13"}その他
+                %i.fas.fa-chevron-down
+            %li.form-group
+              %label
+                商品の状態
+                %span.required
+                  必須
+              .select-section
+                %select.form-select
+                  %option{value: ""}---
+                  %option{value: "1"}新品・未使用
+                  %option{value: "2"}未使用に近い
+                  %option{value: "3"}目立った傷や汚れなし
+                  %option{value: "4"}やや傷や汚れあり
+                  %option{value: "5"}傷や汚れあり
+                  %option{value: "6"}全体的に状態が悪い
+                %i.fas.fa-chevron-down
+      .sell-content.clearfix
+        %h1.left-section
+          配送について
+          =link_to "?", "https://kari", class: "left-section__question"
+        .right-section
+          %ul
+            %li.form-group
+              %label
+                配送の負担
+                %span.required
+                  必須
+              .select-section
+                %select.form-select
+                  %option{value: ""}---
+                  %option{value: "1"}送料込み(出品者負担)
+                  %option{value: "2"}着払い(購入者負担)
+                %i.fas.fa-chevron-down
+            %li.form-group
+              %label
+                配送元の地域
+                %span.required
+                  必須
+              .select-section
+                %select.form-select
+                  %option{value: ""}---
+                  %option{value: "1"}北海道
+                  %option{value: "2"}青森県
+                  %option{value: "3"}岩手県
+                  %option{value: "4"}宮城県
+                  %option{value: "5"}秋田県
+                  %option{value: "6"}山形県
+                  %option{value: "7"}福島県
+                  %option{value: "8"}茨城県
+                  %option{value: "9"}栃木県
+                  %option{value: "10"}群馬県
+                  %option{value: "11"}埼玉県
+                  %option{value: "12"}千葉県
+                  %option{value: "13"}東京都
+                  %option{value: "14"}神奈川県
+                  %option{value: "15"}新潟県
+                  %option{value: "16"}富山県
+                  %option{value: "17"}石川県
+                  %option{value: "18"}福井県
+                  %option{value: "19"}山梨県
+                  %option{value: "20"}長野県
+                  %option{value: "21"}岐阜県
+                  %option{value: "22"}静岡県
+                  %option{value: "23"}愛知県
+                  %option{value: "24"}三重県
+                  %option{value: "25"}滋賀県
+                  %option{value: "26"}京都府
+                  %option{value: "27"}大阪府
+                  %option{value: "28"}兵庫県
+                  %option{value: "29"}奈良県
+                  %option{value: "30"}和歌山県
+                  %option{value: "31"}鳥取県
+                  %option{value: "32"}島根県
+                  %option{value: "33"}岡山県
+                  %option{value: "34"}広島県
+                  %option{value: "35"}山口県
+                  %option{value: "36"}徳島県
+                  %option{value: "37"}香川県
+                  %option{value: "38"}愛媛県
+                  %option{value: "39"}高知県
+                  %option{value: "40"}福岡県
+                  %option{value: "41"}佐賀県
+                  %option{value: "42"}長崎県
+                  %option{value: "43"}熊本県
+                  %option{value: "44"}大分県
+                  %option{value: "45"}宮崎県
+                  %option{value: "46"}鹿児島県
+                  %option{value: "47"}沖縄県
+                  %option{value: "99"}未定
+                %i.fas.fa-chevron-down
+            %li.form-group
+              %label
+                配送までの日数
+                %span.required
+                  必須
+              .select-section
+                %select.form-select
+                  %option{value: ""}---
+                  %option{value: "1"}1〜2日で発送
+                  %option{value: "2"}2〜3日で発送
+                  %option{value: "3"}3〜7日で発送
+                %i.fas.fa-chevron-down
+      .sell-content.clearfix
+        %h1.left-section
+          販売価格(300〜9,999,999)
+          =link_to "?", "https://kari", class: "left-section__question"
+        .right-section
+          %ul
+            %li.price-form
+              .price-form__left-section
+                .price-form__left-section--label
+                  %label
+                    価格
+                    %span.required
+                      必須
+              .price-form__right-section
+                ¥
+                %input.input-form{placeholder: "例)300"}
+            %li.price-form
+              %p.price-form__left-side 販売手数料(10%)
+              %p.price-form__right-side -
+            %li.price-form
+              %p.price-form__left-side.bold 販売利益
+              %p.price-form__right-side.bold -
+      .sell-content.clearfix
+        .caution
+          %p
+            =link_to "禁止されている出品", "https://kari"
+            、
+            =link_to "行為", "https://kari"
+            を必ずご確認ください。
+          %p
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            =link_to "偽ブランドの販売", "https://kari"
+            は犯罪であり処罰される可能性があります。
+          %p
+            また、出品をもちまして
+            =link_to "加盟店規約", "https://kari"
+            に同意したことになります。
+        %button.btn
+          出品する
+        .gray-btn
+          =link_to "もどる", "https://kari"
+
+//フッターはマージ前に消去する
+%footer.exhibition-footer
+  .exhibition-footer__container
+    %navi.exhibition-navi
+      %ul
+        %li
+          = link_to  "プライバシーポリシー", "https://kari"
+        %li
+          = link_to  "メルカリ利用規約", "https://kari"
+        %li
+          = link_to  "特定商取引に関する表記", "https://kari"
+    = link_to image_tag('logo-gray.svg', class: ""), "https://www.mercari.com/jp/", class: "exhibition-gray-logo"
+    %p
+      © 2019 Mercari
