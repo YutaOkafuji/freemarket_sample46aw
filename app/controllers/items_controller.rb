@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   end
   
   def new
+    render :layout => "second_layout"
   end
 
 end
