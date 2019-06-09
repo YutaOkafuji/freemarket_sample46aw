@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resource :logouts, only: %i[show destroy]
   resources :profiles, only: :new
   resources :users, only: :index
+  resources :items
 end
