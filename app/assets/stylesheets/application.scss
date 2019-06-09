@@ -16,14 +16,16 @@
 @import"./reset";
 @import"config/valiable";
 @import"mixin/valiable";
+@import"mixin/mypage_info";
 @import"mixin/clearfix";
 @import"font-awesome-sprockets";
 @import"font-awesome";
 @import"modules/header";
 @import"modules/footer";
 @import"modules/items";
+@import"modules/mypage";
+@import"modules/mypage_side_bar";
 @import"modules/four-columns-items";
-
 
 *{
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
