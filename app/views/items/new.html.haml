@@ -1,4 +1,4 @@
-//ヘッダーはマージ前に消去する
+//ヘッダーはマスターへのマージ前に消去する
 %header.exhibition-header
   %h1.exhibition-header__logo
     =link_to image_tag('logo.svg', alt: "mercari", class: ""), "https://www.mercari.com/jp/"
@@ -204,7 +204,7 @@
         .gray-btn
           =link_to "もどる", "https://kari"
 
-//フッターはマージ前に消去する
+//フッターはマスターへのマージ前に消去する
 %footer.exhibition-footer
   .exhibition-footer__container
     %navi.exhibition-navi
