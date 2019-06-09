@@ -1,10 +1,9 @@
 .setting-main{
-  @include centering;
-  width: 860px;
   
   .setting-profiles{
     width: 700px;
     float: right;
+    background: $white;
     
     .setting-profile{
       &__title{
