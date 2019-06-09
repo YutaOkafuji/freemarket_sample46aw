@@ -1,0 +1,38 @@
+%header.top-header
+  .top-header-inner
+    .header-upper
+      =link_to image_tag('logo.svg', alt: "mercari", class: "header-upper__logo"), "https://www.mercari.com/jp/"
+      = form_with(url: "https://kari", class: "header-upper__form") do
+        = text_field_tag :keyword, '何かお探しですか？', {class: "header-upper__form--input"}
+        = label_tag :image, {class: "header-upper__form--search"} do
+          %i.fa.fa-search
+    .header-lower
+      %nav.left-navi
+        %ul.left-navi__list
+          %li.list-item
+            =link_to "https://kari", {class: "list-item__link"} do
+              %i.fas.fa-list-ul
+              %span
+                カテゴリーから探す
+          %li.list-item
+            =link_to "https://kari", {class: "list-item__link"} do
+              %i.fas.fa-tag
+              %span
+                ブランドから探す
+      %nav.right-navi
+        %ul.right-navi__list
+          %li.list-item
+            =link_to "https://kari", {class: "list-item__icon"} do
+              %i.far.fa-bell.fa-lg{'aria-hidden': :true}
+              %span
+                お知らせ
+          %li.list-item
+            =link_to "https://kari", {class: "list-item__icon"} do
+              %i.fa.fa-check.fa-lg{'aria-hidden': :true}
+              %span
+                やることリスト
+          %li.list-item
+            =link_to "https://kari" do
+              = image_tag('member_photo_noimage_thumb.png', class: "list-item__icon")
+              %span
+                マイページ
