@@ -1,0 +1,19 @@
+.topmain-visual
+  .topmain-inner
+    .topmain-inner__content
+      %h2
+        スマホでかんたん
+        %br>/
+        フリマアプリ
+      %p 
+        メルカリはスマホカメラからすぐに出品できる
+        %br>/
+        購入時も安心な独自システムのアプリです
+      .topmain-inner__store--clearfix
+        =link_to image_tag('app-store.svg', class: ""), 
+        "https://itunes.apple.com/jp/app/id667861049?l=ja&amp;mt=8"
+        =link_to image_tag('google-play.svg', class:""), 
+        "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&amp;hl=ja" 
+    .hand-talent-image
+      = image_tag 'main_content_pc.png' 
+=render partial: "four-columns-items"
