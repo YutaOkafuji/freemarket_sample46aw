@@ -16,17 +16,58 @@
 @import"./reset";
 @import"config/valiable";
 @import"mixin/valiable";
+@import"mixin/mypage_info";
+@import"mixin/clearfix";
 @import"font-awesome-sprockets";
 @import"font-awesome";
+@import"modules/header";
+@import"modules/footer";
 @import"modules/items";
 @import"modules/logout";
+@import"modules/mypage";
+@import"modules/mypage_side_bar";
+@import"modules/four-columns-items";
 
 *{
-  font-family:"Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   box-sizing: border-box;
 }
 
-a {
+html{
+  height: 100%;
+}
+
+body{
+  position: relative;
+  min-height: 100%;
+  background: $main_background;
+  font-size: 14px;
+  color: $black;
+  line-height: 1;
+}
+
+a{
   text-decoration: none;
   color: $blue;
+}
+
+img{
+  vertical-align: middle;
+}
+
+.bold{
+  font-weight: 600;
+}
+
+ul, ol{
+  list-style: none;
+}
+
+h2 {
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+h3{
+  font-size: 22px;
 }
