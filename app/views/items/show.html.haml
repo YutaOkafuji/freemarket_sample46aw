@@ -1,0 +1,73 @@
+.item-detail-container
+  %h1 品名
+  .item-detail-content
+    .item-detail-content__photo
+    .item-detail-content__detail-table
+      %table
+        %tbody
+          %tr
+            %th 出品者
+            %td 
+              メルカリ売り太郎
+              .user-rating
+                .user-rating--inner
+                  %i.icon-good
+                  %span 100
+                .user-rating--inner
+                  %i.icon-normal
+                  %span 100
+                .user-rating--inner
+                  %i.icon-bad
+                  %span 100
+ 
+          %tr
+            %th カテゴリ
+            %td カテゴリ名
+          %tr
+            %th ブランド
+            %td ブランド名
+          %tr
+            %th 商品の状態
+            %td やや傷や汚れあり
+          %tr
+            %th 配送料の負担
+            %td 送料込み(出品者負担)
+          %tr
+            %th 配送の方法
+            %td ゆうゆうメルカリ便
+          %tr
+            %th 配送元地域
+            %td 北海道
+          %tr
+            %th 発送日の目安
+            %td 4~7日で発送
+  .item-price-box
+    %span.item-price-box__price ¥ 6,800
+    %span.item-price-box__tax (税込)
+    %span.item-price-box__shipping-fee 送料込み
+  .sales-balance-massages 残高 ¥ 256をお持ちです
+  -# =link_to(購入画面に進む,) class:"item-buy-btn"
+  .item-description
+    .item-description__inner
+      %p めっちゃくちゃやす〜〜〜〜〜〜〜い！ほし〜〜〜〜〜〜〜〜〜い！
+      かいた〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜い
+  .item-button-container--clearfix
+    .item-button-content__left
+      .item-button-content__left--like
+        %button.like-button 
+          %i.far.fa-heart
+          %span いいね！
+          %span.fade-in-down 5 
+      .item-button-content__left--report
+        %i.far.fa-flag
+        %span 不適切な商品の報告
+    .item-button-content__right
+      =link_to "https://www.mercari.com/jp/safe/description/" do
+        %i.fas.fa-lock
+        %span あんしん・あんぜんへの取り組み
+.item-detail-message
+  .message-container
+    .message-content
+      .message-content__form
+      .message-content__submit-btn
+
