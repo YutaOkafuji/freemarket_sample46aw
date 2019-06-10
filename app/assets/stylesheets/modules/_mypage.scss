@@ -1,0 +1,90 @@
+.mypage-main{
+  @include clearfix();
+  @include centering();
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 1020px;
+  display: block;
+  background: $main_background;
+
+  .mypage-content{
+    float: right;
+    width: 700px;
+    
+    a:hover{
+      text-decoration: underline;
+      opacity: .7;
+    }
+
+    .mypage-user{
+      height: 200px;
+      position: relative;
+      padding: 20px;
+      background: url("setting-profilesBG.jpeg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+
+      a{
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        color: $black;
+      }
+
+      figure{
+        @include centering();
+        overflow: hidden;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+      }
+
+      h2{
+        margin: 8px 0 0;
+        font-size: 14px;
+      }
+
+      &__status{
+        margin: 8px 0 0;
+        font-size: 0;
+
+        div{
+          display: inline-block;
+          font-size: 14px;
+        }
+
+        div+div{
+          margin: 0 0 0 16px;
+        }
+
+        span{
+          margin: 0 0 0 8px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .mypage-info{
+    background: $white;
+    @include mypage-info-tab-content();
+    
+    &--notification{
+      margin: 0;
+      $tab-num-notification: 2;
+      @include mypage-info-tabs($tab-num-notification);
+    }
+
+    &--purchase{
+      margin: 40px 0 0;
+      $tab-num-purchase: 2;
+      @include mypage-info-head();
+      @include mypage-info-tabs($tab-num-purchase);
+    }  
+  }
+}

@@ -1,0 +1,162 @@
+.top-footer-banner {
+  height: 260px;
+  width: 100%;
+  background-image: image-url("download_bg_pc.jpg");
+  &__inner {
+    @include centering;
+    height: 260px;
+    width: 750px;
+    color: $white;
+    position: relative;
+    .inner-left {
+      position: absolute;
+      top: 50%;
+      transform : translate(0,-50%);
+      h2 {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      p {
+        margin-top: 10px;
+        font-size: 35px;
+      }
+      &__icon {
+        height: 68px;
+        margin-top: 20px;
+        &--img {
+          height: 68px;
+          width: 68px;
+          float: left;
+        }
+        ul {
+          margin-left: 24px;
+          float: left;
+          li {
+            float: left;
+            &:last-child {
+              margin-left: 16px;
+            }
+            a {
+              line-height: 68px;
+              img {
+                height: 40px;
+                width: 133px;
+                vertical-align: middle;
+              }
+            }
+          }
+        }
+      }
+    }
+    .inner-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      img {
+        width: 300px;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.top-footer {
+  padding: 0 20px 10px;
+  background-color: $footerblack;
+  &__upper {
+    @include clearfix;
+    @include centering;
+    width: 1020px;
+    color: $white;
+    .footer-cell {
+      width: 23%;
+      margin-top: 18px;
+      padding-right: 40px;
+      float: left;
+      &.full-width {
+        width: 43%;
+      }
+      &:first-child {
+        width: 20%;
+        padding: 0 20px 0 0;
+      }
+      &:last-child {
+        width: auto;
+      }
+      ul {
+        li {
+          margin-top: 14px;
+          &:first-child {
+            margin-top: 16px;
+          }
+          a {
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+          }
+          &.social-link {
+            float: left;
+            a {
+              display: block;
+              i {
+                margin: 5px 18px 0 0;
+                font-size: 30px;
+                color: $white;
+              }
+            }
+          }
+        }
+      }
+      &__left {
+        width: 50%;
+        padding-right: 10px;
+        float: left;
+      }
+      &__right {
+        width: 50%;
+        padding-left: 10px;
+        float: left;
+      }
+    }
+  }
+  &__lower {
+    width: 1020px;
+    margin: 30px auto 20px;
+    a {
+      margin-right: 10px;
+      font-size: 0;
+      img {
+      width: 124px;
+      height: 33px;
+      vertical-align: middle;
+      }
+    }
+    &--right {
+      width: 745px;
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 8px;
+      color: $white;
+      text-align: center;
+    }
+  }
+}
+
+.top-footer-sell-btn {
+  bottom: 32px;
+  right: 32px;
+  width: 160px;
+  height: 160px;
+  font-size: 22px;
+  position: fixed;
+  border-radius: 50%;
+  background: $red;
+  color: $white;
+  text-align: center;
+  div {
+    margin-top: 32px;
+  }
+  .fas {
+    font-size: 54px;
+  }
+}
