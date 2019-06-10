@@ -68,6 +68,8 @@
 .item-detail-message
   .message-container
     .message-content
-      .message-content__form
+      =form_with(url: "https://kari",class: "message-content__form" ) do |f|
+        = f.text_area :content
+        = f.button ("コメントする")
       .message-content__submit-btn
-
+  /売り切れた時コメントできないようにjsを書くこと。
