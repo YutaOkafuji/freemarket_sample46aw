@@ -100,6 +100,16 @@
         display: block;
         margin: 40px 0 0;
       }
+
+      a:hover{
+        text-decoration: underline;
+        opacity: 0.7;
+      }
+    }
+
+    a:hover{
+      text-decoration: none;
+      opacity: 1;
     }
   }
 }
