@@ -7,7 +7,8 @@
   .exhibition-main__container
     %h2.sell-head
       商品の情報を入力
-    %form
+    //form_withの中身は後で変更する
+    =form_with(local: true)  do |f|
       .sell-content
         %h3.sell-content__upload-head
           出品画像
@@ -16,7 +17,7 @@
         %p.sell-content__explanation
           最大10枚までアップロードできます
         .sell-content__upload-box
-          %input{type: "file", class: "sell-content__upload-box--form"}
+          =f.file_field :image, class: "sell-content__upload-box--form"
           %p
             ドラッグアンドドロップ
             %br
@@ -27,13 +28,13 @@
             商品名
             %span.required
               必須
-          %input{class: "sell-content__form-group--input", placeholder: "商品名（必須40文字まで）"}
+          =f.text_field :name, class: "sell-content__form-group--input", placeholder: "商品名（必須40文字まで）"
         .sell-content__form-group
           %label
             商品の説明
             %span.required
               必須
-          %textarea{class: "sell-content__form-group--textarea", rows: "5", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+          =f.text_area :description, class: "sell-content__form-group--textarea", rows: "5", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
       .sell-content.clearfix
         %h1.left-section
           商品の詳細
@@ -177,7 +178,7 @@
                       必須
               .price-form__right-section
                 ¥
-                %input.input-form{placeholder: "例)300"}
+                =f.text_field :price, class: "input-form", placeholder: "例)300"
             %li.price-form
               %p.price-form__left-side 販売手数料(10%)
               %p.price-form__right-side -
@@ -199,10 +200,9 @@
             また、出品をもちまして
             =link_to "加盟店規約", "https://kari"
             に同意したことになります。
-        %button.btn
-          出品する
+        =f.submit "出品する", class: "btn"
         .gray-btn
-          =link_to "もどる", "https://kari"
+          =link_to "もどる", :back
 
 //フッターはマスターへのマージ前に消去する
 %footer.exhibition-footer
