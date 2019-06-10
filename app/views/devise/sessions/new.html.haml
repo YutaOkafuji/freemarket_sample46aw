@@ -1,25 +1,22 @@
-%body
-  .devise-content
-    = render partial: "devise/shared/links_header"
-    .main
-      .login-content
-        .login-sign-up
-          %p.login-sign-up__remarks アカウントをお持ちでない方はこちら
-          =link_to "/users/sign_up", class: "login-sign-up__btn" do
-            新規会員登録
-        .login-api
-          =link_to root_path, class: "login-api__facebook" do
-            %i.fab.fa-facebook-square
-            %span Facebookでログイン
-          =link_to root_path, class: "login-api__google" do
-            Googleでログイン
-        =form_with url: root_path do |f|
-          .login-form
-            =f.text_field :email, class: "login-form__text-field", placeholder: "メールアドレス"
-            =f.text_field :password, class: "login-form__text-field", placeholder: "パスワード"
-            .login-form__recaptcha
-            //apiで実装
-            =f.submit "ログイン", class: "btn"
-            =link_to root_path, class: "login-form__remarks" do
-              パスワードお忘れの方
-    = render partial: "devise/shared/links_footer"
+.devise-content
+  .main
+    .login-content
+      .login-sign-up
+        %p.login-sign-up__remarks アカウントをお持ちでない方はこちら
+        =link_to "/users/sign_up", class: "login-sign-up__btn" do
+          新規会員登録
+      .login-api
+        =link_to root_path, class: "login-api__facebook" do
+          %i.fab.fa-facebook-square
+          %span Facebookでログイン
+        =link_to root_path, class: "login-api__google" do
+          Googleでログイン
+      =form_with url: root_path do |f|
+        .login-form
+          =f.text_field :email, class: "login-form__text-field", placeholder: "メールアドレス"
+          =f.text_field :password, class: "login-form__text-field", placeholder: "パスワード"
+          .login-form__recaptcha
+          //apiで実装
+          =f.submit "ログイン", class: "btn"
+          =link_to root_path, class: "login-form__remarks" do
+            パスワードお忘れの方
