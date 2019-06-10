@@ -7,7 +7,7 @@
         %a メルカリ利用規約
       %li
         %a 特定商取引に関する表記
-  %a.devise-footer__logo
+  =link_to root_path, class: "devise-footer__logo" do
     =image_tag "devise-footer-logo.svg", html: { class: "devise-footer__logo--image"}
   %p.devise-footer__copyright
     %small ©︎2019 Mercari
