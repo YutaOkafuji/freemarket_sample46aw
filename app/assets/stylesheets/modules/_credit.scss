@@ -1,0 +1,88 @@
+.credit-main{
+  float: right;
+  width: 700px;
+  background: $white;
+  
+  .credit-content{
+    background: $white;
+
+    &__head{
+      font-size: 24px;
+      padding: 8px 24px;
+      border-bottom: 1px solid $mypage-white;
+      text-align: center;
+    }
+
+    &__menu{
+      padding: 64px;
+      border-top: 1px solid $mypage-white;
+
+      .credit-single-content{
+        @include centering();
+        max-width: 320px;
+        
+        .sub-head{
+          font-size: 16px;
+        }
+      }
+
+      .settings-add-card{
+        padding: 24px 0;
+        border-bottom: 1px solid $mypage-gray;
+        
+        a{
+          margin-bottom: 8px !important;
+        }
+        
+        i{
+          margin-right: 16px;
+          font-size: 16px;
+        }
+
+        .btn-red{
+          background: $red;
+          border: 1px solid $red;
+          color: $white;
+        }
+
+        .btn-default{
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          -webkit-transition: all ease-out 0.3s;
+          transition: all ease-out 0.3s;
+          cursor: pointer;
+          text-align: center;
+        }
+
+        a:hover{
+          text-decoration: none;
+        }
+      }
+
+      .credit--not-regist{
+        a{
+          display: block;
+          margin: 40px 0 0;
+          text-align: right;
+
+          span{
+            vertical-align: middle;
+          }
+
+          i{
+            vertical-align: middle;
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  a:hover{
+    text-decoration: underline;
+    opacity: 0.7;
+  }
+}
