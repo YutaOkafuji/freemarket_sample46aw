@@ -22,6 +22,7 @@
             ドラッグアンドドロップ
             %br
             またはクリックしてファイルをアップロード
+        -#  ToDo バリデーションのエラーメッセージを表示する 
       .sell-content
         .sell-content__form-group
           %label
@@ -29,6 +30,7 @@
             %span.required
               必須
           =f.text_field :name, class: "sell-content__form-group--input", placeholder: "商品名（必須40文字まで）"
+          -#  ToDo バリデーションのエラーメッセージを表示する 
         .sell-content__form-group
           %label
             商品の説明
@@ -62,6 +64,7 @@
                   %option{value: "12"}自転車・オートバイ
                   %option{value: "13"}その他
                 %i.fas.fa-chevron-down
+              -#  ToDo バリデーションのエラーメッセージを表示する 
             %li.form-group
               %label
                 商品の状態
@@ -77,6 +80,7 @@
                   %option{value: "5"}傷や汚れあり
                   %option{value: "6"}全体的に状態が悪い
                 %i.fas.fa-chevron-down
+              -#  ToDo バリデーションのエラーメッセージを表示する 
       .sell-content.clearfix
         %h1.left-section
           配送について
@@ -94,6 +98,7 @@
                   %option{value: "1"}送料込み(出品者負担)
                   %option{value: "2"}着払い(購入者負担)
                 %i.fas.fa-chevron-down
+              -#  ToDo バリデーションのエラーメッセージを表示する 
             %li.form-group
               %label
                 配送元の地域
@@ -102,6 +107,7 @@
               .select-section
                 =f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: "form-select"}
                 %i.fas.fa-chevron-down
+              -#  ToDo バリデーションのエラーメッセージを表示する 
             %li.form-group
               %label
                 配送までの日数
@@ -114,6 +120,7 @@
                   %option{value: "2"}2〜3日で発送
                   %option{value: "3"}3〜7日で発送
                 %i.fas.fa-chevron-down
+              -#  ToDo バリデーションのエラーメッセージを表示する 
       .sell-content.clearfix
         %h1.left-section
           販売価格(300〜9,999,999)
@@ -130,6 +137,7 @@
               .price-form__right-section
                 ¥
                 =f.text_field :price, class: "input-form", placeholder: "例)300"
+            -#  ToDo バリデーションのエラーメッセージを表示する 
             %li.price-form
               %p.price-form__left-side 販売手数料(10%)
               %p.price-form__right-side -
