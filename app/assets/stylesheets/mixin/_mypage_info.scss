@@ -1,0 +1,147 @@
+@mixin mypage-info-tabs($tab_number: 2) {
+  .mypage-info__tabs{
+    border: 0;
+    background: $mypage-gray;
+    font-size: 0;
+    
+    a{
+      position: relative;
+      display: block;
+      color: $black;
+      font-size: 16px;
+      line-height: 72px;
+    }
+
+    a:hover{
+      text-decoration: none;
+    }
+    
+    li{
+      width: (100% / $tab_number);
+      display: inline-block;
+      text-align: center;
+      vertical-align: top;
+    }
+    
+    li.active{
+      background: $white;
+      
+      a{
+        border-top: 2px solid $red;
+      }
+    }
+  }
+}
+
+@mixin mypage-info-head(){
+  .mypage-info__head{
+    padding: 0 16px;
+    background: $mypage-white;
+    font-size: 16px;
+    line-height: 72px;
+  }
+}
+
+@mixin mypage-info-tab-content(){
+  .mypage-info__tab-content{
+    
+    a:hover{
+      text-decoration: none;
+    }
+
+    .mypage-info-list{
+      display: block;
+      
+      .mypage-info-card{
+        position: relative;
+        height: 80px;
+        
+        &__link{
+          display: block;
+          padding: 16px;
+          color: $black;
+          
+          figure{
+            overflow: hidden;
+            float: left;
+            width: 48px;
+            height: 48px;
+            margin: 0;
+          }
+          
+          .card-body{
+            margin: 0 40px 0 68px;
+            
+            &__text{
+              overflow: hidden;
+              display: block;
+              max-height: 4.4em;
+              text-overflow: ellipsis;
+              line-height: 1.5;
+            }
+            
+            time{
+              display: inline-block;
+              color: $mypage-icon;
+              
+              i.fa-clock{
+                margin: 0 8px 0 0;
+              }
+            }
+          }
+          
+          i.fa-chevron-right{
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+          }
+        }
+      }
+
+      .mypage-info-card:hover{
+        background: #fafafa;
+        opacity: 1;
+        text-decoration: none;
+      }
+
+      .mypage-info-card--not-found{
+        padding: 160px 0 60px;
+        background: url("logo-gray-icon.svg");
+        background-repeat: no-repeat;
+        background-position: center 40px;
+        background-size: 78px 85px;
+        text-align: center;
+        font-size: 16px;
+        color: $lightgray;
+      }
+      
+      li{
+        border-bottom: 1px solid $mypage-gray;
+      }
+  
+      li:last-child{
+        border: 0;
+      }
+      
+      .mypage-item__go-list{
+        padding: 16px;
+        
+        a{
+          @include centering();
+          display: block;
+          height: 56px;
+          background: $mypage-gray;
+          color: $black;
+          line-height: 56px;
+          text-align: center;
+        }
+
+        a:hover{
+          background: $mypage-white;
+        }
+      }
+    }
+  }
+}

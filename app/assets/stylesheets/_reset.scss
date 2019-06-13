@@ -1,3 +1,4 @@
+@import"config/valiable";
 /*!
  * YUI 3.5.0 - reset.css (http://developer.yahoo.com/yui/3/cssreset/)
  * http://cssreset.com
@@ -9,8 +10,8 @@
     TODO with the prefix, should I group by selector or property for weight savings?
 */
 html{
-  color:#000;
-  background:#FFF;
+  color: $black;
+  background: $main_background;
 }
 /*
   TODO remove settings on BODY since we can't namespace it.
