@@ -1,0 +1,19 @@
+%main.mypage-main
+  .credit-main
+    %section.credit-content
+      %h2.bold.credit-content__head 支払い方法
+      .credit-content__menu
+        %section
+          .credit-single-content
+            %h3.sub-head クレジットカード一覧
+          %ul.credit-list
+        %section.settings-add-card
+          .credit-single-content
+            =link_to new_credit_path, class: "btn-default btn-red submit-button" do
+              %i.far.fa-credit-card
+              クレジットカードを追加する
+        .credit--not-regist
+          =link_to users_path do
+            %span 支払方法について
+            %i.fas.fa-chevron-right
+  =render "users/mypage_side_bar"
