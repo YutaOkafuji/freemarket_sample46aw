@@ -1,0 +1,99 @@
+.item-detail-container{
+  @include centering;
+  position: relative;
+  background: $white;
+  width: 700px;
+  padding: 24px 40px 40px;
+  margin-top: 40px;
+  h1{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .item-detail-content{
+    @include clearfix;
+    margin: 16px 0 0 ;
+    &__photo{
+      @include centering;
+      float: left;
+      position: relative;
+      min-width: 300px;
+      max-width: 300px;
+      min-height: 420px;
+      background-color: $mypage-white;
+      &--big{
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        width: auto;
+        display: block;
+      }
+      &--small{
+        position: absolute;
+        width: 300px;
+        top: 300px;
+        margin: 0;
+        padding: 0;
+        left: 2px;
+        img{
+          line-height: 0%;
+          display: inline-block;
+          text-align: center;
+          margin: 0 -2px;
+        }
+      }
+    }
+    &__detail-table{
+      float:right;
+      max-width: 300px;
+      height: 420px;
+      margin:0 auto ;
+      border-collapse: collapse;
+      border: 1px solid $mypage-white;
+      th{
+        width: 39%;
+        text-align: left;
+        font-weight: 400;
+        background-color: $mypage-white;
+        padding: 8px;
+        border: 1px solid $mypage-white;
+        
+      }
+      td{
+        width: 61%;
+        background: $white;
+        padding: 8px;
+        border: 1px solid $mypage-white;
+        .user-rating{
+          margin-top: 10px;
+          &__inner{
+            margin-right: 16px;
+            display: inline-block;
+            vertical-align: middle;
+            i{
+              font-size: 16px;
+            }
+            .good{
+              color:#ef5185;
+            }
+            .normal{
+              color: #fba933;
+            }
+            .bad{
+              color: #6ab5d8;
+            }
+          }
+        }
+      }
+    }
+
+  }
+  // .item-price-box{
+  //   margin: 24px 0 0;
+  //   text-align: center;
+    
+  // }
+}

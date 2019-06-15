@@ -2,6 +2,18 @@
   %h1 品名
   .item-detail-content
     .item-detail-content__photo
+      = image_tag 'http://via.placeholder.com/225x300', class:'item-detail-content__photo--big'
+      .item-detail-content__photo--small
+        = image_tag 'http://via.placeholder.com/60x60'
+        = image_tag 'http://via.placeholder.com/60x60'
+        = image_tag 'http://via.placeholder.com/60x60'
+        = image_tag 'http://via.placeholder.com/60x60'
+        = image_tag 'http://via.placeholder.com/60x60'
+        = image_tag 'http://via.placeholder.com/60x60'
+        = image_tag 'http://via.placeholder.com/60x60'
+        = image_tag 'http://via.placeholder.com/60x60'
+        = image_tag 'http://via.placeholder.com/60x60'
+        = image_tag 'http://via.placeholder.com/60x60'
     .item-detail-content__detail-table
       %table
         %tbody
@@ -10,16 +22,15 @@
             %td 
               メルカリ売り太郎
               .user-rating
-                .user-rating--inner
-                  %i.icon-good
-                  %span 100
-                .user-rating--inner
-                  %i.icon-normal
-                  %span 100
-                .user-rating--inner
-                  %i.icon-bad
-                  %span 100
- 
+                .user-rating__inner
+                  %i.fas.fa-grin.good
+                  %span 0
+                .user-rating__inner
+                  %i.fas.fa-meh.normal
+                  %span 0
+                .user-rating__inner
+                  %i.fas.fa-frown-open.bad
+                  %span 0
           %tr
             %th カテゴリ
             %td カテゴリ名
@@ -28,7 +39,7 @@
             %td ブランド名
           %tr
             %th 商品の状態
-            %td やや傷や汚れあり
+            %td ボッロボロ
           %tr
             %th 配送料の負担
             %td 送料込み(出品者負担)
