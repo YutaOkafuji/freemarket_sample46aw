@@ -107,4 +107,29 @@
       display: inline-block;
     }
   }
+
+  .sales-balance{
+    text-align: center;
+    &__messages{
+      display: inline-block;
+      background: #05B0B4;
+      position: relative;
+      line-height: 1.5;
+      margin-top: 20px;
+      padding: 8px;
+      border-radius: 4px;
+      color: $white;
+      &:after{
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 7.5px 0 7.5px;
+        border-color: #05B0B4 transparent transparent transparent;
+      }
+    }
+  }
 }

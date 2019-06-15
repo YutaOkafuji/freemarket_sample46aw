@@ -56,8 +56,10 @@
     %span.item-price-box__price ¥ 6,800
     %span.item-price-box__tax (税込)
     %span.item-price-box__shipping-fee 送料込み
-  .sales-balance-massages 残高 ¥ 256をお持ちです
-  -# =link_to(購入画面に進む,) class:"item-buy-btn"
+  .sales-balance
+    .sales-balance__messages 残高 ¥ 256をお持ちです
+  -# =link_to "購入画面に進む",{controller: "deals", action: "show"},{class:"item-buy-btn"}
+  =link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
   .item-description
     .item-description__inner
       %p めっちゃくちゃやす〜〜〜〜〜〜〜い！ほし〜〜〜〜〜〜〜〜〜い！
