@@ -72,3 +72,9 @@ h2 {
 h3{
   font-size: 22px;
 }
+
+select {
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
