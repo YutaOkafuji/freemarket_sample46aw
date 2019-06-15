@@ -24,41 +24,66 @@
         .sub-head{
           font-size: 16px;
         }
-      }
+        
+        .form-group{
+          margin: 40px 0 0;
 
+          &:first-child{
+            margin: 0;
+          }
+
+          label{
+              font-weight: 600;
+          }
+
+          select{
+            width: 100%;
+          }
+          
+          .select-section{
+            @include select-section(35%);
+            display: inline-block;  
+          }
+
+          .select-section+span{
+            margin: 0 8px;
+          }
+
+          .input-default{
+            margin-top: 8px;
+            @include input-default;
+          }
+
+          .card-list{
+            margin: 8px 0 0;
+            font-size: 0;
+            
+            li{
+              display: inline-block;
+              margin: 0 0 0 8px;
+              vertical-align: middle;
+              
+              &:first-child{
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
       .settings-add-card{
         padding: 24px 0;
         border-bottom: 1px solid $mypage-gray;
         
         a{
           margin-bottom: 8px !important;
+          &:hover{
+            text-decoration: none;
+          }
         }
         
         i{
           margin-right: 16px;
           font-size: 16px;
-        }
-
-        .btn-red{
-          background: $red;
-          border: 1px solid $red;
-          color: $white;
-        }
-
-        .btn-default{
-          display: block;
-          width: 100%;
-          line-height: 48px;
-          font-size: 14px;
-          border: 1px solid transparent;
-          -webkit-transition: all ease-out 0.3s;
-          transition: all ease-out 0.3s;
-          cursor: pointer;
-          text-align: center;
-        }
-
-        a:hover{
-          text-decoration: none;
         }
       }
 
@@ -86,3 +111,28 @@
     opacity: 0.7;
   }
 }
+
+.btn-default{
+  @include btn-default;
+  margin: 40px 0 0;
+}
+
+.required{
+  @include required;
+}
+.about-seqcode{
+  position: relative;
+  margin: 8px 0 0;
+
+  &__text{
+    text-align: right;
+    color: $blue;
+    a:hover{
+
+    }
+    .form-question{
+      @include form-question;
+    }
+  }
+}
+  

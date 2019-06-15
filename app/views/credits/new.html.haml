@@ -1,0 +1,77 @@
+%main.mypage-main
+  .credit-main
+    %section.credit-content
+      %h2.bold.credit-content__head クレジットカード情報入力
+      =form_with(local: true, class: "credit-content__menu") do |f|  
+        .credit-single-content
+          .form-group
+            %label カード番号
+            %span.required 必須
+            =f.text_field :card_num, class: "input-default", placeholder: "半角数字のみ", maxlength: 19
+            %ul.card-no-error
+              -# %li 必須項目です
+            %ul.card-list
+              %li
+                =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3632242607", width: 49, height: 20, alt: ""
+              %li
+                =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3632242607", width: 34, height: 20, alt: ""
+              %li
+                =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?3632242607", width: 30, height: 20, alt: ""
+              %li
+                =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?3632242607", width: 32, height: 20, alt: ""
+              %li
+                =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?3632242607", width: 21, height: 20, alt: ""
+              %li
+                =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?3632242607", width: 32, height: 20, alt: ""
+              %li
+                =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?3632242607", width: 32, height: 20, alt: ""
+          .form-group
+            %label 有効期限
+            %span.required 必須
+            %br
+            .select-section
+              %select.form-select
+                %option{ value: "1" }01
+                %option{ value: "2" }02
+                %option{ value: "3" }03
+                %option{ value: "4" }04
+                %option{ value: "5" }05
+                %option{ value: "6" }06
+                %option{ value: "7" }07
+                %option{ value: "8" }08
+                %option{ value: "9" }09
+                %option{ value: "10" }10
+                %option{ value: "11" }11
+                %option{ value: "12" }12
+              %i.fas.fa-chevron-down
+            %span 月
+            %ul
+            .select-section
+              %select.form-select
+                %option{ value: "19" }19
+                %option{ value: "20" }20
+                %option{ value: "21" }21
+                %option{ value: "22" }22
+                %option{ value: "23" }23
+                %option{ value: "24" }24
+                %option{ value: "25" }25
+                %option{ value: "26" }26
+                %option{ value: "27" }27
+                %option{ value: "28" }28
+                %option{ value: "29" }29
+              %i.fas.fa-chevron-down
+            %span 年
+            %ul
+          .form-group
+            %label セキュリティコード
+            %span.required 必須
+            =f.text_field :card_num, class: "input-default", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: 4
+            %ul.has-error-text
+              -# %li 必須項目です
+            .about-seqcode
+              .about-seqcode__text
+                %span.form-question ?
+                カード裏面の番号とは？
+                =link_to new_credit_path, class: "btn-default submit-button" do
+                  追加する
+  =render "users/mypage_side_bar"
