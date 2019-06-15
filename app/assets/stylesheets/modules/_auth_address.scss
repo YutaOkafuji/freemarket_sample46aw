@@ -1,0 +1,77 @@
+.auth-info-content{
+  width: 700px;
+  float: right;
+  background-color: $white;
+
+  .auth-info{
+
+    .auth-title{
+      font-size: 24px;
+      font-weight: bold;
+      padding: 8px 24px;
+      text-align: center;
+      border-bottom: 1px solid $main_background;
+      line-height: 1.4;
+    }
+
+    .auth-form{
+      padding: 64px;
+
+      .form-remarks{
+
+        p{
+          line-height: 1.5;
+          font-size: 14px;
+        }
+
+        .form-remarks__link{
+          margin: 8px 0 0;
+          line-height: 1.5;
+          font-size: 14px;
+          float: right;
+        }
+
+      }
+
+      .form-contents{
+        margin: 40px 0 0;
+
+        .form-contents__label{
+          font-weight: 600;
+          display: inline-block;
+          font-size: 14px;
+        }
+
+        p{
+          margin: 8px 0 0;
+          line-height: 1.5;
+          font-size: 14px;
+        }
+
+        span{
+          @include required($color: $lightgray);
+        }
+
+        input{
+          @include input-default;
+          margin: 8px 0 0;
+        }
+        .select-section{
+          @include select-section;
+        }
+      }
+      .form-submit{
+        margin: 40px 0 0;
+        @include btn-default;
+      }
+
+      .form-remarks__link{
+        margin: 8px 0 0;
+        line-height: 1.5;
+        font-size: 14px;
+        float: right;
+      }
+
+    }
+  }
+}
