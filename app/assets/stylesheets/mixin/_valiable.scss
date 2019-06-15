@@ -14,3 +14,13 @@
   cursor: pointer;
   text-align: center;
 }
+
+@mixin required($color: $red){
+  margin-left: 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  background: $color;
+  color: $white;
+  font-size: 12px;
+  vertical-align: text-top;
+}
