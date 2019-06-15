@@ -132,4 +132,13 @@
       }
     }
   }
+  .item-buy-btn{
+    @include btn-default($font-size: 24px,$line-height: 60px,);
+    font-weight: 600;
+    margin-top: 16px;
+    border-radius: 4px; 
+    height: 60px;
+  }
+
+  
 }
