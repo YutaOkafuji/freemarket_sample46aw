@@ -3,8 +3,8 @@
   margin-right: auto;
 }
 
-@mixin btn-default( $size: 14px, $color: $red, $font-color: $white, $line-height: 48px ) {
-  font-size: $size;
+@mixin btn-default( $font-size: 14px, $font-color: $white, $color: $red, $line-height: 48px ) {
+  font-size: $font-size;
   background: $color;
   border: 1px solid $color;
   color: $font-color;
