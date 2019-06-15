@@ -2,3 +2,25 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+@mixin btn-default( $size: 14px, $color: $red, $font-color: $white, $line-height: 48px ) {
+  font-size: $size;
+  background: $color;
+  border: 1px solid $color;
+  color: $font-color;
+  display: block;
+  width: 100%;
+  line-height: $line-height;
+  cursor: pointer;
+  text-align: center;
+}
+
+@mixin required($color: $red){
+  margin-left: 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  background: $color;
+  color: $white;
+  font-size: 12px;
+  vertical-align: text-top;
+}
