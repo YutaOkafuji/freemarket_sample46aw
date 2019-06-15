@@ -91,9 +91,20 @@
     }
 
   }
-  // .item-price-box{
-  //   margin: 24px 0 0;
-  //   text-align: center;
-    
-  // }
+  .item-price-box{
+    margin: 24px 0 0;
+    text-align: center;
+    &__price{
+      margin-right: 16px;
+      font-size: 50px;
+      font-weight: 600;
+    }
+    &__tax{
+      font-size: 10px;
+    }
+    &__shipping-fee{
+      font-size: 16px;
+      display: inline-block;
+    }
+  }
 }
