@@ -1,5 +1,5 @@
 class CreditsController < ApplicationController
-  def show
+  def index
   end
 
   def new
