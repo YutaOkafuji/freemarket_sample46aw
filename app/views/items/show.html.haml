@@ -56,10 +56,14 @@
     %span.item-price-box__price ¥ 6,800
     %span.item-price-box__tax (税込)
     %span.item-price-box__shipping-fee 送料込み
+  -# if "itemのsale_statusが1の時下の２行を表示させる"
   .sales-balance
     .sales-balance__messages 残高 ¥ 256をお持ちです
-  -# =link_to "購入画面に進む",{controller: "deals", action: "show"},{class:"item-buy-btn"}
+  -# dealコントローラとを作成した時に下のcontrollerをitemsからdealsに変更する。
   =link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
+  -# -unless "itemのsale_statusが1"
+    .item-buy-btn--disabled 売り切れました
+
   .item-description
     %p.item-description__inner
       めっちゃくちゃやす〜〜〜〜〜〜〜い！ほし〜〜〜〜〜〜〜〜〜い！
@@ -81,8 +85,13 @@
 .item-detail-message
   .message-container
     .message-content
+      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      -# if "sale_statusが１の時は以下を表示"
       =form_with(url: "https://kari",class: "message-content__form" ) do |f|
         = f.text_area :content
         = f.button ("コメントする")
+        -# elseの時は以下を表示させ、コメントできないようにする。
+        -# %textarea{disabled: "disabled", name: "content"}
+        -# %button{disabled: "disabled"}売り切れの為コメントできません
       .message-content__submit-btn
-  /売り切れた時コメントできないようにjsを書くこと。
+

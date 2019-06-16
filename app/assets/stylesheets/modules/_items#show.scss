@@ -144,6 +144,15 @@
     border-radius: 4px; 
     height: 60px;
   }
+  .item-buy-btn--disabled{
+    @include btn-default($font-size: 24px,$line-height: 60px,$color: $mypage-icon,);
+    font-weight: 600;
+    margin-top: 16px;
+    border-radius: 4px; 
+    height: 60px;
+    background-color: $mypage-icon;
+    cursor: not-allowed;
+      }
   .item-description{
     padding-top: 32px;
     line-height: 1.5;
@@ -194,3 +203,32 @@
 
       }
     }
+.item-detail-message{
+  width: 700px;
+  margin: 8px auto;
+  .message-container{
+    .message-content{
+      padding: 24px;
+      background: $white;
+      p{
+        padding: 8px;
+        font-size: 14px;
+        background: #fff6de;  
+      }
+      textarea{ 
+        width: 667px;
+        height: 104px;
+        margin: 8px 0 0 ;
+        @include textarea-default();
+      }
+      button{
+        margin: 8px 0 0 ;
+        @include btn-default($color: $deepgray,);
+        &:disabled{
+          background: $mypage-icon;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
