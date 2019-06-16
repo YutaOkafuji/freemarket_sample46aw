@@ -7,8 +7,9 @@
           .form-group
             %label カード番号
             %span.required 必須
-            =f.text_field :card_num, class: "input-default", placeholder: "半角数字のみ", maxlength: 19
-            %ul.card-no-error
+            -# todo バリデーション input要素とli要素のカラーを赤くする
+            =f.text_field :card_num, id: "credit-input", class: "input-default", placeholder: "半角数字のみ", maxlength: 19, pattern:"[0-9]*"
+            %ul.error-no-number
               -# %li 必須項目です
             %ul.card-list
               %li
@@ -65,8 +66,9 @@
           .form-group
             %label セキュリティコード
             %span.required 必須
+            -# todo バリデーション input要素とli要素のカラーを赤くする
             =f.text_field :card_num, class: "input-default", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: 4
-            %ul.has-error-text
+            %ul.error-no-text
               -# %li 必須項目です
             .about-seqcode
               .about-seqcode__text
@@ -75,3 +77,4 @@
                 =link_to new_credit_path, class: "btn-default submit-button" do
                   追加する
   =render "users/mypage_side_bar"
+  

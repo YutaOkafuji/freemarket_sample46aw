@@ -3,6 +3,18 @@
   width: 700px;
   background: $white;
   
+  .required{
+    @include required;
+  }
+
+  .btn-default{
+    @include btn-default;
+  }
+
+  .form-question{
+    @include form-question;
+  }
+  
   .credit-content{
     background: $white;
 
@@ -27,15 +39,15 @@
         
         .form-group{
           margin: 40px 0 0;
-
+          
           &:first-child{
             margin: 0;
           }
 
           label{
               font-weight: 600;
-          }
-
+            }
+          
           select{
             width: 100%;
           }
@@ -68,12 +80,34 @@
               }
             }
           }
+
+          .about-seqcode{
+            position: relative;
+            margin: 8px 0 0;
+          
+            &__text{
+              text-align: right;
+              color: $blue;
+              a:hover{
+          
+              }
+              .btn-default{
+                margin: 40px 0 0;
+              }
+              
+            }
+          }
         }
       }
+
       .settings-add-card{
         padding: 24px 0;
         border-bottom: 1px solid $mypage-gray;
         
+        .btn-default{
+          margin: 0;
+        }
+
         a{
           margin-bottom: 8px !important;
           &:hover{
@@ -111,28 +145,3 @@
     opacity: 0.7;
   }
 }
-
-.btn-default{
-  @include btn-default;
-  margin: 40px 0 0;
-}
-
-.required{
-  @include required;
-}
-.about-seqcode{
-  position: relative;
-  margin: 8px 0 0;
-
-  &__text{
-    text-align: right;
-    color: $blue;
-    a:hover{
-
-    }
-    .form-question{
-      @include form-question;
-    }
-  }
-}
-  
