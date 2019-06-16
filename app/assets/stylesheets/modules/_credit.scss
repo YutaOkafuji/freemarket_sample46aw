@@ -33,6 +33,12 @@
         @include centering();
         max-width: 320px;
         
+        .btn-default{
+          border: 1px solid transparent;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+        }
+
         .sub-head{
           font-size: 16px;
         }
@@ -89,7 +95,8 @@
               text-align: right;
               color: $blue;
               a:hover{
-          
+                text-decoration: none;
+                opacity: 1;
               }
               .btn-default{
                 margin: 40px 0 0;
