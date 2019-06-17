@@ -3,13 +3,16 @@
     %section.credit-content
       %h2.bold.credit-content__head クレジットカード情報入力
       =form_with(local: true, class: "credit-content__menu") do |f|  
-        .credit-single-content
+        .single-content
+          -# 余裕があればtodo クレジットカードの有効期限が間違いがあった場合の文言を表示させる。
+             %p.error-text カードの有効期限に謝りがあるために、決済を完了できませんでした。有効期間を再度確認してください。
           .form-group
             %label カード番号
             %span.required 必須
             -# todo バリデーション input要素とli要素のカラーを赤くする
-            =f.text_field :card_num, id: "credit-input", class: "input-default", placeholder: "半角数字のみ", maxlength: 19, pattern:"[0-9]*"
-            %ul.error-no-number
+               inputの枠の色のcssは_credit.scssのform-group__errorクラスで設定済み
+            =f.text_field :credit_num, id: "credit-input", class: "input-default", placeholder: "半角数字のみ", maxlength: 19, pattern:"[0-9]*"
+            %ul.form-group__error--no-num
               -# %li 必須項目です
             %ul.card-list
               %li
@@ -67,14 +70,18 @@
             %label セキュリティコード
             %span.required 必須
             -# todo バリデーション input要素とli要素のカラーを赤くする
-            =f.text_field :card_num, class: "input-default", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: 4
-            %ul.error-no-text
+               inputの枠の色のcssは_credit.scssのform-group__errorクラスで設定済み
+            =f.text_field :security_code, class: "input-default", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: 4
+            %ul.form-group__error--no-text
               -# %li 必須項目です
             .about-seqcode
-              .about-seqcode__text
+              .about-seqcode__text{ id: "show-tips-toggle" }
                 %span.form-question ?
                 カード裏面の番号とは？
-                =link_to new_credit_path, class: "btn-default submit-button" do
-                  追加する
+              .about-seqcode__info
+                カードの裏面をご参照ください
+                %br
+                =image_tag "https://www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?1612736639", width: 240, alt:""
+            =f.submit "追加する", class: "btn-default submit-button"
   =render "users/mypage_side_bar"
   
