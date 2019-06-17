@@ -72,6 +72,20 @@
             @include input-default;
           }
 
+          &__error.input-default{
+            border-color: $red;
+          }
+
+          &__error--no-text,&__error--no-num{
+            color: #ea352d;
+            line-height: 1.5;
+            font-size: 14px;
+
+            li{
+              margin: 8px 0 0;
+            }
+          }
+
           .card-list{
             margin: 8px 0 0;
             font-size: 0;
@@ -101,8 +115,42 @@
               .btn-default{
                 margin: 40px 0 0;
               }
-              
             }
+            &__info{
+              display: none;
+              position: absolute;
+              left: 0;
+              right: 0;
+              top: 28px;
+              z-index: 1;
+              padding: 16px;
+              border-radius: 6px;
+              background: #eee;
+              color: #333;
+              line-height: 1.5;
+              text-align: center;
+
+              &:before{
+                display: block;
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                top: -8px;
+                right: 32px;
+                border-width: 0 8px 8px 8px;
+                border-color: transparent transparent #eee transparent;
+              }
+
+              img{
+                margin-top: 8px;
+              }
+            }
+          }
+
+          .submit-button{
+            margin-top: 40px
           }
         }
       }
