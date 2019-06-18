@@ -11,7 +11,7 @@
             %span.required 必須
             -# todo バリデーション input要素とli要素のカラーを赤くする
                inputの枠の色のcssは_credit.scssのform-group__errorクラスで設定済み
-            =f.text_field :credit_num, id: "credit-input", class: "input-default", placeholder: "半角数字のみ", maxlength: 19, pattern:"[0-9]*"
+            =f.text_field :credit_num, id: "credit-input", class: "input-default", placeholder: "半角数字のみ", maxlength: 19
             %ul.form-group__error--no-num
               -# %li 必須項目です
             %ul.card-list
