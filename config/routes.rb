@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :profiles, only: :new
   resources :users, only: :index
   resources :credits, only: %i[index new]
+  resources :items, only: :new
 end
