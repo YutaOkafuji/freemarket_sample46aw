@@ -34,12 +34,12 @@
             %span.required 必須
             %br
             .select-section
-              = f.select :month, (1..12).map{ |month| [ sprintf("%02d", month) , month.to_s ] }, {}, {class: "form-select"}
+              = f.select :month, (1..12).map{ |month| [ sprintf("%02d", month) , month ] }, {}, {class: "form-select"}
               %i.fas.fa-chevron-down
             %span 月
             %ul
             .select-section
-              = f.select :year, (19..29).map{ |year| [ sprintf("%02d", year) , year.to_s ] }, {}, {class: "form-select"}
+              = f.select :year, (19..29).map{ |year| [ sprintf("%02d", year) , year ] }, {}, {class: "form-select"}
               %i.fas.fa-chevron-down
             %span 年
             %ul
