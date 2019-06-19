@@ -6,4 +6,8 @@ class ItemsController < ApplicationController
   def show
   end
   
+  def new
+    render layout: "second_layout"
+  end
+
 end

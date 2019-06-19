@@ -1,0 +1,244 @@
+//ヘッダーはマスターへのマージ前に消去する
+.exhibition-header {
+  height: 128px;
+  width: 100%;
+  position: relative;
+  &__logo {
+    width: 185px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform : translate(-50%,-50%);
+    transform : translate(-50%,-50%);
+  }
+}
+
+.exhibition-main {
+  width: 100%;
+  &__container {
+    @include centering;
+    width: 700px;
+    background: $white;
+    .sell-head {
+      padding: 32px 16px;
+      font-size: 22px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .sell-content {
+      padding: 40px;
+      border-top: 1px solid $mypage-gray;
+      .required {
+        @include required;
+      }
+      &__upload-head {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__explanation {
+        margin-top: 8px;
+        font-size: 14px;
+      }
+      &__upload-box {
+        min-height: 162px;
+        margin-top: 16px;
+        padding: 40px;
+        border: 1px dashed $lightgray;
+        background: $main_background;
+        line-height: 1.5;
+        position: relative;
+        text-align: center;
+        cursor: pointer;
+        &--form {
+          display: none;
+        }
+        p {
+          color: $black;
+          vertical-align: middle;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform : translate(-50%,-50%);
+          transform : translate(-50%,-50%);
+          font-size: 14px;
+          font-family: monospace,monospace;
+        }
+      }
+      &__form-group {
+        &:nth-child(2) {
+          margin-top: 40px;
+        }
+        label {
+          font-size: 14px;
+          font-weight: bold;
+        }
+        &--input {
+          @include input-default;
+          margin-top: 8px;
+        }
+        &--textarea {
+          @include textarea-default;
+          margin-top: 8px;
+          resize: vertical;
+        }
+      }
+      &.clearfix {
+        @include clearfix;
+      }
+      .left-section {
+        float: left;
+        color: $mypage-icon;
+        font-weight: bold;
+        &__question {
+          @include form-question;
+        }
+      }
+      .right-section {
+        width: 400px;
+        float: right;
+        .form-group {
+          margin-top: 40px;
+          &:nth-child(1) {
+            margin-top: 0;
+          }
+          label {
+            font-size: 14px;
+            font-weight: bold;
+          }
+          .select-section {
+            @include select-section;
+          }
+        }
+        .price-form {
+          @include clearfix;
+          padding: 24px 0;
+          border-top: 1px solid $lightgray;
+          &:nth-child(1) {
+            padding-top: 0;
+            border: 0;
+          } 
+          &__left-section {
+            width: 50%;
+            height: 48px;
+            float: left;
+            position: relative;
+            &--label {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              font-weight: bold;
+            }
+          }
+          &__right-section {
+            width: 50%;
+            float: right;
+            text-align: right;
+            .input-form {
+              width: 80%;
+              height: 48px;
+              margin-left: 8px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid $lightgray;
+              text-align: right;
+            }
+          }
+          &__left-side {
+            float: left;
+            color: $black;
+            font-size: 14px;
+            &.bold {
+              font-size: 16px;
+              font-weight: 600;
+            }
+          }
+          &__right-side {
+            float: right;
+            color: $black;
+            font-size: 14px;
+            &.bold {
+              font-size: 34px;
+              font-weight: 600;
+            }
+          }
+        }
+
+      }
+      .caution {
+        line-height: 1.5;
+        p {
+          font-size: 14px;
+          a:hover {
+            text-decoration: underline;
+            opacity: 0.5;
+          }
+        }
+      }
+      .btn {
+        @include btn-default;
+        margin-top: 40px;
+      }
+      .gray-btn {
+        @include btn-default(14px, $white, $deepgray, 48px);
+        @include centering;
+        max-width: 320px;
+        margin-top: 24px;
+        &:hover {
+          -webkit-transition: 0.5s ease;
+          transition: 0.5s ease;
+          opacity: 0.7;
+        }
+        a {
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+//フッターはマスターへのマージ前に消去する
+.exhibition-footer {
+  height: 220px;
+  width: 100%;
+  &__container {
+    @include centering;
+    width: 456px;
+    height: 220px;
+    padding: 40px 0;
+    text-align: center;
+    .exhibition-navi {
+      display: inline-block;
+      text-align: center;
+      border: none;
+      ul {
+        @include clearfix;
+        border: none;
+        line-height: 12px;
+        li {
+          float: left;
+          margin-left: 16px;
+          border: none;
+          &:nth-child(1) {
+            margin-left: 0px;
+          }
+          a {
+            color: $black;
+            font-size: 12px;
+            border: none;
+          }
+        }
+      }
+    }
+    .exhibition-gray-logo {
+      @include centering;
+      display: block;
+      width: 85px;
+      height: 65px;
+      margin-top: 40px;
+    }
+    p {
+      margin-top: 8px;
+      font-size: 13px;
+    }
+  }
+}
