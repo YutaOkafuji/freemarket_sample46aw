@@ -216,7 +216,7 @@
         background: #fff6de;  
       }
       textarea{ 
-        resize: vertical;
+        width: 667px;
         height: 104px;
         margin: 8px 0 0 ;
         @include textarea-default();
