@@ -11,8 +11,8 @@
         var options = $.extend(defaults, config);
         return this.each(function(){
             $(this).bind('keyup blur', function(){
-                $(this).val($(this).val().replace(/[０-９]/g, function(s){return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
-                }));
+                // $(this).val($(this).val().replace(/[０-９]/g, function(s){return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+                // }));
                 $(this).val($(this).val().replace(/[^0-9]/g, ''));
             });
         });

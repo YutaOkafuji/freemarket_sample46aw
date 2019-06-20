@@ -48,7 +48,7 @@
             %span.required 必須
             -# todo バリデーション input要素とli要素のカラーを赤くする
                inputの枠の色のcssは_credit.scssのform-group__errorクラスで設定済み
-            =f.text_field :security_code, class: "input-default", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: 4
+            =f.text_field :security_code, id:"security-code", class: "input-default", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: 4
             %ul.form-group__error--no-text
               -# %li 必須項目です
             .about-security-code

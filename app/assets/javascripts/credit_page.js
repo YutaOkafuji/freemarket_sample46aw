@@ -5,6 +5,7 @@ $(document).on('turbolinks:load',function() {
   });
   
   $('#credit-input').onlyPhoneNumber();
+  $('#security-code').onlyNumeric();
 
   $('#show-tips-toggle').click(function(){
     $('.about-security-code__info').fadeToggle(300);
