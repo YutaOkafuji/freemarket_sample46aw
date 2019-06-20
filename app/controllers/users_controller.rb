@@ -3,9 +3,7 @@ class UsersController < ApplicationController
   end
 
   def new
-  end
-
-  def logout
+    render :new, layout: "second_layout"
   end
 
 end
