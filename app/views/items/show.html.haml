@@ -59,12 +59,12 @@
     %span.item-price-box__price ¥ 6,800
     %span.item-price-box__tax (税込)
     %span.item-price-box__shipping-fee 送料込み
-  -# if "itemのsale_statusが1の時下の２行を表示させる"
+  -#TODO if "itemのsale_statusが1の時下の２行を表示させる"
   .sales-balance
     .sales-balance__messages 残高 ¥ 256をお持ちです
-  -# dealコントローラとを作成した時に下のcontrollerをitemsからdealsに変更する。
+  -#TODO dealコントローラとを作成した時に下のcontrollerをitemsからdealsに変更する。
   =link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
-  -# -unless "itemのsale_statusが1"
+  -#T
     .item-buy-btn--disabled 売り切れました
 
   .item-description
@@ -87,22 +87,16 @@
         %i.fas.fa-lock
         %span あんしん・あんぜんへの取り組み
   -# ここまで
-=render partial: "show-edit-box" 
--# "if 出品者が自分"の条件を満たす時以下を表示
-.item-detail-message
-  .message-container
-    .message-content
-      -# %ul.message-content__items
-      -#   %li.message-content__item
-      -#     =link_to "avatar", root_path
-
-      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      -# if "sale_statusが１の時は以下を表示"
-      =form_with(url: "https://kari",class: "message-content__form" ) do |f|
-        = f.text_area :content
-        = f.button ("コメントする")
-        -# elseの時は以下を表示させ、コメントできないようにする。
-        -# %textarea{disabled: "disabled", name: "content"}
-        -# %button{disabled: "disabled"}売り切れの為コメントできません
-      .message-content__submit-btn
+-# =render partial: "show-edit-box" 
+=render partial: "comments/index"
+-#     %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+-#     -# if "sale_statusが１の時は以下を表示"
+-#     =form_with(url: "https://kari",class: "message-content__form" ) do |f|
+-#       = f.text_area :content
+-#       = f.button ("コメントする")
+    
+-#       -# elseの時は以下を表示させ、コメントできないようにする。
+-#       -# %textarea{disabled: "disabled", name: "content"}
+-#       -# %button{disabled: "disabled"}売り切れの為コメントできません
+-#     .message-content__submit-btn
 

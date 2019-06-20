@@ -1,0 +1,109 @@
+.item-detail-message{
+  width: 700px;
+  margin: 8px auto;
+  .message-container{
+    .message-content{
+      padding: 24px;
+      background: $white;
+      p{
+        padding: 8px;
+        font-size: 14px;
+        background: #fff6de;  
+      }
+      textarea{ 
+        resize: vertical;
+        height: 104px;
+        margin: 8px 0 0 ;
+        @include textarea-default();
+      }
+      button{
+        margin: 8px 0 0 ;
+        @include btn-default($color: $deepgray,);
+        &:disabled{
+          background: $mypage-icon;
+          cursor: not-allowed;
+        }
+      }
+      .message-content__items{
+        margin: 0;
+        list-style: none;
+        .message-item{
+          margin-top: 60px;
+          @include clearfix();
+          &__user{
+            float: left;
+            position: relative;
+            top: -20px;
+            display: inline-block;
+            color: $black;
+            &--image{
+              width: 40px;
+              height: 40px;
+              overflow: hidden;
+              border-radius: 50%;
+            }
+            &--name{
+              width: 600px;
+              min-width: 600px;
+              overflow: hidden;
+              position: absolute;
+              top: 0;
+              max-width: 100px;
+              height: 1.2em;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              &-left{
+                @extend .message-item__user--name;
+                left: 56px;
+              }
+              &-right{
+                left: auto;
+                right: 56px;
+                text-align: right;
+                @extend .message-item__user--name;
+              }
+            }
+          }
+          &__body{
+            width: 600px;
+            float: right;
+            position: relative;
+            padding: 16px;
+            background: #eef0f4;
+            border-radius: 15px;
+            line-height: 1.5;
+            word-break: break-all;
+            .icon-balloon{
+              position: absolute;
+              top: 8px;
+              left: -9px;
+              color: #eef0f4;
+            }
+          }
+          &__icon{
+            @include clearfix();
+            margin: 8px 0 0;
+            &--left{
+              display: block;
+              color: $deepgray;
+              float: left;
+              i{
+                vertical-align: middle;
+              }
+            }
+            &--right{
+              cursor: pointer;
+              display: inline-block;
+              color: $deepgray;
+              text-decoration: none;
+              float: right;
+              .delete{
+                margin:0 0 0 8px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

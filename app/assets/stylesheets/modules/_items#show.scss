@@ -203,32 +203,4 @@
 
       }
     }
-.item-detail-message{
-  width: 700px;
-  margin: 8px auto;
-  .message-container{
-    .message-content{
-      padding: 24px;
-      background: $white;
-      p{
-        padding: 8px;
-        font-size: 14px;
-        background: #fff6de;  
-      }
-      textarea{ 
-        resize: vertical;
-        height: 104px;
-        margin: 8px 0 0 ;
-        @include textarea-default();
-      }
-      button{
-        margin: 8px 0 0 ;
-        @include btn-default($color: $deepgray,);
-        &:disabled{
-          background: $mypage-icon;
-          cursor: not-allowed;
-        }
-      }
-    }
-  }
-}
+
