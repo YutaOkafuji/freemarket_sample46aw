@@ -57,3 +57,27 @@
     cursor: pointer;
   }
 }
+  
+@mixin form-question() {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: $blue;
+  color: $white;
+  line-height: 14px;
+  font-size: 12px;
+  text-align: center;
+}
+
+@mixin textarea-default(){
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 104px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+}
