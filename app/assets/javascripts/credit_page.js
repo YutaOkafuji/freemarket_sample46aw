@@ -7,6 +7,6 @@ $(document).on('turbolinks:load',function() {
   $('#credit-input').onlyPhoneNumber();
 
   $('#show-tips-toggle').click(function(){
-    $('.about-seqcode__info').fadeToggle(300);
+    $('.about-security-code__info').fadeToggle(300);
   });
 });
