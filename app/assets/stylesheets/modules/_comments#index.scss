@@ -5,25 +5,6 @@
     .message-content{
       padding: 24px;
       background: $white;
-      p{
-        padding: 8px;
-        font-size: 14px;
-        background: #fff6de;  
-      }
-      textarea{ 
-        resize: vertical;
-        height: 104px;
-        margin: 8px 0 0 ;
-        @include textarea-default();
-      }
-      button{
-        margin: 8px 0 0 ;
-        @include btn-default($color: $deepgray,);
-        &:disabled{
-          background: $mypage-icon;
-          cursor: not-allowed;
-        }
-      }
       .message-content__items{
         margin: 0;
         list-style: none;
@@ -42,42 +23,81 @@
               overflow: hidden;
               border-radius: 50%;
             }
-            &--name{
-              width: 600px;
-              min-width: 600px;
-              overflow: hidden;
-              position: absolute;
-              top: 0;
-              max-width: 100px;
-              height: 1.2em;
-              white-space: nowrap;
-              text-overflow: ellipsis;
-              &-left{
-                @extend .message-item__user--name;
-                left: 56px;
-              }
-              &-right{
-                left: auto;
-                right: 56px;
-                text-align: right;
-                @extend .message-item__user--name;
-              }
+            &--name-left{
+              @include message-item__user--name();
+              left: 56px;
             }
           }
           &__body{
-            width: 600px;
-            float: right;
-            position: relative;
-            padding: 16px;
-            background: #eef0f4;
-            border-radius: 15px;
-            line-height: 1.5;
-            word-break: break-all;
+            @include message-item__body();
             .icon-balloon{
               position: absolute;
-              top: 8px;
-              left: -9px;
+              top: 6px;
+              left: 28px;
               color: #eef0f4;
+              transform: scaleX(2.5) scaleY(1.5) rotateY(180deg) rotateZ(200deg);
+              font-size: 40px;
+              z-index: -1;
+            }
+          }
+          &__icon{
+            @include clearfix();
+            margin: 8px 0 0;
+            &--left{
+              display: block;
+              color: $deepgray;
+              float: left;
+              i{
+                vertical-align: middle;
+              }
+            }
+            &--right{
+              cursor: pointer;
+              display: inline-block;
+              color: $deepgray;
+              text-decoration: none;
+              float: right;
+              .delete{
+                margin:0 0 0 8px;
+              }
+            }
+          }
+        }
+        .message-my-item{
+          margin-top: 60px;
+          @include clearfix();
+          &__user{
+            @include message-item__user($float:right,$color:$red);
+            &--image{
+              width: 40px;
+              height: 40px;
+              overflow: hidden;
+              border-radius: 50%;
+            }
+            &--name{
+              @include message-item__user--name();
+              left: auto;
+              right: 56px;
+              text-align: right;
+              font-weight: 600;
+            }
+            &--seller{
+              background: #fbf0e6;
+              margin: 8px 0 0 ;
+              padding: 4px;
+              color: $black;
+            }
+          }
+          &__body{
+            @include message-item__body($background: #fbf0e6,$float: left);
+            .icon-balloon{
+              position: absolute;
+              top: 6px;
+              right: 28px;
+              color: #fbf0e6;
+              transform: scaleX(2.5) scaleY(1.5) rotateY(20deg) rotateZ(200deg);
+              font-size: 40px;
+              z-index: -1;  
             }
           }
           &__icon{
