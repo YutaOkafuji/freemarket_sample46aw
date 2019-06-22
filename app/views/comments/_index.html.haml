@@ -19,18 +19,18 @@
                 %i.delete.fas.fa-trash-alt
             %i.fas.fa-comment.icon-balloon
         -# else -
-        %li.message-my-item
-          .message-my-item__user
-            =image_tag 'member_photo_noimage_thumb.png',class: "message-my-item__user--image"
-            .message-my-item__user--name メルカリ売り太郎
-            .message-my-item__user--seller 出品者
-          .message-my-item__body
-            .message-my-item__body--text 無理！
-            .message-my-item__icon
-              .message-my-item__icon--left
+        %li.message-self-item
+          .message-self-item__user
+            =image_tag 'member_photo_noimage_thumb.png',class: "message-self-item__user--image"
+            .message-self-item__user--name メルカリ売り太郎
+            .message-self-item__user--seller 出品者
+          .message-self-item__body
+            .message-self-item__body--text 無理！
+            .message-self-item__icon
+              .message-self-item__icon--left
                 %i.far.fa-clock
                 %span 9日前
-              .message-my-item__icon--right
+              .message-self-item__icon--right
                 %i.far.fa-flag 
                 -#TODO 出品者の場合にのみ削除ボタンを表示させるようにする。
                 %i.delete.fas.fa-trash-alt
@@ -45,4 +45,3 @@
         -# elseの時は以下を表示させ、コメントできないようにする。
         -# %textarea{disabled: "disabled", name: "content"}
         -# %button{disabled: "disabled"}売り切れの為コメントできません
-        

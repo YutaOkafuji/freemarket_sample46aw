@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    render layout: "layout_items_show"
   end
   
   def new
