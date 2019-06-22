@@ -30,6 +30,8 @@
         margin: auto;
         width: auto;
         display: block;
+        max-width: 300px;
+        max-height: 300px;
       }
       &--small{
         position: absolute;
