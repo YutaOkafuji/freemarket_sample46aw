@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :profiles, only: :new
   resources :users, only: :index
   resources :items
+  # usersをネストし、indexをshowに修正すること
+  resources :credits, only: %i[index new]
 end

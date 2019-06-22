@@ -19,6 +19,7 @@
 @import"config/*";
 @import"mixin/*";
 @import"modules/*";
+
 *{
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   box-sizing: border-box;
@@ -40,7 +41,13 @@ body{
 a{
   text-decoration: none;
   color: $blue;
+  
+  &:hover{
+    text-decoration: underline;
+    opacity: 0.7;
+  }
 }
+
 
 img{
   vertical-align: middle;
@@ -61,6 +68,10 @@ h2 {
 
 h3{
   font-size: 22px;
+}
+
+label{
+  display: inline-block;
 }
 
 select {
