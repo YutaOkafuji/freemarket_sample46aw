@@ -1,0 +1,46 @@
+%main.main
+  %section.purchase-cfm
+    %h2.purchase-cfm__title 購入内容の確認
+    %section.cfm-section
+      .cfm-section__product
+        %h3
+          =image_tag src: ""
+        %p コーチ ショルダーバッグ ウォレット ほぼ未使用！！
+        =form_with "", class: "cfm-form"
+          %p 
+            ¥ 8,000
+            %span 送料込み
+          %ul.cfm-form__point
+            .li
+              .point-btn ポイントはありません
+          %ul.cfm-form__amount
+            .li
+              .right-block 支払い金額
+              .left-block
+                %span ¥ 8,000
+          -# 住所と支払い方法が入っていない場合
+          %p.error-massage エラーメッセージ
+          f.submit "購入する", class: "cfm-form__btn"
+          
+    <section style="padding: 40px 12.5%; margin: 40px 0 0; border-top: 1px solid #f5f5f5;">
+      <div style="max-width: 320px; margin: 0 auto;">
+        <h3 style="font-size: 14px; font-weight: bold;">配送先</h3>
+        <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.4;"></p>
+        <a style="display: block; text-align: right;">
+          <span style="vertical-align: middle;"></span>
+          <i style="vertical-align: middle; margin: 0 0 0 8px; font-size: 10px;"></i>
+        </a>
+      </div>
+    </section>
+    <section style="padding: 40px 12.5%; margin: 40px 0 0; border-top: 1px solid #f5f5f5;">
+      <div style="max-width: 320px; margin: 0 auto;">
+        <h3 style="font-size: 14px; font-weight: bold;">支払い方法</h3>
+        <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.4;"></p>
+        <a style="display: block; text-align: right;">
+          <span style="vertical-align: middle;"></span>
+          <i style="vertical-align: middle; margin: 0 0 0 8px; font-size: 10px;"></i>
+        </a>
+      </div>
+    </section>
+  </section>
+</main>
