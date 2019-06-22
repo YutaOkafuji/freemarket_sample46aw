@@ -1,0 +1,48 @@
+@mixin message-content__items{
+  margin: 0;
+  list-style: none;
+}
+
+@mixin message-item{
+  margin-top: 60px;
+  @include clearfix();
+}
+
+@mixin message-item__user($float:left,$color:$black){
+  float:$float;
+  color:$color;
+  position: relative;
+  top: -20px;
+  display: inline-block;
+}
+
+@mixin message-item__user--image{
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;  
+}
+
+@mixin message-item__user--name(){
+  width: 600px;
+  min-width: 600px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  max-width: 100px;
+  height: 1.2em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin message-item__body($background:#eef0f4,$float:right){
+  width:600px;
+  float: $float;
+  position: relative;
+  padding: 16px;
+  background: $background;
+  border-radius: 15px;
+  line-height: 1.5;
+  word-break: break-all;
+  z-index: 0;
+}

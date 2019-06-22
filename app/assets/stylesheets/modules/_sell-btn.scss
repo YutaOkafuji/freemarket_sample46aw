@@ -1,0 +1,19 @@
+.top-sell-btn {
+  bottom: 32px;
+  right: 32px;
+  width: 160px;
+  height: 160px;
+  font-size: 22px;
+  position: fixed;
+  border-radius: 50%;
+  background: $red;
+  color: $white;
+  text-align: center;
+  div {
+    margin-top: 32px;
+  }
+  .fas {
+    margin-top: 3px;
+    font-size: 63px;
+  }
+}
