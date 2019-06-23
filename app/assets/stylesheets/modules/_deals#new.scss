@@ -25,7 +25,10 @@
       }
 
       image{
-        width: 148px;
+        max-width: 148px;
+        max-height: 148px;
+        min-width: 128px;
+        min-width: 128px;
       }
 
       .detail{
