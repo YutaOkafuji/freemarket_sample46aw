@@ -26,7 +26,7 @@
       .form-contents
         =f.label "郵便番号", class: "form-contents__label"
         %span 任意
-        =f.text_field :zip_code, class: "form-contents__input", placeholder: "例）1234567"
+        =f.text_field :zip_code, class: "form-contents__input", placeholder: "例)1234567"
       .form-contents
         =f.label "都道府県", class: "form-contents__label"
         %span 任意
@@ -36,15 +36,15 @@
       .form-contents
         =f.label "市区町村", class: "form-contents__label"
         %span 任意
-        =f.text_field :city, class: "form-contents__input", placeholder: "例）横浜市緑区"
+        =f.text_field :city, class: "form-contents__input", placeholder: "例)横浜市緑区"
       .form-contents
         =f.label "番地", class: "form-contents__label"
         %span 任意
-        =f.text_field :street_number, class: "form-contents__input", placeholder: "例）青山1-1-1"
+        =f.text_field :street_number, class: "form-contents__input", placeholder: "例)青山1-1-1"
       .form-contents
         =f.label "建物名", class: "form-contents__label"
         %span 任意
-        =f.text_field :building, class: "form-contents__input", placeholder: "例）柳ビル103"
+        =f.text_field :building, class: "form-contents__input", placeholder: "例)柳ビル103"
       =link_to "登録する", root_path, class: "form-submit"
       .form-contents
         %p.form-remarks__link
