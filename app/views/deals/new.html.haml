@@ -1,3 +1,4 @@
+-# コメントTodo header render
 %main.main
   %section.purchase-cfm
     %h2.purchase-cfm__title 購入内容の確認
@@ -18,9 +19,16 @@
               .left-block 支払い金額
               .right-block
                 %span ¥ 8,000
-          -# 住所と支払い方法が入っていない場合
-          %p.error-massage エラーメッセージ
+          -# 配送先と支払い方法の入力を完了してください。
+          -# この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+          %p.error-massage 配送先と支払い方法の入力を完了してください。
           =f.submit "購入する", class: "cfm-form__btn"
+          %p.no-appli-message アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
+          .logos
+            %a.app-store-logo
+              =image_tag "app-store.svg"
+            %a.google-play-logo
+              =image_tag "google-play.svg"
     %section.userinfo-section
       .userinfo-section__box
         %h3 配送先
@@ -35,3 +43,4 @@
         =link_to "" do
           %span 変更する
           %i.fas.fa-chevron-right
+-# コメントTodo footer render

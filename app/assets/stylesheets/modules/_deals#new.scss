@@ -100,8 +100,17 @@
 
         &__btn{
           margin: 16px 0 0;
-          @include btn-default( $color: $lightgray );
+          @include btn-default( $color: $mypage-icon );
+          font-weight: 600;
         }
+      }
+
+      .no-appli-message{
+        margin: 8px 0 0;
+      }
+
+      .logos{
+        margin: 8px 0 0;
       }
     }
   }
