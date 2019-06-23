@@ -31,7 +31,7 @@
         =f.label "都道府県", class: "form-contents__label"
         %span 任意
         .select-section
-          =f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: "form-select"}
+          =f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "--"}, {class: "form-select"}
           %i.fas.fa-chevron-down
       .form-contents
         =f.label "市区町村", class: "form-contents__label"
