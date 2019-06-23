@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_23_035119) do
+ActiveRecord::Schema.define(version: 2019_06_23_054646) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -85,9 +85,10 @@ ActiveRecord::Schema.define(version: 2019_06_23_035119) do
     t.text "description", null: false
     t.integer "sale_status", null: false
     t.integer "buy_status", null: false
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -114,9 +115,10 @@ ActiveRecord::Schema.define(version: 2019_06_23_035119) do
     t.string "first_name", null: false
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "shipping_origins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -149,6 +151,9 @@ ActiveRecord::Schema.define(version: 2019_06_23_035119) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "avatar"
+    t.integer "profit", null: false
+    t.integer "point", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -161,7 +166,9 @@ ActiveRecord::Schema.define(version: 2019_06_23_035119) do
   add_foreign_key "delivery_addresses", "users"
   add_foreign_key "item_details", "items"
   add_foreign_key "item_images", "items"
+  add_foreign_key "items", "users"
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "shipping_origins", "items"
 end
