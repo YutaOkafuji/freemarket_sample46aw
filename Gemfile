@@ -42,7 +42,6 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'owlcarousel-rails'
 gem 'devise'
-gem 'gretel'
 gem 'active_hash'
 
 group :development, :test do
