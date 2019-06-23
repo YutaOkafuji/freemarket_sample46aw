@@ -1,6 +1,48 @@
+# Root crumb
 crumb :root do
-  link "Home", root_path
+  link "メルカリ", root_path
 end
+
+# users#index
+crumb :users do
+  link 'マイページ', users_path
+  parent :root
+end
+
+# items#show
+crumb :item do |item|
+  link item.name, item_path(item)
+  parent :root
+end
+
+# profiles#new
+crumb :new_profile do
+  link 'プロフィール', new_profile_path
+  parent :users
+end
+
+# logouts#show
+crumb :logouts do
+  link 'ログアウト', logouts_path
+  parent :users
+end
+
+# credits#idex
+crumb :credits do
+  link '支払い方法', credits_path
+  parent :users
+end
+
+# credits#new
+crumb :new_credit do
+  link 'クレジットカード情報入力', new_credit_path
+  parent :credits
+end
+
+# crumb :user do |user|
+#   link "@#{user.email}", user_path(user)
+#   parent :users
+# end
 
 # crumb :projects do
 #   link "Projects", projects_path
