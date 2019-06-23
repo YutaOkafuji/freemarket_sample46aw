@@ -29,6 +29,12 @@
           line-height: 1.5;
           font-size: 14px;
           float: right;
+
+          a:hover{
+            opacity: 0.7;
+            cursor: pointer;
+            text-decoration: underline;
+          }
         }
 
       }
@@ -70,6 +76,12 @@
         line-height: 1.5;
         font-size: 14px;
         float: right;
+
+        a:hover{
+          opacity: 0.7;
+          cursor: pointer;
+          text-decoration: underline;
+        }
       }
 
     }
