@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2019_06_21_091020) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nickname", null: false
-    t.text "avator", null: false
+    t.text "avatar"
     t.integer "profit", null: false
     t.integer "point", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
