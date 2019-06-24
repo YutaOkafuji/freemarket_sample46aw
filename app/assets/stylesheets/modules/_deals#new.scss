@@ -54,15 +54,37 @@
         }
 
         &__point{
-          background: $lightgray;
           margin: 16px 0 0;
           list-style: none;
 
           .point-btn{
-            text-align: center;
-            cursor: default;
-            padding: 16px;
-            border: 1px solid $lightgray;
+            @include btn-default( $font-color: $black, $color: $lightgray);
+            background-color: $white;
+          }
+
+          .point-btn--none{
+            @include btn-default( $font-color: $black, $color: $lightgray);
+          }
+        }
+
+        .point-window{
+          width: 100%;
+          padding: 16px 32px;
+          background: $main_background;
+
+          .detail-point{
+            float: left;
+            font-weight: 600;
+          }
+
+          .radio-button{
+            float: left;
+            margin: 8px 0 0 0;
+          }
+
+          .point-window__input{
+            @include input-default;
+            margin: 8px 0 0 0;
           }
         }
 

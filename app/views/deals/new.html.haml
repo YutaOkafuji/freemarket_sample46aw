@@ -13,7 +13,25 @@
             %span 送料込み
           %ul.cfm-form__point
             %li
-              .point-btn ポイントはありません
+              .point-btn
+                ポイントを使う
+                %i.fas.fa-chevron-down
+              -# .point-btn--none ポイントはありません
+              .point-window
+                %p.detail-point
+                  所持ポイント:P
+                  %span 300
+                .radio-button
+                  =f.radio_button :point, "ポイントを使わない", class: "radio_button__select"
+                  =f.label :ポイントを使わない
+                .radio-button
+                  =f.radio_button "全てのポイントを使う", :point, class: "radio_button__select"
+                  =f.label :全てのポイントを使う
+                  %p P 300
+                .radio-button
+                  =f.radio_button "一部のポイントを使う", :point, class: "radio_button__select"
+                  =f.label :一部のポイントを使う
+                =f.text_field :point, placeholder: "使うポイントを入力", class: "point-window__input"
           %ul.cfm-form__amount
             %li
               .left-block 支払い金額
