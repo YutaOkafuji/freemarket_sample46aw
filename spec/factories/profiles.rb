@@ -1,3 +1,5 @@
+Faker::Config.locale = :ja
+
 FactoryBot.define do
   factory :profile do
     introduction      {"美しい国、日本!!"}
