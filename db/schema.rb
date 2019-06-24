@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_23_054646) do
+ActiveRecord::Schema.define(version: 2019_06_24_140655) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "parent_id", null: false
-    t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "item_id", null: false
     t.index ["item_id"], name: "index_categories_on_item_id"
   end
 
@@ -158,6 +158,7 @@ ActiveRecord::Schema.define(version: 2019_06_23_054646) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "items"
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
   add_foreign_key "deals", "users"
