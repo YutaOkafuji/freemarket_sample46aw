@@ -5,4 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :profile
+  with_options presence: true do
+    validates :nickname
+    validates :profit
+    validates :point
+  end
+  validates :nickname, length: {maximum: 20}
 end
