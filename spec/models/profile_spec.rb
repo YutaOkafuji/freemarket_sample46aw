@@ -7,7 +7,7 @@ RSpec.describe Profile, type: :model do
     end
 
     # 必須カラムにデータが存在すれば登録できること
-    it "is valid with a family_name, first_name, family_name_kana, first_name_kana and user_id" do
+    it "is valid with a nickname, family_name, first_name, family_name_kana, first_name_kana and user_id" do
       @user.profile = build(:profile)
       expect(@user.profile).to be_valid
     end
@@ -46,6 +46,26 @@ RSpec.describe Profile, type: :model do
       @user.profile = build(:profile)
       @user.profile.valid?
       expect(@user.profile.errors[:user_id]).to include("can't be blank")
+    end
+
+    # nicknameが空では登録できないこと
+    it "is invalid without a nickname" do
+      @user.profile = build(:profile, nickname:"")
+      @user.profile.valid?
+      expect(@user.profile.errors[:nickname]).to include("can't be blank")
+    end
+
+    # nicknameの文字数が21文字以上では登録できないこと
+    it "is invalid with a nickname that has more than 21 characters " do
+      @user.profile = build(:profile, nickname: "123456789012345678901")
+      @user.profile.valid?
+      expect(@user.profile.errors[:nickname][0]).to include("is too long")
+    end
+
+    # nicknameの文字数が20文字以下なら登録できること
+    it "is valid with a nickname that has less than 20 characters" do
+      @user.profile = build(:profile, nickname:"12345678901234567890")
+      expect(@user.profile).to be_valid
     end
   end
 end
