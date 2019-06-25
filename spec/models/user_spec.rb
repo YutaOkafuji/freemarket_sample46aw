@@ -3,14 +3,9 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe '#create' do
     # 必須カラムにデータが存在すれば登録できること
-    it "is valid with a nickname, email, password, profit and point" do
+    it "is valid with a email, password, profit and point" do
       user = build(:user)
-      expect(user).to be_valid
-    end
-
-    # nicknameの文字数が20文字以下なら登録できること
-    it "is valid with a nickname that has less than 20 characters" do
-      user = build(:user, nickname:"12345678901234567890")
+      p user
       expect(user).to be_valid
     end
 
@@ -18,13 +13,6 @@ RSpec.describe User, type: :model do
     it "is valid with a password that has more than 6 characters" do
       user = build(:user, password: "123456", password_confirmation: "123456")
       expect(user).to be_valid
-    end
-
-    # nicknameが空では登録できないこと
-    it "is invalid without a nickname" do
-      user = build(:user, nickname:"")
-      user.valid?
-      expect(user.errors[:nickname]).to include("can't be blank")
     end
 
     # emailが空では登録できないこと
@@ -68,13 +56,6 @@ RSpec.describe User, type: :model do
       another_user = build(:user, email: user.email)
       another_user.valid?
       expect(another_user.errors[:email]).to include("has already been taken")
-    end
-
-    # nicknameの文字数が21文字以上では登録できないこと
-    it "is invalid with a nickname that has more than 21 characters " do
-      user = build(:user, nickname: "123456789012345678901")
-      user.valid?
-      expect(user.errors[:nickname][0]).to include("is too long")
     end
 
     # passwordが5文字以下なら登録できないこと
