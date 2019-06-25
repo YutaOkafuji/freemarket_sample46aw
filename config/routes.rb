@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   resource :logouts, only: %i[show destroy]
   resources :profiles, only: :new
   resources :users, only: :index
-  resources :items, only: :new
+  resources :items
+  # usersをネストし、indexをshowに修正すること
+  resources :credits, only: %i[index new]
 end
