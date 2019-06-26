@@ -1,0 +1,203 @@
+.credit-main{
+  float: right;
+  width: 700px;
+  background: $white;
+  
+  .required{
+    @include required;
+  }
+
+  .btn-default{
+    @include btn-default;
+  }
+
+  .form-question{
+    @include form-question;
+  }
+  
+  .credit-content{
+    background: $white;
+
+    &__head{
+      font-size: 24px;
+      padding: 8px 24px;
+      border-bottom: 1px solid $mypage-white;
+      text-align: center;
+    }
+
+    &__menu{
+      padding: 64px;
+      border-top: 1px solid $mypage-white;
+
+      .single-content{
+        @include centering();
+        max-width: 320px;
+        
+        .btn-default{
+          border: 1px solid transparent;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+        }
+
+        .sub-head{
+          font-size: 16px;
+          font-weight: bold;
+        }
+        
+        .form-group{
+          margin: 40px 0 0;
+          
+          &:first-child{
+            margin: 0;
+          }
+
+          label{
+              font-weight: 600;
+            }
+          
+          select{
+            width: 100%;
+          }
+          
+          .select-section{
+            @include select-section(35%);
+            display: inline-block;  
+          }
+
+          .select-section+span{
+            margin: 0 8px;
+          }
+
+          .input-default{
+            margin-top: 8px;
+            @include input-default;
+          }
+
+          &__error.input-default{
+            border-color: $red;
+          }
+
+          &__error--no-text,&__error--no-num{
+            color: #ea352d;
+            line-height: 1.5;
+            font-size: 14px;
+
+            li{
+              margin: 8px 0 0;
+            }
+          }
+
+          .card-list{
+            margin: 8px 0 0;
+            font-size: 0;
+            
+            li{
+              display: inline-block;
+              margin: 0 0 0 8px;
+              vertical-align: middle;
+              
+              &:first-child{
+                margin: 0;
+              }
+            }
+          }
+
+          .about-security-code{
+            position: relative;
+            margin: 8px 0 0;
+          
+            &__text{
+              text-align: right;
+              color: $blue;
+              a:hover{
+                text-decoration: none;
+                opacity: 1;
+              }
+              .btn-default{
+                margin: 40px 0 0;
+              }
+            }
+            &__info{
+              display: none;
+              position: absolute;
+              left: 0;
+              right: 0;
+              top: 28px;
+              z-index: 1;
+              padding: 16px;
+              border-radius: 6px;
+              background: #eee;
+              color: #333;
+              line-height: 1.5;
+              text-align: center;
+
+              &:before{
+                display: block;
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                top: -8px;
+                right: 32px;
+                border-width: 0 8px 8px 8px;
+                border-color: transparent transparent #eee transparent;
+              }
+
+              img{
+                margin-top: 8px;
+              }
+            }
+          }
+
+          .submit-button{
+            margin-top: 40px
+          }
+        }
+      }
+
+      .settings-add-card{
+        padding: 24px 0;
+        border-bottom: 1px solid $mypage-gray;
+        
+        .btn-default{
+          margin: 0;
+        }
+
+        a{
+          margin-bottom: 8px !important;
+          &:hover{
+            text-decoration: none;
+          }
+        }
+        
+        i{
+          margin-right: 16px;
+          font-size: 16px;
+        }
+      }
+
+      .credit--not-regist{
+        a{
+          display: block;
+          margin: 40px 0 0;
+          text-align: right;
+
+          span{
+            vertical-align: middle;
+          }
+
+          i{
+            vertical-align: middle;
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  a:hover{
+    text-decoration: underline;
+    opacity: 0.7;
+  }
+}
