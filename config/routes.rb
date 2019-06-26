@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resource :user_addresses, only: %i[edit create]
+  resource :user_addresses, only: %i[edit create new]
   resource :logouts, only: %i[show destroy]
   resources :profiles, only: :new
   resources :users, only: :index
