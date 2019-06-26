@@ -60,6 +60,8 @@
           .point-btn{
             @include btn-default( $font-color: $black, $color: $lightgray);
             background-color: $white;
+
+
           }
 
           .point-btn--none{
@@ -68,6 +70,7 @@
         }
 
         .point-window{
+          display: none;
           width: 100%;
           padding: 16px 32px;
           background: $main_background;
