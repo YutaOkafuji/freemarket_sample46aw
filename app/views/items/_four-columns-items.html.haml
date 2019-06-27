@@ -6,7 +6,7 @@
       =link_to "新着アイテム",root_path #root_pathは仮パスなのでアイテム一覧ページを実装した時に変更すること
     .item-content
       .item-content__box
-        =link_to user_item_path(:user_id, :id) do #仮パス アイテム詳細ページを実装した時に変更すること
+        =link_to user_item_path(:user_id, :id) do
           .item-content__box--item-image
             = image_tag 'http://via.placeholder.com/213x220', alt: '商品名'
           .content-body

@@ -11,6 +11,5 @@ Rails.application.routes.draw do
     resources :items,          only: %i[index show new ]
     resource  :user_addresses, only: %i[edit create]
     resource  :credits,        only: %i[show new]
-    # usersをネストし、indexをshowに修正すること
   end
 end
