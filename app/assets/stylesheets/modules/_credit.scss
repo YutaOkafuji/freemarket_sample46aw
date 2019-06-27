@@ -1,6 +1,10 @@
-.credit-main{
-  float: right;
+.signup-credit{
+  @include centering;
   width: 700px;
+}
+
+.credit-main{
+  width: 100%;
   background: $white;
   
   .required{
