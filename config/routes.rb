@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resource  :profiles,       only: %i[new]
     resources :items,          only: %i[index show new ]
     resource  :user_addresses, only: %i[edit create]
-    resources :credits,        only: %i[index new]
+    resource  :credits,        only: %i[show new]
     # usersをネストし、indexをshowに修正すること
   end
 end
