@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   resources :users, only: :index
   resources :items
   # usersをネストし、indexをshowに修正すること
-  resources :credits, only: %i[index new]
+  resources :credits, only: %i[index new edit]
 end
