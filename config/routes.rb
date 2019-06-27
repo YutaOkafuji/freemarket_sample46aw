@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :users, only: :index do
+  resources :users, only: %i[show] do
     resource  :logouts,        only: %i[show destroy]
     resource  :profiles,       only: %i[new]
     resources :items,          only: %i[index show new ]
