@@ -1,6 +1,16 @@
-.auth-info{
+.signup-address{
+  width: 700px;
+  @include centering;
+  padding: 0 0 220px 0;
+}
+
+.edit-address{
   width: 700px;
   float: right;
+}
+
+.auth-info{
+  width: 100%;
   background-color: $white;
 
   .auth-title{
