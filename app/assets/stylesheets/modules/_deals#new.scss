@@ -4,7 +4,7 @@
   background: $white;
 
   &__title{
-    padding: 32px 16px;
+    padding: 16px;
     font-size: 22px;
     line-height: 1.5;
     text-align: center;
@@ -19,23 +19,25 @@
     &__product{
       max-width: 320px;
       @include centering;
+      display: flex;
+      flex-wrap: wrap;
 
       h3{
         font-size: 22px;
-      }
-
-      image{
-        max-width: 148px;
-        max-height: 148px;
-        min-width: 128px;
-        min-width: 128px;
+        
+        image{
+          width: 64px;
+        }
+  
       }
 
       .detail{
-        margin: 8px 0 0;
         font-size: 16px;
         line-height: 1.5;
         font-weight: 600;
+        width: calc(100% - 80px);
+        margin: 0 0 0 16px;
+        text-align: left;
       }
 
       .cfm-form{
@@ -43,7 +45,7 @@
           margin: 8px 0 0;
           line-height: 1.5;
           font-weight: 600;
-          font-size: 28px;
+          font-size: 22px;
 
           span{
             margin: 0 0 0 8px;
