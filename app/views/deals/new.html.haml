@@ -17,6 +17,7 @@
                 ポイントを使う
                 %i.fas.fa-chevron-down#switch-awesome
               -# .point-btn--none ポイントはありません
+              -# ポイントウインドウの処理は余裕があれば実装する
               .point-window
                 %p.detail-point
                   所持ポイント:P
@@ -32,6 +33,7 @@
                   =f.radio_button :point, class: "radio_button__select"
                   =f.label :一部のポイントを使う
                 =f.text_field :point, placeholder: "使うポイントを入力", class: "point-window__input"
+                -# 計算式はバックエンドに回す
           %ul.cfm-form__amount
             %li
               .left-block 支払い金額
