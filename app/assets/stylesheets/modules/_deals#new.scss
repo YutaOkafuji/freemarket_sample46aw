@@ -165,6 +165,12 @@
         display: block;
         text-align: right;
 
+        &:hover{
+          color: #b3d4fc;
+          text-shadow: none;
+          text-decoration: underline;
+        }
+
         span{
           vertical-align: middle;
         }
