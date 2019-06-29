@@ -6,4 +6,7 @@ class UsersController < ApplicationController
     render :new, layout: "second_layout"
   end
 
+  def create
+    render :create, layout: "second_layout"
+  end
 end
