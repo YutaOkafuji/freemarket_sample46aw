@@ -19,6 +19,6 @@ $(window).on('load',function(){
       $('#progress-credit').removeClass('progress-credit');
       $('#progress-credit').addClass('active-all');
       $('#progress-end').removeClass('progress-end');
-      $('#progress-end').addClass('active-before');
+      $('#progress-end').addClass('active-end');
     }
   });

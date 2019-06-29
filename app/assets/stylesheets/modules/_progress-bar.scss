@@ -74,6 +74,19 @@
   }
 }
 
+.active-end{
+  @include progress-name($color: $red);
+
+  .progress-status{
+    @include progress-dot($color: $red);
+
+    &:before{
+      right: 50%;
+      @include default-bar($color: $red);
+    }
+  }
+}
+
 
 
 
