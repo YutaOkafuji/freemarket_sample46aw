@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   resource :user_addresses, only: %i[edit create new]
   resource :logouts, only: %i[show destroy]
   resources :profiles, only: :new
-  resources :users, only: :index
+  resources :users, only: %i[index new create]
+  # 確認用（users/create）
+  get'/users/create' => 'users#create'
   resources :items
   # usersをネストし、indexをshowに修正すること
   resources :credits, only: %i[index new edit]
