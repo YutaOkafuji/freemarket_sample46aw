@@ -49,7 +49,7 @@
           %span 任意
           =f.text_field :building, class: "form-contents__input", placeholder: "例)柳ビル103"
         -# new_user_credits_pathへ飛ぶ処理はコントローラーでredirect_toで実装する
-        =link_to "次へ進む", root_path, class: "form-submit"
+        =f.submit "次へ進む", class: "form-submit"
         .form-contents
           %p.form-remarks__link
             =link_to root_path do
