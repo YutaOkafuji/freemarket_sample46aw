@@ -6,7 +6,7 @@
       =link_to "新着アイテム",root_path #root_pathは仮パスなのでアイテム一覧ページを実装した時に変更すること
     .item-content
       .item-content__box
-        =link_to root_path do #仮パス アイテム詳細ページを実装した時に変更すること
+        =link_to user_item_path(:user_id, item.id) do
           .item-content__box--item-image
             = image_tag 'http://via.placeholder.com/213x220', alt: '商品名'
           .content-body
@@ -19,7 +19,7 @@
             %p.content-body__num--tax (税込)
         -#以下は繰り返し・バックエンド記述の際にeach文に書き換えて以下は削除すること。
       .item-content__box
-        =link_to root_path do
+        =link_to user_item_path(:user_id, :id) do
           .item-content__box--item-image
             = image_tag 'http://via.placeholder.com/213x220', alt: '商品名'
           .content-body
@@ -31,7 +31,7 @@
                 %span 0
             %p.content-body__num--tax (税込)
       .item-content__box
-        =link_to root_path do
+        =link_to user_item_path(:user_id, :id) do
           .item-content__box--item-image
             = image_tag 'http://via.placeholder.com/213x220', alt: '商品名'
           .content-body
@@ -43,7 +43,7 @@
                 %span 0
             %p.content-body__num--tax (税込)
       .item-content__box
-        =link_to root_path do
+        =link_to user_item_path(:user_id, :id) do
           .item-content__box--item-image
             = image_tag 'http://via.placeholder.com/213x220', alt: '商品名'
           .content-body
@@ -62,7 +62,7 @@
       %a{href:""}新着アイテム
     .item-content
       .item-content__box
-        =link_to root_path do
+        =link_to user_item_path(:user_id, :id) do
           .item-content__box--item-image
             = image_tag 'http://via.placeholder.com/213x220', alt: '商品名'
           .content-body
@@ -74,7 +74,7 @@
                 %span 0
             %p.content-body__num--tax (税込)
       .item-content__box
-        %a{ href:"" }
+        =link_to user_item_path(:user_id, :id) do
           .item-content__box--item-image
             = image_tag 'http://via.placeholder.com/213x220', alt: '商品名'
           .content-body
@@ -86,7 +86,7 @@
                 %span 0
             %p.content-body__num--tax (税込)
       .item-content__box
-        =link_to root_path do
+        =link_to user_item_path(:user_id, :id) do
           .item-content__box--item-image
             = image_tag 'http://via.placeholder.com/213x220', alt: '商品名'
           .content-body
@@ -98,7 +98,7 @@
                 %span 0
             %p.content-body__num--tax (税込)
       .item-content__box
-        =link_to root_path do
+        =link_to user_item_path(:user_id, :id) do
           .item-content__box--item-image
             = image_tag 'http://via.placeholder.com/213x220', alt: '商品名'
           .content-body

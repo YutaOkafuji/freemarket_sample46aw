@@ -3,40 +3,46 @@ crumb :root do
   link "メルカリ", root_path
 end
 
-# users#index
-crumb :users do
-  link 'マイページ', users_path
+# users#show
+crumb :users do |user|
+  link 'マイページ', user_path(user)
   parent :root
 end
 
 # items#show
 crumb :item do |item|
-  link item.name, item_path(item)
+  link item.name, user_item_path(item)
   parent :root
 end
 
 # profiles#new
 crumb :new_profile do
-  link 'プロフィール', new_profile_path
-  parent :users
+  link 'プロフィール', new_user_profiles_path
+  parent :users, :new_profile
 end
 
 # logouts#show
 crumb :logouts do
-  link 'ログアウト', logouts_path
-  parent :users
+  link 'ログアウト', user_logouts_path
+  parent :users, :logouts
 end
 
-# credits#idex
+# credits#show
 crumb :credits do
-  link '支払い方法', credits_path
-  parent :users
+  link '支払い方法', user_credits_path
+  parent :users, :credits
 end
 
 # credits#new
 crumb :new_credit do
-  link 'クレジットカード情報入力', new_credit_path
+  link 'クレジットカード情報入力', new_user_credits_path
   parent :credits
+end
+
+# user_addresses#edit
+crumb :user_address do
+  link '本人情報の登録', new_user_credits_path
+  parent :users, :user_address
 end
 
 # crumb :user do |user|
