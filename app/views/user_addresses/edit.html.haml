@@ -1,6 +1,3 @@
-- breadcrumb :user_address, @user
-= render partial: 'layouts/breadcrumbs'
-
 .mypage-main
   =render "users/mypage_side_bar"
   .edit-address
@@ -56,3 +53,4 @@
             =link_to root_path do
               本人情報の登録について
               %i.fas.fa-chevron-right
+  =render "address_form"

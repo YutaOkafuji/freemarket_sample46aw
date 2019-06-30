@@ -1,4 +1,4 @@
-- breadcrumb :credits, @user
+- breadcrumb :credits
 = render partial: 'layouts/breadcrumbs'
 
 %main.mypage-main
@@ -12,11 +12,11 @@
           %ul.credit-list
         %section.settings-add-card
           .single-content
-            =link_to new_user_credits_path(:user_id), class: "btn-default submit-button" do
+            =link_to new_credit_path, class: "btn-default submit-button" do
               %i.far.fa-credit-card
               クレジットカードを追加する
         .credit--not-regist
-          =link_to "https://kari" do
+          =link_to users_path do
             %span 支払方法について
             %i.fas.fa-chevron-right
   =render "users/mypage_side_bar"
