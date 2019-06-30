@@ -7,10 +7,10 @@ Rails.application.routes.draw do
 
   resources :credits, only: %i[index new edit]
   get'/users/create' => 'users#create'
-  resources :users, only: %i[show new] do
+  resources :items
+  resources :users,            only: %i[show new] do
     resource  :logouts,        only: %i[show destroy]
     resource  :profiles,       only: %i[new]
-    resources :items,          only: %i[index show new ]
     resource  :user_addresses, only: %i[edit create new]
     resource  :credits,        only: %i[show new]
   end
