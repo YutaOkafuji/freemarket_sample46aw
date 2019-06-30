@@ -19,19 +19,19 @@
                 -# %li 必須項目です
               %ul.card-list
                 %li
-                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3632242607", width: 49, height: 20, alt: ""
+                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3632242607", class: "image-visa", alt: ""
                 %li
-                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3632242607", width: 34, height: 20, alt: ""
+                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3632242607", class: "image-master", alt: ""
                 %li
-                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?3632242607", width: 30, height: 20, alt: ""
+                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?3632242607", class: "image-saison", alt: ""
                 %li
-                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?3632242607", width: 32, height: 20, alt: ""
+                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?3632242607", class: "image-jcb", alt: ""
                 %li
-                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?3632242607", width: 21, height: 20, alt: ""
+                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?3632242607", class: "image-american", alt: ""
                 %li
-                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?3632242607", width: 32, height: 20, alt: ""
+                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?3632242607", class: "image-dinner", alt: ""
                 %li
-                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?3632242607", width: 32, height: 20, alt: ""
+                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?3632242607", class: "image-discover", alt: ""
             .form-group
               %label 有効期限
               %span.required 必須
@@ -61,6 +61,6 @@
                 .about-security-code__info
                   カードの裏面をご参照ください
                   %br
-                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?1612736639", width: 240, alt:""
+                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?1612736639" , alt:""
               -# users_create_pathへ飛ぶ処理はコントローラーでredirect_toで実装する
               =f.submit "登録する", class: "btn-default submit-button"
