@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root 'items#index'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resource :user_addresses, only: %i[edit create]
   resource :logouts, only: %i[show destroy]
   resource :deals, only: %i[new]
   resources :profiles, only: :new
