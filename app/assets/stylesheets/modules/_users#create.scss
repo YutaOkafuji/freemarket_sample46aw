@@ -1,33 +1,30 @@
-.main{
-  padding: 0 0 220px 0;
+.complete-section{
+  width: 700px;
+  @include centering;
+  background-color: $white;
 
-  .complete-section{
-    width: 700px;
-    @include centering;
-    background-color: $white;
+  .complete-title{
+    font-size: 24px;
+    font-weight: bold;
+    padding: 8px 24px;
+    text-align: center;
+    border-bottom: 1px solid $main_background;
+    line-height: 1.4;
+  }
 
-    .complete-title{
-      font-size: 24px;
-      font-weight: bold;
-      padding: 8px 24px;
+  .complete-wrapper{
+    padding: 64px;
+
+    p {
       text-align: center;
-      border-bottom: 1px solid $main_background;
-      line-height: 1.4;
+      line-height: 1.5;
+      font-size: 14px;
     }
 
-    .complete-wrapper{
-      padding: 64px;
-
-      p {
-        text-align: center;
-        line-height: 1.5;
-        font-size: 14px;
-      }
-
-      .complete-btn{
-        margin: 16px 0 0 0;
-        @include btn-default;
-      }
+    .complete-btn{
+      margin: 16px 0 0 0;
+      @include btn-default;
     }
   }
 }
+

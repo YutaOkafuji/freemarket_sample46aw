@@ -1,109 +1,105 @@
-.main{
-  padding: 0 0 220px 0;
+.signup-section{
+  @include centering;
+  width: 700px;
+  background: $white;
 
-  .signup-section{
-    @include centering;
-    width: 700px;
-    background: $white;
+  .signup-title{
+    padding: 32px 16px;
+    font-size: 22px;
+    line-height: 1.5;
+    text-align: center;
+    font-weight: bold;
+  }
 
-    .signup-title{
-      padding: 32px 16px;
-      font-size: 22px;
-      line-height: 1.5;
-      text-align: center;
-      font-weight: bold;
-    }
+  .signup-form{
+    padding: 0 16px 40px;
+    border-top: 1px solid #f5f5f5;
 
-    .signup-form{
-      padding: 0 16px 40px;
-      border-top: 1px solid #f5f5f5;
+    .signup-input{
+      max-width: 320px;
+      @include centering;
 
-      .signup-input{
-        max-width: 320px;
-        @include centering;
+      &__block{
+        margin: 40px 0 0;
 
-        &__block{
-          margin: 40px 0 0;
+        h3{
+          font-size: 16px;
+          font-weight: bold;
+        }
 
-          h3{
-            font-size: 16px;
-            font-weight: bold;
-          }
+        p{
+          margin: 8px 0 0;
+          padding: 0;
+          line-height: 1.5;
+        }
 
-          p{
-            margin: 8px 0 0;
-            padding: 0;
-            line-height: 1.5;
-          }
+        label{
+          font-weight: bold;
+        }
 
-          label{
-            font-weight: bold;
-          }
+        span{
+          @include required;
+        }
+        input{
+          margin: 8px 0 0;
+          @include input-default;
+        }
 
-          span{
-            @include required;
-          }
-          input{
-            margin: 8px 0 0;
-            @include input-default;
-          }
+        .birthday-select{
+          margin: 8px 0 0;
 
-          .birthday-select{
-            margin: 8px 0 0;
+          &__contents{
+            @include select-section;
+            width: 76px;
+            display: inline-block;
+            
+            select{
+              padding: 0 10px;
+            }
 
-            &__contents{
-              @include select-section;
-              width: 76px;
-              display: inline-block;
-              
-              select{
-                padding: 0 10px;
-              }
-
-              i{
-                color: #888;
-                font-size: 25px;
-                top: 25%;
-                right: 12px;
-              }
+            i{
+              color: #888;
+              font-size: 25px;
+              top: 25%;
+              right: 12px;
             }
           }
         }
-
-        .form-info{
-          margin: 8px 0 0;
-          line-height: 1.5;
-          color: #888;
-        }
       }
-      .signup-check{
-        max-width: 320px;
-        @include centering;
 
-        &__robo{
-          margin: 40px 0 0;
+      .form-info{
+        margin: 8px 0 0;
+        line-height: 1.5;
+        color: #888;
+      }
+    }
+    .signup-check{
+      max-width: 320px;
+      @include centering;
+
+      &__robo{
+        margin: 40px 0 0;
+      }
+
+      &__info{
+        margin: 40px 0 0;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      &__btn{
+        margin: 40px 0 0;
+        @include btn-default;
+      }
+
+      &__mark{
+        margin: 40px 0 0;
+
+        p{
+          float: right;
+          font-size: 14px;
         }
 
-        &__info{
-          margin: 40px 0 0;
-          line-height: 1.5;
-          text-align: center;
-        }
-
-        &__btn{
-          margin: 40px 0 0;
-          @include btn-default;
-        }
-
-        &__mark{
-          margin: 40px 0 0;
-
-          p{
-            float: right;
-            font-size: 14px;
-          }
-
-        }
       }
     }
   }
