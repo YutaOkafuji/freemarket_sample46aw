@@ -1,7 +1,7 @@
 %header.top-header
   .top-header-inner
     .header-upper
-      =link_to image_tag('logo.svg', alt: "mercari", class: "header-upper__logo"), "https://www.mercari.com/jp/"
+      =link_to image_tag('logo.svg', alt: "mercari", class: "header-upper__logo"), root_path
       = form_with(url: "https://kari", class: "header-upper__form") do
         = text_field_tag :keyword, '何かお探しですか？', {class: "header-upper__form--input"}
         = label_tag :image, {class: "header-upper__form--search"} do
@@ -32,7 +32,7 @@
               %span
                 やることリスト
           %li.list-item
-            =link_to "https://kari" do
+            =link_to user_path(:user_id) do
               = image_tag('member_photo_noimage_thumb.png', class: "list-item__icon")
               %span
                 マイページ

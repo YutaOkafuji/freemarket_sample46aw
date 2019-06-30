@@ -16,4 +16,4 @@
         "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&amp;hl=ja" 
     .hand-talent-image
       = image_tag 'main_content_pc.png' 
-=render partial: "four-columns-items"
+=render partial: "four-columns-items", locals: { item: @item }
