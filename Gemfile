@@ -43,6 +43,7 @@ gem 'erb2haml'
 gem 'owlcarousel-rails'
 gem 'devise'
 gem 'active_hash'
+gem 'gretel'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -54,7 +55,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'rails-controller-testing'
+  gem 'faker'
 end
 
 group :development do
