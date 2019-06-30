@@ -14,4 +14,5 @@ Rails.application.routes.draw do
     resource  :user_addresses, only: %i[edit create new]
     resource  :credits,        only: %i[show new]
   end
+  resource  :deals,          only: %i[new]
 end
