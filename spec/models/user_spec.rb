@@ -5,7 +5,6 @@ RSpec.describe User, type: :model do
     # 必須カラムにデータが存在すれば登録できること
     it "is valid with a email, password, profit and point" do
       user = build(:user)
-      p user
       expect(user).to be_valid
     end
 
