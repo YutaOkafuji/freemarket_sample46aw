@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def create
     render :create, layout: "second_layout"
   end
+  
   def logout
   end
 
