@@ -1,7 +1,7 @@
 =content_for :header_content do
   =render 'share/progress-bar'
 -# main要素
-%main.main
+%main.devise-content
   %section.signup-section
     %h2.signup-title 会員情報入力
     =form_with url: "", class: "signup-form" do |f|
@@ -55,6 +55,7 @@
           「次へ進む」のボタンを押すことにより、
           %a 利用規約
           に同意したものとみなします。
+        -# new_user_user_addresses_pathへ飛ぶ処理はコントローラーでredirect_toで実装する
         =f.submit "次へ進む", class:"signup-check__btn"
         .signup-check__mark
           %p

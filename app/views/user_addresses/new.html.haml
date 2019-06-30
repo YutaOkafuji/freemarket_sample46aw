@@ -1,55 +1,57 @@
 =content_for :header_content do
   =render 'share/progress-bar'
-.signup-address
-  .auth-info
-    %h2.auth-title 本人情報の登録
-    =form_with url: "", class: "auth-form" do |f|
-      .form-remarks
-        %p 
-          お客様の本人情報をご登録ください。
-          %br
-          登録されたお名前・生年月日を変更する場合、本人確認書類が必要になります。
-        %p.form-remarks__link
-          =link_to root_path do
-            本人確認書類のアップロードについて
-            %i.fas.fa-chevron-right
-      .form-contents
-        =f.label "お名前", class: "form-contents__label"
-        %p
-          加藤です
-      .form-contents
-        =f.label "お名前カナ", class: "form-contents__label"
-        %p
-          カトウデス
-      .form-contents
-        =f.label "生年月日", class: "form-contents__label"
-        %p
-          カトウなの！！
-      .form-contents
-        =f.label "郵便番号", class: "form-contents__label"
-        %span 任意
-        =f.text_field :zip_code, class: "form-contents__input", placeholder: "例)1234567"
-      .form-contents
-        =f.label "都道府県", class: "form-contents__label"
-        %span 任意
-        .select-section
-          =f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "--"}, {class: "form-select"}
-          %i.fas.fa-chevron-down
-      .form-contents
-        =f.label "市区町村", class: "form-contents__label"
-        %span 任意
-        =f.text_field :city, class: "form-contents__input", placeholder: "例)横浜市緑区"
-      .form-contents
-        =f.label "番地", class: "form-contents__label"
-        %span 任意
-        =f.text_field :street_number, class: "form-contents__input", placeholder: "例)青山1-1-1"
-      .form-contents
-        =f.label "建物名", class: "form-contents__label"
-        %span 任意
-        =f.text_field :building, class: "form-contents__input", placeholder: "例)柳ビル103"
-      =link_to "登録する", root_path, class: "form-submit"
-      .form-contents
-        %p.form-remarks__link
-          =link_to root_path do
-            本人情報の登録について
-            %i.fas.fa-chevron-right
+.devise-content
+  .signup-address
+    .auth-info
+      %h2.auth-title 本人情報の登録
+      =form_with url: "", class: "auth-form" do |f|
+        .form-remarks
+          %p 
+            お客様の本人情報をご登録ください。
+            %br
+            登録されたお名前・生年月日を変更する場合、本人確認書類が必要になります。
+          %p.form-remarks__link
+            =link_to root_path do
+              本人確認書類のアップロードについて
+              %i.fas.fa-chevron-right
+        .form-contents
+          =f.label "お名前", class: "form-contents__label"
+          %p
+            加藤です
+        .form-contents
+          =f.label "お名前カナ", class: "form-contents__label"
+          %p
+            カトウデス
+        .form-contents
+          =f.label "生年月日", class: "form-contents__label"
+          %p
+            カトウなの！！
+        .form-contents
+          =f.label "郵便番号", class: "form-contents__label"
+          %span 任意
+          =f.text_field :zip_code, class: "form-contents__input", placeholder: "例)1234567"
+        .form-contents
+          =f.label "都道府県", class: "form-contents__label"
+          %span 任意
+          .select-section
+            =f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "--"}, {class: "form-select"}
+            %i.fas.fa-chevron-down
+        .form-contents
+          =f.label "市区町村", class: "form-contents__label"
+          %span 任意
+          =f.text_field :city, class: "form-contents__input", placeholder: "例)横浜市緑区"
+        .form-contents
+          =f.label "番地", class: "form-contents__label"
+          %span 任意
+          =f.text_field :street_number, class: "form-contents__input", placeholder: "例)青山1-1-1"
+        .form-contents
+          =f.label "建物名", class: "form-contents__label"
+          %span 任意
+          =f.text_field :building, class: "form-contents__input", placeholder: "例)柳ビル103"
+        -# new_user_credits_pathへ飛ぶ処理はコントローラーでredirect_toで実装する
+        =link_to "次へ進む", root_path, class: "form-submit"
+        .form-contents
+          %p.form-remarks__link
+            =link_to root_path do
+              本人情報の登録について
+              %i.fas.fa-chevron-right
