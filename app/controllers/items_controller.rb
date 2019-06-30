@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
   def show
     #find(1)は後でfind(params[:id])に修正する
-    @item = Item.find(1)
+    @item = Item.find(params[:id])
     render layout: "layout_items_show"
   end
   
@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(1)
+    item = Item.find(params[:id])
     item.destroy if current_user.id == item_user.id
   end
 

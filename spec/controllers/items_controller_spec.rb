@@ -7,6 +7,6 @@ RSpec.describe ItemsController, type: :controller do
         @user = create(:user)
         @item = create(:item, owner: @user)
       end
-    end
   end
 end
+
