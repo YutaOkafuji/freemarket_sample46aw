@@ -7,7 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #GET /resource/sign_up
   def new
     #super
-    render :new, :layout "second_layout"
+    render :layout => "second_layout"
   end
 
   # POST /resource
