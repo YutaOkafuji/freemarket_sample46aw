@@ -1,113 +1,45 @@
 %section.top-main-container
   %h2.top-main-container__title
-    商品一覧
+    ピックアップカテゴリー
   %section.item-container
     %h3.item-container__title
-      =link_to "新着アイテム",root_path #root_pathは仮パスなのでアイテム一覧ページを実装した時に変更すること
+      =link_to "レディース新着アイテム",root_path #root_pathは仮パスなのでアイテム一覧ページを実装した時に変更すること
     .item-content
-      .item-content__box
-        =link_to root_path do #仮パス アイテム詳細ページを実装した時に変更すること
-          .item-content__box--item-image
-            = image_tag 'http://via.placeholder.com/213x220', alt: '商品名'
-          .content-body
-            %h3.content-body__item-name.font-2 商品
-            .content-body__num
-              .content-body__num--price ¥5,000
-              .content-body__num--likes.font-2
-                %i.far.fa-heart
-                %span 0
-            %p.content-body__num--tax (税込)
-        -#以下は繰り返し・バックエンド記述の際にeach文に書き換えて以下は削除すること。
-      .item-content__box
-        =link_to root_path do
-          .item-content__box--item-image
-            = image_tag 'http://via.placeholder.com/213x220', alt: '商品名'
-          .content-body
-            %h3.content-body__item-name.font-2 商品名
-            .content-body__num
-              .content-body__num--price ¥5,000
-              .content-body__num--likes.font-2
-                %i.far.fa-heart
-                %span 0
-            %p.content-body__num--tax (税込)
-      .item-content__box
-        =link_to root_path do
-          .item-content__box--item-image
-            = image_tag 'http://via.placeholder.com/213x220', alt: '商品名'
-          .content-body
-            %h3.content-body__item-name.font-2 商品名
-            .content-body__num
-              .content-body__num--price ¥5,000
-              .content-body__num--likes.font-2
-                %i.far.fa-heart
-                %span 0
-            %p.content-body__num--tax (税込)
-      .item-content__box
-        =link_to root_path do
-          .item-content__box--item-image
-            = image_tag 'http://via.placeholder.com/213x220', alt: '商品名'
-          .content-body
-            %h3.content-body__item-name.font-2 商品名
-            .content-body__num
-              .content-body__num--price ¥5,000
-              .content-body__num--likes.font-2
-                %i.far.fa-heart
-                %span 0
-            %p.content-body__num--tax (税込)
-
+      =render partial: "items_list"
     .view-all
       %a{ href:"" }全ての商品を見る
+    %h3.item-container__title
+      =link_to "メンズ新着アイテム",root_path #root_pathは仮パスなのでアイテム一覧ページを実装した時に変更すること
+    .item-content
+      =render partial: "items_list"
+    .view-all
+      %a{ href:"" }全ての商品を見る
+    %h3.item-container__title
+      =link_to "ベビー・キッズ新着アイテム",root_path #root_pathは仮パスなのでアイテム一覧ページを実装した時に変更すること
+    .item-content
+      =render partial: "items_list"
+    .view-all
+      %a{ href:"" }全ての商品を見る
+
+%section.top-main-container
+  %h2.top-main-container__title
+    ピックアップブランド
   %section.item-container
     %h3.item-container__title
-      %a{href:""}新着アイテム
+      =link_to "シャネル新着アイテム",root_path #root_pathは仮パスなのでアイテム一覧ページを実装した時に変更すること
     .item-content
-      .item-content__box
-        =link_to root_path do
-          .item-content__box--item-image
-            = image_tag 'http://via.placeholder.com/213x220', alt: '商品名'
-          .content-body
-            %h3.content-body__item-name.font-2 商品名
-            .content-body__num
-              .content-body__num--price ¥5,000
-              .content-body__num--likes.font-2
-                %i.far.fa-heart
-                %span 0
-            %p.content-body__num--tax (税込)
-      .item-content__box
-        %a{ href:"" }
-          .item-content__box--item-image
-            = image_tag 'http://via.placeholder.com/213x220', alt: '商品名'
-          .content-body
-            %h3.content-body__item-name.font-2 商品名
-            .content-body__num
-              .content-body__num--price ¥5,000
-              .content-body__num--likes.font-2
-                %i.far.fa-heart
-                %span 0
-            %p.content-body__num--tax (税込)
-      .item-content__box
-        =link_to root_path do
-          .item-content__box--item-image
-            = image_tag 'http://via.placeholder.com/213x220', alt: '商品名'
-          .content-body
-            %h3.content-body__item-name.font-2 商品名
-            .content-body__num
-              .content-body__num--price ¥5,000
-              .content-body__num--likes.font-2
-                %i.far.fa-heart
-                %span 0
-            %p.content-body__num--tax (税込)
-      .item-content__box
-        =link_to root_path do
-          .item-content__box--item-image
-            = image_tag 'http://via.placeholder.com/213x220', alt: '商品名'
-          .content-body
-            %h3.content-body__item-name.font-2 商品名
-            .content-body__num
-              .content-body__num--price ¥5,000
-              .content-body__num--likes.font-2
-                %i.far.fa-heart
-                %span 0
-            %p.content-body__num--tax (税込)
+      =render partial: "items_list"
+    .view-all
+      %a{ href:"" }全ての商品を見る
+    %h3.item-container__title
+      =link_to "ルイ ヴィトン新着アイテム",root_path #root_pathは仮パスなのでアイテム一覧ページを実装した時に変更すること
+    .item-content
+      =render partial: "items_list"
+    .view-all
+      %a{ href:"" }全ての商品を見る
+    %h3.item-container__title
+      =link_to "シュプリーム新着アイテム",root_path #root_pathは仮パスなのでアイテム一覧ページを実装した時に変更すること
+    .item-content
+      =render partial: "items_list"
     .view-all
       %a{ href:"" }全ての商品を見る
