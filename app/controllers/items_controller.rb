@@ -13,4 +13,14 @@ class ItemsController < ApplicationController
     render layout: "second_layout"
   end
 
+  def create
+    @item = Item.create(name: params_item[:name], price: params_item[:price], description: params_item[:description],
+    sale_status: params_item[:sale_status], buy_status: params_item[:buy_status], user_id: current_user.id)
+  end
+
+  private
+
+  def params_item
+    params.permit(:name, :price, :description, :sale_status, :buy_status, :user_id)
+  end
 end
