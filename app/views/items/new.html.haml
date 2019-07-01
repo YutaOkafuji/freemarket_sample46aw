@@ -1,7 +1,7 @@
 //ヘッダーはマスターへのマージ前に消去する
 %header.exhibition-header
   %h1.exhibition-header__logo
-    =link_to image_tag('logo.svg', alt: "mercari", class: ""), root_path
+    =link_to image_tag('logo.svg', alt: "mercari", class: ""), "https://www.mercari.com/jp/"
 
 %main.exhibition-main
   .exhibition-main__container
@@ -174,6 +174,6 @@
           = link_to  "メルカリ利用規約", "https://kari"
         %li
           = link_to  "特定商取引に関する表記", "https://kari"
-    = link_to image_tag('logo-gray.svg', class: ""), root_path, class: "exhibition-gray-logo"
+    = link_to image_tag('logo-gray.svg', class: ""), "https://www.mercari.com/jp/", class: "exhibition-gray-logo"
     %p
       © 2019 Mercari
