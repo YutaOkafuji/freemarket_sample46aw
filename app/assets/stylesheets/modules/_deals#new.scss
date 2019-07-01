@@ -1,0 +1,186 @@
+.purchase-cfm{
+  width: 700px;
+  @include centering;
+  background: $white;
+
+  &__title{
+    padding: 16px;
+    font-size: 22px;
+    line-height: 1.5;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .cfm-section{
+    padding: 24px 12.5% 0;
+    border-top: 1px solid $main_background;
+    text-align: center;
+
+    &__product{
+      max-width: 320px;
+      @include centering;
+      display: flex;
+      flex-wrap: wrap;
+
+      h3{
+        font-size: 22px;
+        
+        image{
+          width: 64px;
+        }
+  
+      }
+
+      .detail{
+        font-size: 16px;
+        line-height: 1.5;
+        font-weight: 600;
+        width: calc(100% - 80px);
+        margin: 0 0 0 16px;
+        text-align: left;
+      }
+
+      .cfm-form{
+        &__top{
+          margin: 8px 0 0;
+          line-height: 1.5;
+          font-weight: 600;
+          font-size: 22px;
+
+          span{
+            margin: 0 0 0 8px;
+            font-size: 14px;
+            font-weight: 400;
+            display: inline-block;
+          }
+        }
+
+        &__point{
+          margin: 16px 0 0;
+          list-style: none;
+
+          .point-btn{
+            @include btn-default( $font-color: $black, $color: $lightgray);
+            background-color: $white;
+
+
+          }
+
+          .point-btn--none{
+            @include btn-default( $font-color: $black, $color: $lightgray);
+          }
+        }
+
+        .point-window{
+          display: none;
+          width: 100%;
+          padding: 16px 32px;
+          background: $main_background;
+
+          .detail-point{
+            float: left;
+            font-weight: 600;
+          }
+
+          .radio-button{
+            float: left;
+            margin: 8px 0 0 0;
+          }
+
+          .point-window__input{
+            @include input-default;
+            margin: 8px 0 0 0;
+          }
+        }
+
+        &__amount{
+          display: table;
+          border-collapse: collapse;
+          width: 100%;
+          list-style: none;
+
+          li{
+            font-size: 18px;
+            font-weight: 600;
+            display: table-row;
+
+            .left-block{
+              text-align: left;
+              display: table-cell;
+              padding: 16px 0;
+            }
+
+            .right-block{
+              text-align: right;
+              display: table-cell;
+              padding: 16px 0;
+            }
+          }
+        }
+
+        .error-massage{
+          margin: 8px 0 0;
+          line-height: 1.5;
+          color: $red;
+          font-size: 14px;
+        }
+
+        &__btn{
+          margin: 16px 0 0;
+          @include btn-default( $color: $mypage-icon );
+          font-weight: 600;
+        }
+      }
+
+      .no-appli-message{
+        margin: 8px 0 0;
+      }
+
+      .logos{
+        margin: 8px 0 0;
+      }
+    }
+  }
+
+  .userinfo-section{
+    padding: 40px 12.5%;
+    margin: 40px 0 0;
+    border-top: 1px solid $main_background;
+
+    &__box{
+      max-width: 320px; margin: 0 auto;
+
+      h3{
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      p{
+        margin: 8px 0 0;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      a{
+        display: block;
+        text-align: right;
+
+        &:hover{
+          color: #b3d4fc;
+          text-shadow: none;
+          text-decoration: underline;
+        }
+
+        span{
+          vertical-align: middle;
+        }
+
+        i{
+          vertical-align: middle;
+          margin: 0 0 0 8px;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
