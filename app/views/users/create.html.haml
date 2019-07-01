@@ -1,0 +1,13 @@
+=content_for :header_content do
+  =render 'share/progress-bar'
+%main.devise-content
+  %section.complete-section
+    %h2.complete-title 会員登録完了
+    .complete-wrapper
+      %p 
+        ありがとうございます。
+        %br
+        会員登録が完了しました。
+      =link_to root_path, class: "complete-btn" do
+        メルカリをはじめる
+
