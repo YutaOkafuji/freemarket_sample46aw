@@ -1,6 +1,10 @@
-.credit-main{
-  float: right;
+.signup-credit{
+  @include centering;
   width: 700px;
+}
+
+.credit-main{
+  width: 100%;
   background: $white;
   
   .required{
@@ -99,6 +103,34 @@
               &:first-child{
                 margin: 0;
               }
+              .image-visa{
+                width: 49px;
+                height: 20px;
+              }
+              .image-master{
+                width: 34px;
+                height: 20px;
+              }
+              .image-saison{
+                width: 30px;
+                height: 20px;
+              }
+              .image-jcb{
+                width: 32px;
+                height: 20px;
+              }
+              .image-american{
+                width: 21px;
+                height: 20px;
+              }
+              .image-dinner{
+                width: 32px;
+                height: 20px;
+              }
+              .image-discover{
+                width: 32px;
+                height: 20px;
+              }
             }
           }
 
@@ -146,6 +178,7 @@
 
               img{
                 margin-top: 8px;
+                width: 240px;
               }
             }
           }
