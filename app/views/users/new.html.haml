@@ -4,43 +4,43 @@
 %main.devise-content
   %section.signup-section
     %h2.signup-title 会員情報入力
-    =form_with url: "", class: "signup-form" do |f|
+    =form_with url: users_path, method: :post, local: true, class: "signup-form" do |f|
       .signup-input
         .signup-input__block
           =f.label :nickname, "ニックネーム"
           %span 必須
           =f.text_field :nickname, class: "", placeholder: "例)メルカリ太郎"
         .signup-input__block
-          =f.label :mail_address, "メールアドレス"
+          =f.label :email, "メールアドレス"
           %span 必須
-          =f.text_field :mail_address, class: "", placeholder: "PC・携帯どちらでも可"
+          =f.text_field :email, class: "", placeholder: "PC・携帯どちらでも可"
         .signup-input__block
-          =f.label :pass, "パスワード"
+          =f.label :password, "パスワード"
           %span 必須
-          =f.text_field :pass, class: "", placeholder: "6文字以上"
+          =f.text_field :password, class: "", placeholder: "6文字以上"
         .signup-input__block
-          =f.label :pass, "パスワード（確認）"
+          =f.label :password_confirmation, "パスワード（確認）"
           %span 必須
-          =f.text_field :pass, class: "", placeholder: "6文字以上"
+          =f.text_field :password_confirmation, class: "", placeholder: "6文字以上"
         .signup-input__block
           %h3 本人確認
           %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
         .signup-input__block
-          =f.label :name, "姓（全角）"
+          =f.label :family_name, "姓（全角）"
           %span 必須
-          =f.text_field :name, class: "", placeholder: "例）山田"
+          =f.text_field :family_name, class: "", placeholder: "例）山田"
         .signup-input__block
-          =f.label :name, "名（全角）"
+          =f.label :first_name, "名（全角）"
           %span 必須
-          =f.text_field :name, class: "", placeholder: "例）彩"
+          =f.text_field :first_name, class: "", placeholder: "例）彩"
         .signup-input__block
-          =f.label :name, "姓カナ（全角）"
+          =f.label :family_name_kana, "姓カナ（全角）"
           %span 必須
-          =f.text_field :name, class: "", placeholder: "例）ヤマダ"
+          =f.text_field :family_name_kana, class: "", placeholder: "例）ヤマダ"
         .signup-input__block
-          =f.label :name, "名カナ（全角）"
+          =f.label :first_name_kana, "名カナ（全角）"
           %span 必須
-          =f.text_field :name, class: "", placeholder: "例）アヤ"
+          =f.text_field :first_name_kana, class: "", placeholder: "例）アヤ"
         .signup-input__block
           =f.label :birthday, "生年月日"
           %span 必須
