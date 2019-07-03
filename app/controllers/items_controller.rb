@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     item.destroy if current_user.id == item.user_id
-    redirect_to root_path
+    redirect_to root_path, flash:{ success: '削除しました'}
   end
 
 end
