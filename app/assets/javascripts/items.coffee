@@ -6,4 +6,19 @@ Dropzone.autoDiscover = false
 
 Dropzone.options.myAwesomeDropzone = {}
 
-myDropzone = new Dropzone '.sell-content__upload-box--form', {url: 'items/new'}
+Dropzone.autoDiscover = false
+
+new Dropzone '#exhibition-form',
+  uploadMultiple: false
+  paramName: 'attachment[image]'
+  params:
+    'attachment[item_id]': 1
+  init: ->
+    @on 'success', (file, json) ->
+      # アップロード成功時の処理をここに実装します。
+  dictDefaultMessage: '''
+    <i class="fa fa-file-o fa-2x"></i><br>
+    <br>
+    ファイルをここにドロップするか<br>
+    ここをクリックして下さい
+  '''

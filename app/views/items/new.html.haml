@@ -4,7 +4,7 @@
       %h2.sell-head
         商品の情報を入力
       //form_withの中身は後で変更する
-      =form_with(local: true)  do |f|
+      =form_with(model: @item, local: true, id: "item-dropzone", class: "dropzone" ) do |f|
         .sell-content
           %h3.sell-content__upload-head
             出品画像
@@ -12,7 +12,8 @@
               必須
           %p.sell-content__explanation
             最大10枚までアップロードできます
-          .sell-content__upload-box
+          .sell-content__upload-box.dz-message.needsclick
+          .fallback
             =f.file_field :image, class: "sell-content__upload-box--form"
             %p
               ドラッグアンドドロップ
