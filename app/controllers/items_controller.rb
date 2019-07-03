@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
   
-  before_action :move_to_index, except: [:index, :show]
+  # before_action :move_to_index, except: [:index, :show]
   def index
     #find(1)は後でfind(params[:id])に修正する
-    @item = Item.find(1)
+    # @item = Item.find(params[:id])
   end
 
   def show
@@ -18,7 +18,8 @@ class ItemsController < ApplicationController
 
   def destroy
     item = Item.find(params[:id])
-    item.destroy if current_user.id == item_user.id
+    item.destroy if current_user.id == item.user_id
+    redirect_to root_path
   end
 
 end
