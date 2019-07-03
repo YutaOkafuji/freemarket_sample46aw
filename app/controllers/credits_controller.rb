@@ -1,7 +1,9 @@
 class CreditsController < ApplicationController
-  def show
-    #find(1)は後でfind(params[:id])に修正する
-    @user = User.find(1)
+  def index; end
+
+  def new
+    render :new, layout: "second_layout"
   end
-  def new; end
+
+  def edit;end
 end

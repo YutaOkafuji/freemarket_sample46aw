@@ -1,6 +1,7 @@
-.mypage-main
-  =render "users/mypage_side_bar"
-  .edit-address
+=content_for :header_content do
+  =render 'share/progress-bar'
+.devise-content
+  .signup-address
     .auth-info
       %h2.auth-title 本人情報の登録
       =form_with url: "", class: "auth-form" do |f|
@@ -47,10 +48,10 @@
           =f.label "建物名", class: "form-contents__label"
           %span 任意
           =f.text_field :building, class: "form-contents__input", placeholder: "例)柳ビル103"
-        =link_to "登録する", root_path, class: "form-submit"
+        -# new_user_credits_pathへ飛ぶ処理はコントローラーでredirect_toで実装する
+        =f.submit "次へ進む", class: "form-submit"
         .form-contents
           %p.form-remarks__link
             =link_to root_path do
               本人情報の登録について
               %i.fas.fa-chevron-right
-  =render "address_form"

@@ -2,13 +2,11 @@ class ItemsController < ApplicationController
   
   # before_action :move_to_index, except: [:index, :show]
   def index
-    #find(1)は後でfind(params[:id])に修正する
-    # @item = Item.find(params[:id])
   end
 
   def show
     #find(1)は後でfind(params[:id])に修正する
-    @item = Item.find(params[:id])
+    # @item = Item.find(1)
     render layout: "layout_items_show"
   end
   
