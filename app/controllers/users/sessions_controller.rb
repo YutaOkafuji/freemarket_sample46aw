@@ -2,10 +2,10 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  layout "second_layout"
 
   #GET /resource/sign_in
   def new
-    render :layout => "second_layout"
     super
   end
 
