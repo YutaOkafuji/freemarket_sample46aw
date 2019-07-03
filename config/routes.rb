@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   root 'items#index'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
+  
   resource :user_addresses, only: %i[edit create new]
-  resource :logouts, only: %i[show destroy]
+  resource :logouts, only: %i[show]
   resources :profiles, only: :new
   resources :users, only: %i[index new creat]
   # 確認用（users/create）
