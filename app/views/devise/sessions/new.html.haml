@@ -11,10 +11,11 @@
           %span Facebookでログイン
         =link_to root_path, class: "login-api__google" do
           Googleでログイン
-      =form_with url: root_path do |f|
+      -# form_withでの記述ができたらする
+      =form_for(resource, as: resource_name, url: user_session_path) do |f|
         .login-form
-          =f.text_field :email, class: "login-form__text-field", placeholder: "メールアドレス"
-          =f.text_field :password, class: "login-form__text-field", placeholder: "パスワード"
+          =f.email_field :email, class: "login-form__text-field", placeholder: "メールアドレス"
+          =f.password_field :password, class: "login-form__text-field", placeholder: "パスワード"
           .login-form__recaptcha
           //apiで実装
           =f.submit "ログイン", class: "btn"
