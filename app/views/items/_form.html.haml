@@ -155,3 +155,11 @@
               また、出品をもちまして
               =link_to "加盟店規約", "https://kari"
               に同意したことになります。
+          - if request.path_info = edit_item_path
+            =f.submit "変更する", class: "btn"
+            .gray-btn
+              =link_to "もどる", :back
+          - else
+            =f.submit "出品する", class: "btn"
+            .gray-btn
+              =link_to "もどる", :back
