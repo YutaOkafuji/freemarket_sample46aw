@@ -7,7 +7,8 @@
       =link_to root_path do
         %figure
           =image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", size: "60x60", alt: "user-image"
-        %h2.bold user-name
+        %h2.bold 
+          =@user.profile.nickname
         .mypage-user__status
           %div
             評価
@@ -119,5 +120,4 @@
             .mypage-info__tab-content
               %ul.mypage-info-list{id:"transction-old"}
                 %li.mypage-info-card--not-found 過去に取引した商品がありません
-  =render "users/mypage_side_bar"
-  
+  =render partial: "users/mypage_side_bar", locals: { user: @user}
