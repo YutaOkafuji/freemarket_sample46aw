@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_permitted_parameters
   layout "second_layout"
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
@@ -72,10 +71,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
   
   private
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :birthday])
-  end
-
   def user_params
     params.permit(:email, :password, :password_confirmation).merge( {avatar: nil, profit: 0, point: 0 } )
   end

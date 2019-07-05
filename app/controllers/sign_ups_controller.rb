@@ -1,5 +1,5 @@
 class SignUpsController < ApplicationController
-  before_action :configure_permitted_parameters
+  before_action :authenticate_user!
   def show
     render :show, layout: "second_layout"
   end

@@ -9,7 +9,6 @@ class UserAddressesController < ApplicationController
   end
 
   def create
-    binding.pry
     @user = User.find(params[:user_id])
     @user.user_address = UserAddress.new(user_address_params)
     if @user.user_address.save
