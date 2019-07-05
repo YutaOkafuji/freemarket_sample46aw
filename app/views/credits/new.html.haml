@@ -5,13 +5,13 @@
     .credit-main
       %section.credit-content
         %h2.bold.credit-content__head クレジットカード情報入力
-        =form_with(local: true, class: "credit-content__menu") do |f|  
+        =form_with url: user_credits_path, local: true, class: "credit-content__menu" do |f|  
           .single-content
             -# 余裕があればtodo クレジットカードの有効期限が間違いがあった場合の文言を表示させる。
                 %p.error-text カードの有効期限に謝りがあるために、決済を完了できませんでした。有効期間を再度確認してください。
             .form-group
               %label カード番号
-              %span.required 必須
+              %span.elective 任意
               -# todo バリデーション input要素とli要素のカラーを赤くする
                   inputの枠の色のcssは_credit.scssのform-group__errorクラスで設定済み
               =f.text_field :credit_num, id: "credit-input", class: "input-default", placeholder: "半角数字のみ", maxlength: 19
@@ -34,7 +34,7 @@
                   =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?3632242607", class: "image-discover", alt: ""
             .form-group
               %label 有効期限
-              %span.required 必須
+              %span.elective 任意
               %br
               .select-section
                 = f.select :month, (1..12).map{ |month| [ sprintf("%02d", month) , month ] }, {}, {class: "form-select"}
@@ -48,7 +48,7 @@
               %ul
             .form-group
               %label セキュリティコード
-              %span.required 必須
+              %span.elective 任意
               -# todo バリデーション input要素とli要素のカラーを赤くする
                   inputの枠の色のcssは_credit.scssのform-group__errorクラスで設定済み
               =f.text_field :security_code, id:"security-code", class: "input-default", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: 4
