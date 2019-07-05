@@ -18,6 +18,8 @@ class ItemsController < ApplicationController
     item = Item.find(params[:id])
     item.destroy if current_user.id == item.user_id
     redirect_to root_path, flash:{ success: '削除しました'}
+  rescue
+    redirect_to root_path, flash:{ warning: '削除に失敗しました' }
   end
 
 end
