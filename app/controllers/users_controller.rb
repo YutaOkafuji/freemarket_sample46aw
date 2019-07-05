@@ -1,18 +1,15 @@
 class UsersController < ApplicationController
-  def index
+  before_action :authenticate_user!, except: [:new] 
+  def show
+    @user = User.find(params[:id])
   end
 
   def new
     render :new, layout: "second_layout"
   end
 
-  def create
-    @user = User.create(user_params)
-    @user.profile = Profile.create(profile_params)
-    render :create, layout: "second_layout"
-  end
-  
-  def logout
+  def index
+    render :new, layout: "second_layout"
   end
 
   private
