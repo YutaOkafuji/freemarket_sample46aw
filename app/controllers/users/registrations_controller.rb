@@ -2,19 +2,28 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters
+  layout "second_layout"
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   #GET /resource/sign_up
   def new
-    #super
-    render :layout => "second_layout"
+    # super
   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @user = User.new(user_params)
+    @user.profile = Profile.new(profile_params)
+    if @user.save && @user.profile.save
+      sign_in(:user, @user)
+      redirect_to new_user_user_addresses_path(user_id: @user.id)
+    else
+      @user.destroy
+      render action: :new
+    end
+      # super
+  end
 
   # GET /resource/edit
   # def edit
@@ -61,4 +70,28 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  
+  private
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :birthday])
+  end
+
+  def user_params
+    params.permit(:email, :password, :password_confirmation).merge( {avatar: nil, profit: 0, point: 0 } )
+  end
+  
+  def profile_params
+    params.permit(:nickname, :family_name, :first_name, :family_name_kana, :first_name_kana).merge( { birthday: get_birthday } )
+  end
+  
+  def get_birthday
+    birthday = params.permit(:birth_date)
+    birthday = birthday.values
+    unless birthday.include?("") 
+      birthday= Time.new(birthday[0], birthday[1], birthday[2])
+      birthday.strftime("%Y%m%d")
+    else
+      nil
+    end
+  end
 end
