@@ -7,6 +7,7 @@ class Profile < ApplicationRecord
     validates :family_name_kana
     validates :first_name_kana
     validates :user_id
+    validates :birthday
   end
   validates :nickname, length: {maximum: 20}
 end
