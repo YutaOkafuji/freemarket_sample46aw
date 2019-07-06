@@ -15,13 +15,33 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create(name: params_item[:name], price: params_item[:price], description: params_item[:description],
-    sale_status: params_item[:sale_status], buy_status: params_item[:buy_status], user_id: current_user.id)
+    @item = Item.new(item_params)
+    @item.images = ItemImage.new(item_image_params)
+    @item.detail = ItemDetail.new(item_detail_params)
+    @item.shipping = ShippingOrigin.new(shipping_origin_params)
+
+    if @item.save && @item.images.save && @item.detail.save && @item.shipping.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private
 
-  def params_item
-    params.permit(:name, :price, :description, :sale_status, :buy_status, :user_id)
+  def item_params
+    params.permit(:name, :price, :description, :sale_status, :buy_status).marge(user_id: current_user.id)
+  end
+
+  def item_image_params
+    params.permit(:url, :item_id)
+  end
+
+  def item_detail_params
+    params.permit(:size, :brand, :condition, :item_id)
+  end
+
+  def shipping_origin_params
+    params.permit(:origin_region, :shipping_day, :shipping_method, :shipping_burden,:item_id)
   end
 end
