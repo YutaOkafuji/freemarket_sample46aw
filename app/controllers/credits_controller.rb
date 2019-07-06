@@ -9,7 +9,7 @@ class CreditsController < ApplicationController
   end
 
   def create
-    redirect_to sign_ups_path
+    redirect_to user_members_path
   end
 
   def edit; end
