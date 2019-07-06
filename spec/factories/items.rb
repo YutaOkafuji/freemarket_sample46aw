@@ -1,9 +1,9 @@
 FactoryBot.define do
-  factory :item, class: 'Items' do
-    association :user
-    name { Faker::Game.title }
+  factory :item do
+    user
+    name { Faker::Beer.name }
     price { Faker::Number.between( 3, 9999999 )}
-    description { Faker::Game.genre }
+    description { Faker::Beer.style }
     sale_status { 0 }
     buy_status { 0 }
   end

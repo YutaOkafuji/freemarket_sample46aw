@@ -1,0 +1,18 @@
+%h3.item-container__title
+  =link_to item,root_path #root_pathは後で変更すること
+.item-content
+  - @items[0,4].each do |item|
+    .item-content__box
+      =link_to root_path do #仮パス アイテム詳細ページを実装した時に変更すること
+        .item-content__box--item-image
+          = image_tag item.item_images.first.url, alt: '商品名'
+        .content-body
+          %h3.content-body__item-name.font-2 #{item.name}
+          .content-body__num
+            .content-body__num--price ¥#{item.price}
+            .content-body__num--likes.font-2
+              %i.far.fa-heart
+              %span 0
+          %p.content-body__num--tax (税込)
+.view-all
+  =link_to "全ての商品を見る", ""

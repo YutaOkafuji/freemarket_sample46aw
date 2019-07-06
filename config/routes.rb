@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resource :user_addresses, only: %i[edit create new]
   resource :logouts, only: %i[show destroy]
   resources :profiles, only: :new
-  resources :users, only: %i[index new creat]
+  resources :users, only: %i[index new create]
+  resource :deals, only: %i[new]
   # 確認用（users/create）
   get'/users/create' => 'users#create'
   resources :items
