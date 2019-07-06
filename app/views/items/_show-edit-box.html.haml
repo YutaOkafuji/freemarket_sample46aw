@@ -4,4 +4,4 @@
     =link_to "商品の編集",{controller: "items", action: "edit"},{class:"item-change-box__btn--edit"}
     %p or
     =link_to "出品を一旦停止する", { method: :patch},{class:"item-change-box__btn--stop"}
-    =link_to "この商品を削除する",{controller: "items", action: "index"},  {class:"item-change-box__btn--delete"}
+    =link_to "この商品を削除する",{controller: "items", action: "destroy"},  {class:"item-change-box__btn--delete"}
