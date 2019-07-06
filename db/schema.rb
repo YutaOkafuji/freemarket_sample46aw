@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_24_140655) do
+ActiveRecord::Schema.define(version: 2019_07_06_035100) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2019_06_24_140655) do
 
   create_table "delivery_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "zip_code", null: false
-    t.string "prefecture", null: false
+    t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "street_number", null: false
     t.string "building"
@@ -134,7 +134,7 @@ ActiveRecord::Schema.define(version: 2019_06_24_140655) do
 
   create_table "user_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "zip_code"
-    t.string "prefecture"
+    t.integer "prefecture_id"
     t.string "city"
     t.string "street_number"
     t.string "building"

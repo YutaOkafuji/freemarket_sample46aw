@@ -7,9 +7,10 @@
       %section.setting-profile
         %h2.setting-profile__title プロフィール
         %form
-          .setting-profile__top
-            %figure.setting-profile__top__avatar
-              =image_tag "https://placehold.jp/60x60.png"
+          .setting-profile
+            =image_tag "setting-profilesBG.jpg" do
+              %figure.setting-profile__top__avatar
+                =image_tag "https://placehold.jp/60x60.png"
             %input.setting-profile__top__nickname
           .setting-profile__bottom
             %textarea.setting-profile__bottom__text
