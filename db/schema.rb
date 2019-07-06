@@ -143,17 +143,6 @@ ActiveRecord::Schema.define(version: 2019_06_24_140655) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "zip_code"
-    t.string "prefecture"
-    t.string "city"
-    t.string "street_number"
-    t.string "building"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
