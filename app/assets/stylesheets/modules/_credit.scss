@@ -1,5 +1,6 @@
 .signup-credit{
   @include centering;
+  @include clearfix;
   width: 700px;
 }
 
