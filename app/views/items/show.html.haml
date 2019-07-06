@@ -74,7 +74,7 @@
     %p.item-description__inner
       めっちゃくちゃやす〜〜〜〜〜〜〜い！ほし〜〜〜〜〜〜〜〜〜い！
       かいた〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜い
-    -#  
+    -#TODO ログイン機能を実装したらunlessとelseのコメントアウトを外す
     -# -unless current_user.id == item.user_id 
     .item-button-container--clearfix
       .item-button-content__left
@@ -90,17 +90,6 @@
         =link_to "https://www.mercari.com/jp/safe/description/",target: "_blank" do
           %i.fas.fa-lock
           %span あんしん・あんぜんへの取り組み
-  -# -else 
+  -# -else  
     -# =render partial: "show-edit-box" 
 =render partial: "comments/index"
--#     %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
--#     -# if "sale_statusが１の時は以下を表示"
--#     =form_with(url: "https://kari",class: "message-content__form" ) do |f|
--#       = f.text_area :content
--#       = f.button ("コメントする")
-    
--#       -# elseの時は以下を表示させ、コメントできないようにする。
--#       -# %textarea{disabled: "disabled", name: "content"}
--#       -# %button{disabled: "disabled"}売り切れの為コメントできません
--#     .message-content__submit-btn
-
