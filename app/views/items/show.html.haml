@@ -62,19 +62,19 @@
     %span.item-price-box__price ¥ 6,800
     %span.item-price-box__tax (税込)
     %span.item-price-box__shipping-fee 送料込み
-  -#TODO if "itemのsale_statusが1の時下の２行を表示させる"
+  -#TODO:if "itemのsale_statusが1の時下の２行を表示させる"
   .sales-balance
     .sales-balance__messages 残高 ¥ 256をお持ちです
-  -#TODO dealコントローラとを作成した時に下のcontrollerをitemsからdealsに変更する。
+  -#TODO:dealコントローラとを作成した時に下のcontrollerをitemsからdealsに変更する。
   =link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
-  -#T
+  -#TODO:sales_statusの実装を行う時処理を記入する。
     .item-buy-btn--disabled 売り切れました
 
   .item-description
     %p.item-description__inner
       めっちゃくちゃやす〜〜〜〜〜〜〜い！ほし〜〜〜〜〜〜〜〜〜い！
       かいた〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜い
-    -#TODO ログイン機能を実装したらunlessのコメントアウトを外す
+    -#TODO:ログイン機能を実装したらunlessのコメントアウトを外す
     -# -unless current_user.id == item.user_id 
     .item-button-container--clearfix
       .item-button-content__left
@@ -90,6 +90,7 @@
         =link_to "https://www.mercari.com/jp/safe/description/",target: "_blank" do
           %i.fas.fa-lock
           %span あんしん・あんぜんへの取り組み
-  -# -else  ログイン機能を実装したらelseのコメントアウトを外す
+  -#TODO:ログイン機能を実装したらelse以下のコメントアウトを外す          
+  -# -else  
     -# =render partial: "show-edit-box" 
 =render partial: "comments/index"
