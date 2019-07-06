@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
 
   def show
     #find(1)は後でfind(params[:id])に修正する
-    # @item = Item.find(1)
+    @item = Item.find(1)
     render layout: "layout_items_show"
   end
   
@@ -18,12 +18,21 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item = Item.find(params[:id])
+    item = set_item
   if  current_user.id == item.user_id
-    item.destroy
-    redirect_to root_path, flash:{ success: '削除しました'}
-  else
-    redirect_to root_path, flash:{ warning: '削除に失敗しました' }
+    if item.destroy
+      redirect_to root_path, flash:{ success: '削除しました'}
+    else
+      redirect_to root_path, flash:{ warning: '削除に失敗しました' }
+    end
+  end
+
+  end
+
+  private 
+
+  def set_item
+    Item.find(params[:id])
   end
 
 end
