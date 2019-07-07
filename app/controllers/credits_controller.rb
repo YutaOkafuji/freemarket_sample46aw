@@ -6,10 +6,12 @@ class CreditsController < ApplicationController
   end
 
   def new
+    # TODO Payjpで実装できたら実装する
     render :new, layout: "second_layout"
   end
 
   def create
+     # TODO Payjpで実装できたら実装する
     redirect_to user_members_path
   end
 

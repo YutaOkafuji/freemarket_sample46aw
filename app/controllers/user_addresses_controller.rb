@@ -2,6 +2,8 @@ class UserAddressesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:new, :create]
 
+  # WARNING delivery_addressのものをコピぺして修正しただけなので
+  #         エラー起こるかも？？
   def new
     render :new, layout: "second_layout"
   end
