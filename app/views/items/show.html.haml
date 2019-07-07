@@ -5,9 +5,10 @@
   %h1 品名
   .item-detail-content
     .item-detail-content__photo
-      = image_tag 'http://via.placeholder.com/225x300', class:'item-detail-content__photo--big'
+      -# = image_tag 'http://via.placeholder.com/225x300', class:'item-detail-content__photo--big'
+      = image_tag = image_tag @item.item_images.first.url, size: :"225x300", class:'item-detail-content__photo--big'
       .item-detail-content__photo--small
-        = image_tag 'http://via.placeholder.com/60x60'
+        = image_tag @item.item_images[1].url, size: :"60x60"
         = image_tag 'http://via.placeholder.com/60x60'
         = image_tag 'http://via.placeholder.com/60x60'
         = image_tag 'http://via.placeholder.com/60x60'
@@ -23,7 +24,8 @@
           %tr
             %th 出品者
             %td 
-              メルカリ売り太郎
+              -# メルカリ売り太郎
+              #{@item.user.profile.nickname}
               .user-rating
                 .user-rating__inner
                   %i.fas.fa-grin.good
@@ -36,35 +38,36 @@
                   %span 0
             %tr
               %th カテゴリ
-              %td カテゴリ名
+              %td #{@item.category.name}
             %tr
               %th ブランド
-              %td ブランド名
+              %td #{@item.item_detail.brand}
             %tr
               %th 商品のサイズ
-              %td そこそこ
+              %td #{@item.item_detail.size}
             %tr
               %th 商品の状態
-              %td ボッロボロ
+              %td #{@item.item_detail.condition}
             %tr
               %th 配送料の負担
-              %td 送料込み(出品者負担)
+              %td #{@item.shipping_origin.shipping_burden}
             %tr
               %th 配送の方法
-              %td ゆうゆうメルカリ便
+              %td #{@item.shipping_origin.shipping_method}
             %tr
               %th 配送元地域
-              %td 北海道
+              %td #{@item.shipping_origin.origin_region}
             %tr
               %th 発送日の目安
-              %td 4~7日で発送
+              %td #{@item.shipping_origin.shipping_day}
   .item-price-box
-    %span.item-price-box__price ¥ 6,800
+    %span.item-price-box__price ¥ #{@item.price}
     %span.item-price-box__tax (税込)
     %span.item-price-box__shipping-fee 送料込み
   -#TODO if "itemのsale_statusが1の時下の２行を表示させる"
-  .sales-balance
-    .sales-balance__messages 残高 ¥ 256をお持ちです
+  - if @item.sale_status == 1
+    .sales-balance
+      .sales-balance__messages 残高 ¥ 256をお持ちです
   -#TODO dealコントローラとを作成した時に下のcontrollerをitemsからdealsに変更する。
   =link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
   -#T
