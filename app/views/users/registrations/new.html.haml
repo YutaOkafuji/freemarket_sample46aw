@@ -6,7 +6,7 @@
     %h2.signup-title 会員情報入力
     =form_with url: user_registration_path, method: :post, local: true, class: "signup-form" do |f|
       .signup-input
-          -# TODO バリデーションのエラーメッセージが出るようにする。
+        -# TODO バリデーションのエラーメッセージが出るようにする。
         .signup-input__block
           =f.label :nickname, "ニックネーム"
           %span 必須
