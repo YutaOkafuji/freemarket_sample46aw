@@ -1,7 +1,8 @@
 class CreditsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_user, only: [:show]
+  
   def show
-    get_user
   end
 
   def new
@@ -12,10 +13,11 @@ class CreditsController < ApplicationController
     redirect_to user_members_path
   end
 
-  def edit; end
+  def edit
+  end
 
   private
-  def get_user
+  def set_user
     @user = User.find(params[:user_id])
   end 
 end

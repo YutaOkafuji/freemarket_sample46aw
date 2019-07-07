@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:new] 
+  before_action :set_user, only: [:show]
+
   def show
-    @user = User.find(params[:id])
   end
 
   def new
@@ -13,8 +14,12 @@ class UsersController < ApplicationController
   end
 
   private
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
-    params.permit(:email, :password, :password_confirmation).merge( {avatar: nil, profit: 0, point: 0 } )
+    params.permit(:email, :password, :password_confirmation).merge( { avatar: nil, profit: 0, point: 0 } )
   end
   
   def profile_params

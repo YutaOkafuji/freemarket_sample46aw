@@ -1,15 +1,16 @@
 class DeliveryAddressesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_user, only: [:new, :create]
+
   def new
-    get_user
     render :new, layout: "second_layout"
   end
 
   def create
-    get_user
     @user.delivery_address = DeliveryAddress.new(delivery_address_params)
+    # TODO 単体テストを実装する必要がある
     if @user.delivery_address.save
-      redirect_to new_user_credit_path(user_id: @user.id)
+      redirect_to new_user_credits_path(user_id: @user.id)
     else
       render action: :new
     end  
@@ -20,7 +21,7 @@ class DeliveryAddressesController < ApplicationController
     params.permit(:zip_code, :prefecture_id, :city, :street_number, :building, :telephone)
   end
 
-  def get_user
+  def set_user
     @user = User.find(params[:user_id]) 
   end
 end
