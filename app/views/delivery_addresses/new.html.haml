@@ -4,7 +4,7 @@
   .signup-address
     .auth-info
       %h2.auth-title 発送元・お届け先住所登録
-      =form_with url: user_delivery_addresses_path(user_id: @user.id), local: true, class: "auth-form" do |f|
+      =form_with model: [@user, @delivery_address], local: true, class: "auth-form" do |f|
         .form-remarks
           %p
             お客様の発送元・お届け先住所情報をご登録ください。

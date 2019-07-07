@@ -3,6 +3,7 @@ class DeliveryAddressesController < ApplicationController
   before_action :set_user, only: [:new, :create]
 
   def new
+    @delivery_address = DeliveryAddress.new
     render :new, layout: "second_layout"
   end
 
@@ -18,7 +19,7 @@ class DeliveryAddressesController < ApplicationController
 
   private 
   def delivery_address_params
-    params.permit(:zip_code, :prefecture_id, :city, :street_number, :building, :telephone)
+    params.require(:delivery_address).permit(:zip_code, :prefecture_id, :city, :street_number, :building, :telephone)
   end
 
   def set_user
