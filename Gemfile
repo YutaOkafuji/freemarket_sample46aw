@@ -57,6 +57,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'capistrano-rails-console'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'faker'
