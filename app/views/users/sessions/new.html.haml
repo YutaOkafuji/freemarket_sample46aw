@@ -3,7 +3,7 @@
     .login-content
       .login-sign-up
         %p.login-sign-up__remarks アカウントをお持ちでない方はこちら
-        =link_to "/users/sign_up", class: "login-sign-up__btn" do
+        =link_to new_user_path, class: "login-sign-up__btn" do
           新規会員登録
       .login-api
         =link_to root_path, class: "login-api__facebook" do
