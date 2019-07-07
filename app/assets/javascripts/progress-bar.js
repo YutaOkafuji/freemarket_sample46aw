@@ -1,5 +1,5 @@
 $(window).on('load',function(){
-    if(location.href.match(/user_addresses/)) {
+    if(location.href.match(/delivery_addresses/)) {
       $('#progress-auth').removeClass('progress-auth');
       $('#progress-auth').addClass('active-after');
       $('#progress-address').removeClass('progress-address');
@@ -11,7 +11,7 @@ $(window).on('load',function(){
       $('#progress-address').addClass('active-all');
       $('#progress-credit').removeClass('progress-credit');
       $('#progress-credit').addClass('active-before');
-    }else if (location.href.match(/create/)){
+    }else if (location.href.match(/members/)){
       $('#progress-auth').removeClass('progress-auth');
       $('#progress-auth').addClass('active-after');
       $('#progress-address').removeClass('progress-address');
