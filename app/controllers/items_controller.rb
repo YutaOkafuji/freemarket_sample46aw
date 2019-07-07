@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: %i[index new]
+  # before_action :set_item, except: %i[index new　create]
   # before_action :move_to_index, except: [:index, :show]
   def index
     @items = Item.all.includes(:item_images).order("created_at DESC")
@@ -12,20 +12,22 @@ class ItemsController < ApplicationController
   end
   
   def new
-    render layout: "second_layout"
     @item = Item.new
+    @item.item_images.build
+    render layout: "second_layout"
   end
 
   def create
     @item = Item.new(item_params)
-    @item.images = ItemImage.new(item_image_params)
-    @item.detail = ItemDetail.new(item_detail_params)
-    @item.shipping = ShippingOrigin.new(shipping_origin_params)
-
-    if @item.save && @item.images.save && @item.detail.save && @item.shipping.save
+    # @item.item_image = ItemImage.new(item_image_params)
+    # @item.item_detail = ItemDetail.new(item_detail_params)
+    # @item.shipping_origin = ShippingOrigin.new(shipping_origin_params)
+    binding.pry
+    if @item.save 
+      # && @item.images.save && @item.detail.save && @item.shipping.save
       redirect_to root_path
     else
-      render :new
+      redirect_to new_item_path
     end
   end
 
@@ -37,11 +39,13 @@ class ItemsController < ApplicationController
         redirect_to root_path, flash:{ warning: '削除に失敗しました' }
       end
     end
+  end
 
   private
 
   def item_params
-    params.permit(:name, :price, :description, :sale_status, :buy_status).marge(user_id: current_user.id)
+    params.require(:item).permit(:name, :price, :description, :sale_status, :buy_status)
+    # .marge(user_id: current_user.id)
   end
 
   def item_image_params
@@ -56,8 +60,8 @@ class ItemsController < ApplicationController
     params.permit(:origin_region, :shipping_day, :shipping_method, :shipping_burden,:item_id)
   end
 
-  def set_item
-    @item = Item.find(params[:id])
-  end
-  
+  # def set_item_new
+  #   @item = Item.find(params[:id])
+  # end
+
 end
