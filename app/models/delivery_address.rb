@@ -8,5 +8,6 @@ class DeliveryAddress < ApplicationRecord
     validates :prefecture_id
     validates :city
     validates :street_number
+    validates :user_id
   end
 end
