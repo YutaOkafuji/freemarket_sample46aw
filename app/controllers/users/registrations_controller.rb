@@ -18,6 +18,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       sign_in(:user, @user)
       redirect_to new_user_delivery_addresses_path(user_id: @user.id)
     else
+      # TODO バリデーションのエラーメッセージを飛ぶようにする。
       @user.destroy
       render action: :new
     end
