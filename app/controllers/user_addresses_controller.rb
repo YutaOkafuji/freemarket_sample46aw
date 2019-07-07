@@ -1,5 +1,5 @@
 class UserAddressesController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :create]
+  before_action :authenticate_user!
   def new
     @user = User.find(params[:user_id])
     render :new, layout: "second_layout"
@@ -20,7 +20,10 @@ class UserAddressesController < ApplicationController
 
   private 
   def user_address_params
-    # prefectureのカラムの型を修正するか検討する
     params.permit(:zip_code, :prefecture_id, :city, :street_number, :building)
+  end
+
+  def get_user
+    @user = User.find(params[:user_id])
   end
 end

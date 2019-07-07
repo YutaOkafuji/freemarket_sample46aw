@@ -9,10 +9,6 @@
   float: right;
   background: $white;
   
-  .required{
-    @include required;
-  }
-  
   .elective{
     @include required($color: $lightgray);
   }

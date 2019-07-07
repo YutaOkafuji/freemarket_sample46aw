@@ -16,7 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.profile = Profile.new(profile_params)
     if @user.save && @user.profile.save
       sign_in(:user, @user)
-      redirect_to new_user_user_addresses_path(user_id: @user.id)
+      redirect_to new_user_delivery_addresses_path(user_id: @user.id)
     else
       @user.destroy
       render action: :new

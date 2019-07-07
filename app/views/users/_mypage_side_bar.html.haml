@@ -70,7 +70,7 @@
     %h3.nav-list__head 設定
     %ul.nav-list
       %li
-        =link_to root_path, class: "nav-list__item" do
+        =link_to new_user_profile_path(user_id: current_user.id), class: "nav-list__item" do
           プロフィール
           %i.fas.fa-chevron-right.arrow-hover
       %li
@@ -78,7 +78,7 @@
           発送元・お届け先住所変更
           %i.fas.fa-chevron-right.arrow-hover
       %li
-        =link_to user_credits_path(user_id: user.id), class: "nav-list__item" do
+        =link_to user_credits_path(user_id: current_user.id), class: "nav-list__item" do
           支払い方法
           %i.fas.fa-chevron-right.arrow-hover
       %li
@@ -86,7 +86,7 @@
           メール/パスワード
           %i.fas.fa-chevron-right.arrow-hover
       %li
-        =link_to edit_user_user_addresses_path(user_id: user.id), class: "nav-list__item" do
+        =link_to edit_user_user_addresses_path(user_id: current_user.id), class: "nav-list__item" do
           本人情報
           %i.fas.fa-chevron-right.arrow-hover
       %li
@@ -94,6 +94,6 @@
           電話番号の確認
           %i.fas.fa-chevron-right.arrow-hover
       %li
-        =link_to user_logouts_path(user_id: user.id), class: "nav-list__item" do
+        =link_to user_logouts_path(user_id: current_user.id), class: "nav-list__item" do
           ログアウト
           %i.fas.fa-chevron-right.arrow-hover

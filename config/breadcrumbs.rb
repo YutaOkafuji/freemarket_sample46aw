@@ -5,7 +5,7 @@ end
 
 # users#index
 crumb :users do
-  link 'マイページ', user_path(current_user.id)
+  link 'マイページ', user_path(id: current_user.id)
   parent :root
 end
 
@@ -17,7 +17,7 @@ end
 
 # profiles#new
 crumb :new_profile do
-  link 'プロフィール', new_profile_path
+  link 'プロフィール', new_user_profile_path(user_id: current_user.id)
   parent :users
 end
 

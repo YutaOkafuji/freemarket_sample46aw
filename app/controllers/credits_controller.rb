@@ -1,7 +1,7 @@
 class CreditsController < ApplicationController
   before_action :authenticate_user!
-  def index
-    @user = User.find(params[:user_id])
+  def show
+    get_user
   end
 
   def new
@@ -13,4 +13,9 @@ class CreditsController < ApplicationController
   end
 
   def edit; end
+
+  private
+  def get_user
+    @user = User.find(params[:user_id])
+  end 
 end
