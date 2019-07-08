@@ -125,12 +125,12 @@
 - belongs_to :deal
 - belongs_to :user
 
-# item_detailテーブル
+# item_detailsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|size|integer|null: false|
+|size_id|integer||
 |brand|string||
-|condition|integer|null: false|
+|condition_id|integer|null: false|
 |item_id|references|null: false, foreign_key: true|
 ## Association
 - belongs_to :item
