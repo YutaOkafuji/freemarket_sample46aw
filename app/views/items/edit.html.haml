@@ -3,6 +3,4 @@
     .exhibition-main__container
       %h2.sell-head
         商品の情報を入力
-      //form_withの中身は後で変更する
-      =form_with url: items_path,local: true  do |f|
-        =render partial: 'form', locals: { f:f }
+      =render partial: 'form', locals: { item:@item }

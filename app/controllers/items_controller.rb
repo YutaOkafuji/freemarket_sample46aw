@@ -6,30 +6,52 @@ class ItemsController < ApplicationController
   end
 
   def show
-    #find(1)は後でfind(params[:id])に修正する
+    # find(1)は後でfind(params[:id])に修正する
     @item = Item.find(1)
     render layout: "layout_items_show"
   end
-  
+
   def new
     render layout: "second_layout"
   end
 
+  def edit
+
+  end
+
+  def update
+    # if @item.user.id == current_user.id
+      if @item.update(update_item_params)
+        redirect_to item_path(@item)
+      else
+        render :edit
+      end
+    # else 
+    #   redirect_to root_path
+    # end
+  end
+
   def destroy
-  if  current_user.id == @item.user_id
-    if @item.destroy
-      redirect_to root_path, flash:{ success: '削除しました'}
-    else
-      redirect_to root_path, flash:{ warning: '削除に失敗しました' }
+    if current_user.id == @item.user_id
+      if @item.destroy
+        redirect_to root_path, flash: { success: '削除しました' }
+      else
+        redirect_to root_path, flash: { warning: '削除に失敗しました' }
+      end
     end
   end
 
-  end
-
-  private 
+  private
 
   def set_item
     @item = Item.find(params[:id])
   end
 
+  def update_item_params
+    params.require(:item).permit( :name,
+                                  :description,
+                                  :price,
+                                  item_image_attributes: %i[id url],
+                                  item_details_attributes: %i[id size brand condition])
+  end
 end
