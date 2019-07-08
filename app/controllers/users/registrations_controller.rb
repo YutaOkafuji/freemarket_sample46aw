@@ -1,19 +1,20 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  layout "second_layout"
+  layout "second_layout", only: [:new, :create]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   #GET /resource/sign_up
   def new
+    @user = User.new
+    @user.build_profile
     # super
   end
 
   # POST /resource
   def create
-    @user = User.new(user_params)
-    @user.profile = Profile.new(profile_params)
+    @user = User.new(user_profile_attr_params)
     if @user.save && @user.profile.save
       sign_in(:user, @user)
       redirect_to new_user_delivery_addresses_path(user_id: @user.id)
@@ -72,22 +73,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
   
   private
-  def user_params
-    params.permit(:email, :password, :password_confirmation).merge( {avatar: nil, profit: 0, point: 0 } )
-  end
-  
-  def profile_params
-    params.permit(:nickname, :family_name, :first_name, :family_name_kana, :first_name_kana).merge( { birthday: get_birthday } )
-  end
-  
-  def get_birthday
-    birthday = params.permit(:birth_date)
-    birthday = birthday.values
-    unless birthday.include?("") 
-      birthday= Time.new(birthday[0], birthday[1], birthday[2])
-      birthday.strftime("%Y%m%d")
-    else
-      nil
-    end
+  def user_profile_attr_params
+    params.require(:user).permit(
+      :email,
+      :password,
+      :password_confirmation,
+      profile_attributes: [:nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :birthday]
+      ).merge(avatar: nil, profit: 0, point: 0)
   end
 end
