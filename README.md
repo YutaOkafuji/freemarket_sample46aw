@@ -81,10 +81,10 @@
 # shipping_originsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|origin_region|integer|null: false|
-|shipping_day|integer|null: false|
-|shipping_method|integer|null: false|
-|shipping_burden|boolean|null: false|
+|prefecture_id|integer|null: false|
+|days_id|integer|null: false|
+|method_id|integer|null: false|
+|burden_id|integer|null: false|
 |item_id|references|null: false, foreign_key: true|
 ## Association
 - belongs_to :item
