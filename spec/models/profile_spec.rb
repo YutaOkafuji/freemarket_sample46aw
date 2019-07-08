@@ -7,7 +7,7 @@ RSpec.describe Profile, type: :model do
     end
 
     # 必須カラムにデータが存在すれば登録できること
-    it "is valid with a nickname, family_name, first_name, family_name_kana, first_name_kana and user_id" do
+    it "is valid with a nickname, family_name, first_name, family_name_kana and first_name_kana" do
       @user.profile = build(:profile)
       expect(@user.profile).to be_valid
     end
@@ -38,14 +38,6 @@ RSpec.describe Profile, type: :model do
       @user.profile = build(:profile, first_name_kana: "")
       @user.profile.valid?
       expect(@user.profile.errors[:first_name_kana]).to include("can't be blank")
-    end
-
-    # user_idが空では登録できないこと
-    it "is invalid without a user_id" do
-      @user.id = nil
-      @user.profile = build(:profile)
-      @user.profile.valid?
-      expect(@user.profile.errors[:user_id]).to include("can't be blank")
     end
 
     # nicknameが空では登録できないこと
