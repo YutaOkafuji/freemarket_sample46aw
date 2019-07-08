@@ -32,7 +32,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |zip_code|string|length: { maximum: 8 }|
-|prefecture|string||
+|prefecture_id|integer||
 |city|string||
 |street_number|string||
 |building|string||
@@ -44,7 +44,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |zip_code|string|null: false, length: { maximum: 8 }|
-|prefecture|string|null: false|
+|prefecture_id|integer|null: false|
 |city|string|null: false|
 |street_number|string|null: false|
 |building|string||
@@ -140,7 +140,7 @@
 |------|----|-------|
 |name|string|null: false|
 |parent_id|string|null: false|
-|item_id|string|null: false|
+|item_id|references|null: false, foreign_key: true|
 ## Association
 - belongs_to :item
 - belongs_to :parent, class_name: :Category
