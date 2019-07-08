@@ -18,12 +18,12 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false, length: { maximum: 20 }|
-|introduction|text||
-|birthday|date||
-|family_name|string|null: false|
-|first_name|string|null: false|
-|family_name_kana|string|null: false|
-|first_name_kana|string|null: false|
+|introduction|text|length: { maximum: 1000 }|
+|birthday|date|null: false|
+|family_name|string|null: false ,length: { maximum: 35 }|
+|first_name|string|null: false, length: { maximum: 35 }|
+|family_name_kana|string|null: false, length: { maximum: 35 }|
+|first_name_kana|string|null: false, length: { maximum: 35 }|
 |user_id|references|null: false, foreign_key: true|
 ## Association
 - belongs_to :user
@@ -33,9 +33,9 @@
 |------|----|-------|
 |zip_code|string|length: { maximum: 8 }|
 |prefecture_id|integer||
-|city|string||
-|street_number|string||
-|building|string||
+|city|string|length: { maximum: 50 }|
+|street_number|string|length: { maximum: 100 }|
+|building|string|length: { maximum: 100 }|
 |user_id|references|null: false, foreign_key: true|
 ## Association
 - belongs_to :user
@@ -45,9 +45,9 @@
 |------|----|-------|
 |zip_code|string|null: false, length: { maximum: 8 }|
 |prefecture_id|integer|null: false|
-|city|string|null: false|
-|street_number|string|null: false|
-|building|string||
+|city|string|null: false, length: { maximum: 50 }|
+|street_number|string|null: false, length: { maximum: 100 }|
+|building|string|length: { maximum: 100 }|
 |telephone|string||
 |user_id|references|null: false, foreign_key: true|
 ## Association
