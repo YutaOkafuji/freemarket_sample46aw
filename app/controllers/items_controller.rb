@@ -13,7 +13,9 @@ class ItemsController < ApplicationController
   
   def new
     @item = Item.new
-    @item.item_images.build
+    @item.build_item_images
+    @item.build_item_detail
+    @item.build_shipping_origin
     render layout: "second_layout"
   end
 
@@ -44,22 +46,13 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :description, :sale_status, :buy_status)
+    params.require(:item).permit(:name, :price, :description, :sale_status, :buy_status,
+                                  item_image_attributes: %i[url item_id],
+                                  item_detail_attributes: %i[size brand condition item_id],
+                                  shipping_origin_attributes: %i[origin_region shipping_day shipping_method shipping_burden item_id)])
     # .marge(user_id: current_user.id)
   end
-
-  def item_image_params
-    params.permit(:url, :item_id)
-  end
-
-  def item_detail_params
-    params.permit(:size, :brand, :condition, :item_id)
-  end
-
-  def shipping_origin_params
-    params.permit(:origin_region, :shipping_day, :shipping_method, :shipping_burden,:item_id)
-  end
-
+  
   # def set_item_new
   #   @item = Item.find(params[:id])
   # end
