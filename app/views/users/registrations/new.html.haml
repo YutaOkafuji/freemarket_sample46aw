@@ -1,0 +1,67 @@
+= content_for :header_content do
+  = render 'share/progress-bar'
+-# main要素
+%main.devise-content
+  %section.signup-section
+    %h2.signup-title 会員情報入力
+    = form_with model: @user, url: user_registration_path, method: :post, local: true, class: "signup-form" do |f|
+      .signup-input
+        -# TODO バリデーションのエラーメッセージが出るようにする。
+        = f.fields_for :profile do |profile|
+          .signup-input__block
+            = profile.label :nickname, "ニックネーム"
+            %span 必須
+            = profile.text_field :nickname, class: "", placeholder: "例)メルカリ太郎"
+        .signup-input__block
+          = f.label :email, "メールアドレス"
+          %span 必須
+          = f.email_field :email, class: "", placeholder: "PC・携帯どちらでも可"
+        .signup-input__block
+          = f.label :password, "パスワード"
+          %span 必須
+          = f.password_field :password, class: "", placeholder: "6文字以上"
+        .signup-input__block
+          = f.label :password_confirmation, "パスワード（確認）"
+          %span 必須
+          = f.password_field :password_confirmation, class: "", placeholder: "6文字以上"
+          .signup-input__block
+            %h3 本人確認
+            %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        = f.fields_for :profile do |profile|
+          .signup-input__block
+            = profile.label :family_name, "姓（全角）"
+            %span 必須
+            = profile.text_field :family_name, class: "", placeholder: "例）山田"
+          .signup-input__block
+            = profile.label :first_name, "名（全角）"
+            %span 必須
+            = profile.text_field :first_name, class: "", placeholder: "例）彩"
+          .signup-input__block
+            = profile.label :family_name_kana, "姓カナ（全角）"
+            %span 必須
+            = profile.text_field :family_name_kana, class: "", placeholder: "例）ヤマダ"
+          .signup-input__block
+            = profile.label :first_name_kana, "名カナ（全角）"
+            %span 必須
+            = profile.text_field :first_name_kana, class: "", placeholder: "例）アヤ"
+          .signup-input__block
+            = profile.label :birthday, "生年月日"
+            %span 必須
+            %br
+            .birthday-select
+              = raw sprintf(profile.date_select(:birthday, use_month_numbers: true, include_blank: true, start_year: Time.now.year,
+              end_year: (Time.now.year - 119 ), date_separator: '%s'),'年 ', '月 ',{class: "form-select"} ) + '日'
+        %p.form-info 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+      .signup-check
+        .signup-check__robo
+        .signup-check__info
+          「次へ進む」のボタンを押すことにより、
+          %a 利用規約
+          に同意したものとみなします。
+        -# new_user_user_addresses_pathへ飛ぶ処理はコントローラーでredirect_toで実装する
+        = f.submit "次へ進む", class:"signup-check__btn"
+        .signup-check__mark
+          %p
+            %a
+              本人情報の登録について
+              %i.fas.fa-chevron-right
