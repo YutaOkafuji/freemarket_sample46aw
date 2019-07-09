@@ -1,0 +1,23 @@
+.devise-content
+  .main
+    .login-content
+      .login-sign-up
+        %p.login-sign-up__remarks アカウントをお持ちでない方はこちら
+        = link_to new_user_path, class: "login-sign-up__btn" do
+          新規会員登録
+      .login-api
+        = link_to root_path, class: "login-api__facebook" do
+          %i.fab.fa-facebook-square
+          %span Facebookでログイン
+        = link_to root_path, class: "login-api__google" do
+          Googleでログイン
+      -# form_withでの記述ができたらする
+      = form_for(resource, as: resource_name, url: user_session_path) do |f|
+        .login-form
+          = f.email_field :email, class: "login-form__text-field", placeholder: "メールアドレス"
+          = f.password_field :password, class: "login-form__text-field", placeholder: "パスワード"
+          .login-form__recaptcha
+          //apiで実装
+          = f.submit "ログイン", class: "btn"
+          = link_to root_path, class: "login-form__remarks" do
+            パスワードお忘れの方

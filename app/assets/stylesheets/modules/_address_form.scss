@@ -61,8 +61,12 @@
         font-size: 14px;
       }
 
-      span{
+      .elective{
         @include required($color: $lightgray);
+      }
+
+      .required{
+        @include required;
       }
 
       input{
@@ -93,4 +97,3 @@
 
   }
 }
-
