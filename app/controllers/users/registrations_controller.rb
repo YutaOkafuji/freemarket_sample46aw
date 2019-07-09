@@ -1,19 +1,30 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  layout "second_layout", only: [:new, :create]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   #GET /resource/sign_up
   def new
-    #super
-    render :layout => "second_layout"
+    @user = User.new
+    @user.build_profile
+    # super
   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @user = User.new(user_profile_attr_params)
+    if @user.save && @user.profile.save
+      sign_in(:user, @user)
+      redirect_to new_user_delivery_addresses_path(user_id: @user.id)
+    else
+      # TODO バリデーションのエラーメッセージを飛ぶようにする。
+      @user.destroy
+      render action: :new
+    end
+      # super
+  end
 
   # GET /resource/edit
   # def edit
@@ -60,4 +71,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  
+  private
+  def user_profile_attr_params
+    params.require(:user).permit(
+      :email,
+      :password,
+      :password_confirmation,
+      profile_attributes: [:nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :birthday]
+      ).merge(avatar: nil, profit: 0, point: 0)
+  end
 end

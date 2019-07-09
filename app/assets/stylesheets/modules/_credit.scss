@@ -1,5 +1,6 @@
 .signup-credit{
   @include centering;
+  @include clearfix;
   width: 700px;
 }
 
@@ -8,8 +9,8 @@
   float: right;
   background: $white;
   
-  .required{
-    @include required;
+  .elective{
+    @include required($color: $lightgray);
   }
 
   .btn-default{

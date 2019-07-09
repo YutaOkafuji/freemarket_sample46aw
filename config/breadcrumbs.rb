@@ -5,7 +5,7 @@ end
 
 # users#index
 crumb :users do
-  link 'マイページ', users_path
+  link 'マイページ', user_path(id: current_user.id)
   parent :root
 end
 
@@ -17,19 +17,19 @@ end
 
 # profiles#new
 crumb :new_profile do
-  link 'プロフィール', new_profile_path
+  link 'プロフィール', new_user_profile_path(user_id: current_user.id)
   parent :users
 end
 
 # logouts#show
 crumb :logouts do
-  link 'ログアウト', logouts_path
+  link 'ログアウト', user_logouts_path
   parent :users
 end
 
 # credits#idex
 crumb :credits do
-  link '支払い方法', credits_path
+  link '支払い方法', user_credits_path
   parent :users
 end
 

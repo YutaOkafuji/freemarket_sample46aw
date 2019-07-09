@@ -3,7 +3,7 @@
         .credit-main
       %section.credit-content
         %h2.bold.credit-content__head クレジットカード情報入力
-        =form_with(local: true, class: "credit-content__menu") do |f|  
+        = form_with(local: true, class: "credit-content__menu") do |f|  
           .single-content
             -# 余裕があればtodo クレジットカードの有効期限が間違いがあった場合の文言を表示させる。
                 %p.error-text カードの有効期限に謝りがあるために、決済を完了できませんでした。有効期間を再度確認してください。
@@ -12,35 +12,35 @@
               %span.required 必須
               -# todo バリデーション input要素とli要素のカラーを赤くする
                   inputの枠の色のcssは_credit.scssのform-group__errorクラスで設定済み
-              =f.text_field :credit_num, id: "credit-input", class: "input-default", placeholder: "半角数字のみ", maxlength: 19
+              = f.text_field :credit_num, id: "credit-input", class: "input-default", placeholder: "半角数字のみ", maxlength: 19
               %ul.form-group__error--no-num
                 -# %li 必須項目です
               %ul.card-list
                 %li
-                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3632242607", class: "image-visa", alt: ""
+                  = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3632242607", class: "image-visa", alt: ""
                 %li
-                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3632242607", class: "image-master", alt: ""
+                  = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3632242607", class: "image-master", alt: ""
                 %li
-                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?3632242607", class: "image-saison", alt: ""
+                  = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?3632242607", class: "image-saison", alt: ""
                 %li
-                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?3632242607", class: "image-jcb", alt: ""
+                  = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?3632242607", class: "image-jcb", alt: ""
                 %li
-                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?3632242607", class: "image-american", alt: ""
+                  = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?3632242607", class: "image-american", alt: ""
                 %li
-                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?3632242607", class: "image-dinner", alt: ""
+                  = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?3632242607", class: "image-dinner", alt: ""
                 %li
-                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?3632242607", class: "image-discover", alt: ""
+                  = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?3632242607", class: "image-discover", alt: ""
             .form-group
               %label 有効期限
               %span.required 必須
               %br
               .select-section
-                = f.select :month, (1..12).map{ |month| [ sprintf("%02d", month) , month ] }, {}, {class: "form-select"}
+                =  f.select :month, (1..12).map{ |month| [ sprintf("%02d", month) , month ] }, {}, {class: "form-select"}
                 %i.fas.fa-chevron-down
               %span 月
               %ul
               .select-section
-                = f.select :year, (19..29).map{ |year| [ sprintf("%02d", year) , year ] }, {}, {class: "form-select"}
+                =  f.select :year, (19..29).map{ |year| [ sprintf("%02d", year) , year ] }, {}, {class: "form-select"}
                 %i.fas.fa-chevron-down
               %span 年
               %ul
@@ -49,7 +49,7 @@
               %span.required 必須
               -# todo バリデーション input要素とli要素のカラーを赤くする
                   inputの枠の色のcssは_credit.scssのform-group__errorクラスで設定済み
-              =f.text_field :security_code, id:"security-code", class: "input-default", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: 4
+              = f.text_field :security_code, id:"security-code", class: "input-default", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: 4
               %ul.form-group__error--no-text
                 -# %li 必須項目です
               .about-security-code
@@ -59,8 +59,8 @@
                 .about-security-code__info
                   カードの裏面をご参照ください
                   %br
-                  =image_tag "https://www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?1612736639" , alt:""
+                  = image_tag "https://www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?1612736639" , alt:""
               -# users_create_pathへ飛ぶ処理はコントローラーでredirect_toで実装する
-              =f.submit "登録する", class: "btn-default submit-button"
+              = f.submit "登録する", class: "btn-default submit-button"
 
-  =render "users/mypage_side_bar"
+  = render "users/mypage_side_bar"
