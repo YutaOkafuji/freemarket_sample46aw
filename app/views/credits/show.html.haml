@@ -12,11 +12,11 @@
           %ul.credit-list
         %section.settings-add-card
           .single-content
-            =link_to new_user_credits_path(user_id: current_user.id), class: "btn-default submit-button" do
+            = link_to new_user_credits_path(user_id: current_user.id), class: "btn-default submit-button" do
               %i.far.fa-credit-card
               クレジットカードを追加する
         .credit--not-regist
-          =link_to root_path do
+          = link_to root_path do
             %span 支払方法について
             %i.fas.fa-chevron-right
-  =render partial: "users/mypage_side_bar", locals: { user: @user}
+  = render partial: "users/mypage_side_bar", locals: { user: @user}
