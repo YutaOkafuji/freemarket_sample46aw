@@ -62,6 +62,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry-rails'
+  gem 'payjp'
 end
 
 group :development do
