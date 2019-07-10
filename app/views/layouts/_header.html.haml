@@ -20,19 +20,29 @@
               %span
                 ブランドから探す
       %nav.right-navi
-        %ul.right-navi__list
-          %li.list-item
-            =link_to "https://kari", {class: "list-item__icon"} do
-              %i.far.fa-bell.fa-lg{'aria-hidden': :true}
-              %span
-                お知らせ
-          %li.list-item
-            =link_to "https://kari", {class: "list-item__icon"} do
-              %i.fa.fa-check.fa-lg{'aria-hidden': :true}
-              %span
-                やることリスト
-          %li.list-item
-            =link_to "https://kari" do
-              = image_tag('member_photo_noimage_thumb.png', class: "list-item__icon")
-              %span
-                マイページ
+        -if user_signed_in?
+          %ul.right-navi__list
+            %li.list-item
+              =link_to "https://kari", {class: "list-item__icon"} do
+                %i.far.fa-bell.fa-lg{'aria-hidden': :true}
+                %span
+                  お知らせ
+            %li.list-item
+              =link_to "https://kari", {class: "list-item__icon"} do
+                %i.fa.fa-check.fa-lg{'aria-hidden': :true}
+                %span
+                  やることリスト
+            %li.list-item
+              =link_to user_path(current_user.id) do
+                = image_tag('member_photo_noimage_thumb.png', class: "list-item__icon")
+                %span
+                  マイページ
+        -else
+          %ul.right-navi__list--login
+            %li.list-item
+              =link_to new_user_path , {class: "list-item__btn sign-up-btn"} do
+                新規会員登録
+            %li.list-item
+              =link_to new_user_session_path, {class: "list-btn__icon sign-in-btn"} do
+                %span
+                  ログイン

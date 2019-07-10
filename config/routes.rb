@@ -1,22 +1,20 @@
 Rails.application.routes.draw do
-
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
-    :sessions => 'users/sessions'   
+    :sessions => 'users/sessions'
   } 
-  
   root 'items#index'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  resource :user_addresses, only: %i[edit create new]
-  resource :logouts, only: %i[show destroy]
-  resources :profiles, only: :new
-  resources :users, only: %i[index new create]
-  resource :deals, only: %i[new]
-  # 確認用（users/create）
-  get'/users/create' => 'users#create'
+  resources :users, only: %i[show new] do
+    resource  :user_addresses, only: %i[edit new create] 
+    resource  :delivery_addresses, only: %i[edit new create]
+    resource  :logouts, only: %i[show]
+    resources :profiles, only: :new
+    resource  :credits, only: %i[show new create]
+    resource  :members, only: %i[show]
+  end
   resources :items
   # usersをネストし、indexをshowに修正すること
-  resources :credits, only: %i[index new]
+
 end
