@@ -13,9 +13,9 @@ class ItemsController < ApplicationController
   
   def new
     @item = Item.new
-    @item.build_item_images
-    @item.build_item_detail
-    @item.build_shipping_origin
+    @item.item_images.build
+    # @item.item_detail.build
+    # @item.shipping_origin.build
     render layout: "second_layout"
   end
 
