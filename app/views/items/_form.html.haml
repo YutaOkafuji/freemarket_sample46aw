@@ -6,10 +6,10 @@
         必須
     %p.sell-content__explanation
       最大10枚までアップロードできます
-    .sell-content__upload-box
-    =f.fields_for :item_images do |a|
-      =a.file_field :url
-      -# , class: "sell-content__upload-box--form"
+    .sell-content__upload-box{dropzone: "move f:image", ondrop: "receive(event, this)"}
+      =f.fields_for :item_images do |a|
+        =a.label :url do
+          =a.file_field :url, class: "sell-content__upload-box--form", multiple: "true"
       %p
         ドラッグアンドドロップ
         %br

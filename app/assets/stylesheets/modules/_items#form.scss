@@ -27,26 +27,42 @@
       &__upload-box {
         min-height: 162px;
         margin-top: 16px;
-        padding: 40px;
+        // padding: 40px;
         border: 1px dashed $lightgray;
         background: $main_background;
         line-height: 1.5;
         position: relative;
         text-align: center;
         cursor: pointer;
+
+        .preview-image{
+          float:left;
+          position: relative;
+          width: 20%;
+          height: 161px;
+
+          img {
+            width: 100%;
+            height: 140px;
+            display: block;
+          }
+          .btn-zone{
+            background-color: $white;
+            padding: 2px;
+            width: 100%;
+            height: 20px;
+          }
+
+        }
         &--form {
-          display: none;
+          // display: none;
         }
         p {
           color: $black;
-          vertical-align: middle;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          -webkit-transform : translate(-50%,-50%);
-          transform : translate(-50%,-50%);
+          @include centering;
           font-size: 14px;
           font-family: monospace,monospace;
+          display: inline-block;
         }
       }
       &__form-group {
