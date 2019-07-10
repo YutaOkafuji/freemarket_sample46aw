@@ -14,7 +14,11 @@ Rails.application.routes.draw do
     resource  :credits, only: %i[show new create]
     resource  :members, only: %i[show]
   end
-  resources :items
+  resources :items do
+    collection do
+      post 'purchase'
+    end
+  end
   # usersをネストし、indexをshowに修正すること
 
 end
