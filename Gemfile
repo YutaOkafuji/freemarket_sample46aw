@@ -34,6 +34,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog-aws'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 gem 'font-awesome-sass'
@@ -43,6 +46,8 @@ gem 'erb2haml'
 gem 'owlcarousel-rails'
 gem 'devise'
 gem 'active_hash'
+gem 'gretel'
+gem 'dropzonejs-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -52,9 +57,11 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'capistrano-rails-console'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'rails-controller-testing'
+  gem 'faker'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -65,9 +72,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-gem 'carrierwave'
-gem 'mini_magick'
-gem 'fog-aws'
+
 
 group :test do
   # Adds support for Capybara system testing and selenium driver

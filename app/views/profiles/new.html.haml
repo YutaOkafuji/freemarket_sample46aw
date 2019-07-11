@@ -1,3 +1,6 @@
+- breadcrumb :new_profile
+= render partial: 'layouts/breadcrumbs'
+
 .mypage-main
   .setting-main
     .setting-profiles
@@ -6,9 +9,9 @@
         %form
           .setting-profile__top
             %figure.setting-profile__top__avatar
-              =image_tag "https://placehold.jp/60x60.png"
+              = image_tag "https://placehold.jp/60x60.png"
             %input.setting-profile__top__nickname
           .setting-profile__bottom
             %textarea.setting-profile__bottom__text
             %button.setting-profile__bottom__btn 変更する
-  =render "users/mypage_side_bar"
+  = render "users/mypage_side_bar"

@@ -1,0 +1,53 @@
+= content_for :header_content do
+  = render 'share/progress-bar'
+.devise-content
+  .signup-address
+    .auth-info
+      %h2.auth-title 発送元・お届け先住所登録
+      = form_with model: [@user, @delivery_address], local: true, class: "auth-form" do |f|
+        .form-remarks
+          %p
+            お客様の発送元・お届け先住所情報をご登録ください。
+          %p.form-remarks__link
+        .form-contents
+          = f.label "お名前", class: "form-contents__label"
+          %p
+            = @user.profile.family_name
+            = @user.profile.first_name
+        .form-contents
+          = f.label "お名前カナ", class: "form-contents__label"
+          %p
+            = @user.profile.family_name_kana
+            = @user.profile.first_name_kana
+        .form-contents
+          = f.label "生年月日", class: "form-contents__label"
+          %p
+            = @user.profile.birthday
+        .form-contents
+          = f.label "郵便番号", class: "form-contents__label"
+          %span.required 必須
+          = f.text_field :zip_code, class: "form-contents__input", placeholder: "例)1234567"
+        .form-contents
+          = f.label "都道府県", class: "form-contents__label"
+          %span.required 必須
+          .select-section
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "--"}, {class: "form-select"}
+            %i.fas.fa-chevron-down
+        .form-contents
+          = f.label "市区町村", class: "form-contents__label"
+          %span.required 必須
+          = f.text_field :city, class: "form-contents__input", placeholder: "例)横浜市緑区"
+        .form-contents
+          = f.label "番地", class: "form-contents__label"
+          %span.required 必須
+          = f.text_field :street_number, class: "form-contents__input", placeholder: "例)青山1-1-1"
+        .form-contents
+          = f.label "建物名", class: "form-contents__label"
+          %span.elective 任意
+          = f.text_field :building, class: "form-contents__input", placeholder: "例)柳ビル103"
+        .form-contents
+          = f.label "電話番号", class: "form-contents__label"
+          %span.elective 任意
+          = f.text_field :telephone, class: "form-contents__input", placeholder: "例)09012345678"
+        -# new_user_credits_pathへ飛ぶ処理はコントローラーでredirect_toで実装する
+        = f.submit "次へ進む", class: "form-submit"
