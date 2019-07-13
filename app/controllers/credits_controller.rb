@@ -11,7 +11,7 @@ class CreditsController < ApplicationController
   end
 
   def create
-     # TODO Payjpで実装できたら実装する
+    # TODO Payjpで実装できたら実装する
     redirect_to user_members_path
   end
 
