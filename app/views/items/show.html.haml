@@ -44,22 +44,22 @@
               %td #{@item.item_detail.brand}
             %tr
               %th 商品のサイズ
-              %td #{@item.item_detail.size}
+              %td #{@item.item_detail.size.name}
             %tr
               %th 商品の状態
-              %td #{@item.item_detail.condition}
+              %td #{@item.item_detail.condition.name}
             %tr
               %th 配送料の負担
-              %td #{@item.shipping_origin.shipping_burden}
+              %td #{@item.shipping_origin.burden.name}
             %tr
               %th 配送の方法
-              %td #{@item.shipping_origin.shipping_method}
+              -# %td #{@item.shipping_origin.shipping_method}
             %tr
               %th 配送元地域
-              %td #{@item.shipping_origin.origin_region}
+              %td #{@item.shipping_origin.prefecture.name}
             %tr
               %th 発送日の目安
-              %td #{@item.shipping_origin.shipping_day}
+              -# %td #{@item.shipping_origin.shipping_day}
   .item-price-box
     %span.item-price-box__price ¥ #{@item.price}
     %span.item-price-box__tax (税込)
@@ -78,7 +78,7 @@
       めっちゃくちゃやす〜〜〜〜〜〜〜い！ほし〜〜〜〜〜〜〜〜〜い！
       かいた〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜い
     -#TODO:ログイン機能を実装したらunlessのコメントアウトを外す
-    -# -unless current_user.id == item.user_id 
+  -# -unless current_user.id == item.user_id 
     .item-button-container--clearfix
       .item-button-content__left
         .item-button-content__left--like
@@ -92,8 +92,7 @@
       .item-button-content__right
         =link_to "https://www.mercari.com/jp/safe/description/",target: "_blank" do
           %i.fas.fa-lock
-          %span あんしん・あんぜんへの取り組み
-  -#TODO:ログイン機能を実装したらelse以下のコメントアウトを外す          
+          %span あんしん・あんぜんへの取り組み        
   -# -else  
-    -# =render partial: "show-edit-box" 
+  -#   =render partial: "show-edit-box" 
 =render partial: "comments/index"

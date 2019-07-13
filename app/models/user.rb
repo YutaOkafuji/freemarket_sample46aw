@@ -8,7 +8,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :profile
   has_one :user_address,     dependent: :destroy
   has_one :delivery_address, dependent: :destroy
-  has_many :items
+  has_many :items,           dependent: :destroy
+  has_many :comments
   
   with_options presence: true do
     validates :profit
