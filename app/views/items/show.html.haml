@@ -78,7 +78,7 @@
       めっちゃくちゃやす〜〜〜〜〜〜〜い！ほし〜〜〜〜〜〜〜〜〜い！
       かいた〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜い
     -#TODO:ログイン機能を実装したらunlessのコメントアウトを外す
-  -# -unless current_user.id == item.user_id 
+  -unless current_user.id == @item.user_id 
     .item-button-container--clearfix
       .item-button-content__left
         .item-button-content__left--like
@@ -93,6 +93,6 @@
         =link_to "https://www.mercari.com/jp/safe/description/",target: "_blank" do
           %i.fas.fa-lock
           %span あんしん・あんぜんへの取り組み        
-  -# -else  
-  -#   =render partial: "show-edit-box" 
+  -else  
+    =render partial: "show-edit-box" 
 =render partial: "comments/index"
