@@ -10,13 +10,13 @@ class CardsController < ApplicationController
   end
 
   def show
-    card = Card.where(user_id: current_user.id).first
+    card = current_user.credit_card
     if card.blank?
       redirect_to action: "new"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      @customer_card = customer.cards.retrieve(card.card_id)
     end
   end
 
@@ -30,10 +30,12 @@ class CardsController < ApplicationController
     else
       customer = Payjp::Customer.create(
         email: current_user.email,
-        card: params['payjp-token'],
+        card: params['payjpToken'],
         metadata: { user_id: current_user.id}
       )
-      @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      @card = Card.new(user_id: current_user.id,
+                      customer_id: customer.id,
+                      card_id: customer.default_card)
       if @card.save
         redirect_to action: "show"
       else
