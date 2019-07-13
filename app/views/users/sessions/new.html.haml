@@ -9,8 +9,7 @@
         = link_to root_path, class: "login-api__facebook" do
           %i.fab.fa-facebook-square
           %span Facebookでログイン
-        = link_to root_path, class: "login-api__google" do
-          Googleでログイン
+        = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, class: "login-api__google"
       -# form_withでの記述ができたらする
       = form_for(resource, as: resource_name, url: user_session_path) do |f|
         .login-form
