@@ -38,7 +38,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @omniauth = request.env["omniauth.auth"]
     if @omniauth.present?
       @user = User.where(provider: @omniauth[:provider], uid: @omniauth[:uid]).first
-      binding.pry
       # アカウントが登録されていなければ登録ページに遷移する
       unless @user
         # アカウント情報を作成する

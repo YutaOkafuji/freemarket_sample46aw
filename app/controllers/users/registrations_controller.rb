@@ -7,7 +7,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   #GET /resource/sign_up
   def new
-    @user = User.find(params[:id]) || User.new
+    if params[:id].present?
+      @user = User.find(params[:id])
+    else
+      @user = User.new
+    end
     @user.build_profile
     # super
   end
