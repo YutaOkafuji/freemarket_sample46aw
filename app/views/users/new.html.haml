@@ -10,5 +10,4 @@
           = link_to root_path, class: "register-btn--facebook" do
             %i.fab.fa-facebook-square
             %span Facebookで登録
-          = link_to root_path, class: "register-btn--google" do
-            Googleで登録
+          = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, class: "register-btn--google"
