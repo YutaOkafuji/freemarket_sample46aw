@@ -6,6 +6,9 @@
 |avatar|text||
 |profit|integer|null: false|
 |point|integer|null: false|
+|provider|string||
+|uid|string||
+|token|string||
 ## Association
 - has_many :items, dependent: :destroy
 - has_many :comments
@@ -82,8 +85,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |prefecture_id|integer|null: false|
-|days_id|integer|null: false|
-|method_id|integer|null: false|
+|delivery_date_id|integer|null: false|
+|delivery_method_id|integer||
 |burden_id|integer|null: false|
 |item_id|references|null: false, foreign_key: true|
 ## Association
