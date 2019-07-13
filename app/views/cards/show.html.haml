@@ -1,0 +1,40 @@
+- breadcrumb :credits
+= render partial: 'layouts/breadcrumbs'
+
+%main.mypage-main
+  .credit-main
+    %section.credit-content
+      %h2.bold.credit-content__head 支払い方法
+      .credit-content__menu
+        %section
+          .single-content
+            %h3.sub-head クレジットカード一覧
+          %ul.credit-list
+            %li
+              .user-card__content
+                %h2 クレジットカード情報
+                .customer-card__content
+                  %figure.form_space
+                  = image_tag'visa.svg',size: "50*30"
+                    .customer-card__content--number.form_space
+                      %h3
+                        = "**** **** **** " + @customer_card.last4
+                    .customer-card__content--expired.form_space
+                      - exp_month = @customer_card.exp_month.to_s
+                      - exp_year = @customer_card.exp_year.to_s.slice(2,3)
+                      %h3
+                        = exp_month + " / " + exp_year
+                    = link_to delete_cards_path ,method: :delete, class:"customer-card__content--btn" do
+                      %button{type: "submit", class: "btn-red"}
+                        削除する
+
+        %section.settings-add-card
+          .single-content
+            = link_to new_user_credits_path(user_id: current_user.id), class: "btn-default submit-button" do
+              %i.far.fa-credit-card
+              クレジットカードを追加する
+        .credit--not-regist
+          = link_to root_path do
+            %span 支払方法について
+            %i.fas.fa-chevron-right
+  = render partial: "users/mypage_side_bar", locals: { user: @user}
