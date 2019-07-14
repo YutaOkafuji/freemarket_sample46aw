@@ -5,11 +5,10 @@ class UserAddressesController < ApplicationController
   # WARNING delivery_addressのものをコピぺして修正しただけなので
   #         エラー起こるかも？？
   def new
-    render :new, layout: "second_layout"
+    render :new, layout: 'second_layout'
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @user.user_address = UserAddress.new(user_address_params)
@@ -17,10 +16,11 @@ class UserAddressesController < ApplicationController
       redirect_to new_user_credits_path(user_id: @user.id)
     else
       render action: :new
-    end  
+    end
   end
 
-  private 
+  private
+
   def user_address_params
     params.permit(:zip_code, :prefecture_id, :city, :street_number, :building)
   end
