@@ -6,10 +6,12 @@
         必須
     %p.sell-content__explanation
       最大10枚までアップロードできます
-    .sell-content__upload-box{dropzone: "move f:image", ondrop: "receive(event, this)"}
-      =f.fields_for :item_images do |a|
-        =a.label :url do
-          =a.file_field :url, class: "sell-content__upload-box--form", multiple: "true"
+    .sell-content__upload-box
+      -# {dropzone: "move f:image", ondrop: "receive(event, this)"}
+      =f.fields_for :item_images do |image|
+        =image.file_field :image, class: "sell-content__upload-box--form"
+        -# =image.hidden_field :id, value: image.item_images.id
+      -# %a#file-btn
       %p
         ドラッグアンドドロップ
         %br
@@ -29,90 +31,78 @@
         %span.required
           必須
       =f.text_area :description, class: "sell-content__form-group--textarea", rows: "5", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-  -# .sell-content.clearfix
-  -#   %h1.left-section
-  -#     商品の詳細
-  -#   .right-section
-  -#     %ul
-  -#       %li.form-group
-  -#         %label
-  -#           カテゴリー
-  -#           %span.required
-  -#             必須
-  -#         .select-section
-  -#           %select.form-select
-  -#             %option{value: ""}---
-  -#             %option{value: "1"}レディース
-  -#             %option{value: "2"}メンズ
-  -#             %option{value: "3"}ベビー・キッズ
-  -#             %option{value: "4"}インテリア・住まい・小物
-  -#             %option{value: "5"}本・音楽・ゲーム
-  -#             %option{value: "6"}おもちゃ・ホビー・グッズ
-  -#             %option{value: "7"}コスメ・香水・美容
-  -#             %option{value: "8"}家電・スマホ・カメラ
-  -#             %option{value: "9"}スポーツ・レジャー
-  -#             %option{value: "10"}ハンドメイド
-  -#             %option{value: "11"}チケット
-  -#             %option{value: "12"}自転車・オートバイ
-  -#             %option{value: "13"}その他
-  -#           %i.fas.fa-chevron-down
-  -#         -#  ToDo バリデーションのエラーメッセージを表示する 
-  -#       %li.form-group
-  -#         %label
-  -#           商品の状態
-  -#           %span.required
-  -#             必須
-  -#         .select-section
-  -#           %select.form-select
-  -#             %option{value: ""}---
-  -#             %option{value: "1"}新品・未使用
-  -#             %option{value: "2"}未使用に近い
-  -#             %option{value: "3"}目立った傷や汚れなし
-  -#             %option{value: "4"}やや傷や汚れあり
-  -#             %option{value: "5"}傷や汚れあり
-  -#             %option{value: "6"}全体的に状態が悪い
-  -#           %i.fas.fa-chevron-down
-  -#         -#  ToDo バリデーションのエラーメッセージを表示する 
-  -# .sell-content.clearfix
-  -#   %h1.left-section
-  -#     配送について
-  -#     =link_to "?", "https://kari", class: "left-section__question"
-  -#   .right-section
-  -#     %ul
-  -#       %li.form-group
-  -#         %label
-  -#           配送料の負担
-  -#           %span.required
-  -#             必須
-  -#         .select-section
-  -#           %select.form-select
-  -#             %option{value: ""}---
-  -#             %option{value: "1"}送料込み(出品者負担)
-  -#             %option{value: "2"}着払い(購入者負担)
-  -#           %i.fas.fa-chevron-down
-  -#         -#  ToDo バリデーションのエラーメッセージを表示する 
-  -#       %li.form-group
-  -#         %label
-  -#           配送元の地域
-  -#           %span.required
-  -#             必須
-  -#         .select-section
-  -#           =f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: "form-select"}
-  -#           %i.fas.fa-chevron-down
-  -#         -#  ToDo バリデーションのエラーメッセージを表示する 
-  -#       %li.form-group
-  -#         %label
-  -#           配送までの日数
-  -#           %span.required
-  -#             必須
-  -#         .select-section
-  -#           %select.form-select
-  -#             %option{value: ""}---
-  -#             %option{value: "1"}1〜2日で発送
-  -#             %option{value: "2"}2〜3日で発送
-  -#             %option{value: "3"}3〜7日で発送
-  -#           %i.fas.fa-chevron-down
-          -#  ToDo バリデーションのエラーメッセージを表示する 
+  .sell-content.clearfix
+    =f.fields_for :item_detail do |detail|
+      %h1.left-section
+        商品の詳細
+      .right-section
+        %ul
+          %li.form-group
+            %label
+              カテゴリー
+              %span.required
+                必須
+            .select-section
+              %select.form-select
+                %option{value: ""}---
+                %option{value: "1"}レディース
+                %option{value: "2"}メンズ
+                %option{value: "3"}ベビー・キッズ
+                %option{value: "4"}インテリア・住まい・小物
+                %option{value: "5"}本・音楽・ゲーム
+                %option{value: "6"}おもちゃ・ホビー・グッズ
+                %option{value: "7"}コスメ・香水・美容
+                %option{value: "8"}家電・スマホ・カメラ
+                %option{value: "9"}スポーツ・レジャー
+                %option{value: "10"}ハンドメイド
+                %option{value: "11"}チケット
+                %option{value: "12"}自転車・オートバイ
+                %option{value: "13"}その他
+              %i.fas.fa-chevron-down
+            -#  ToDo バリデーションのエラーメッセージを表示する 
+          %li.form-group
+            %label
+              商品の状態
+              %span.required
+                必須
+            .select-section
+              =detail.collection_select :condition_id, Condition.all, :id, :name, {prompt: "---"}, {class: "form-select"}
+              %i.fas.fa-chevron-down
+            -#  ToDo バリデーションのエラーメッセージを表示する 
+  .sell-content.clearfix
+    =f.fields_for :shipping_origin do |deli|
+      %h1.left-section
+        配送について
+        =link_to "?", "https://kari", class: "left-section__question"
+      .right-section
+        %ul
+          %li.form-group
+            %label
+              配送料の負担
+              %span.required
+                必須
+            .select-section
+              =deli.collection_select :burden_id, Burden.all, :id, :name, {prompt: "---"}, {class: "form-select"}
+              %i.fas.fa-chevron-down
+            -#  ToDo バリデーションのエラーメッセージを表示する 
+          %li.form-group
+            %label
+              配送元の地域
+              %span.required
+                必須
+            .select-section
+              =deli.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: "form-select"}
+              %i.fas.fa-chevron-down
+            -#  ToDo バリデーションのエラーメッセージを表示する 
+          %li.form-group
+            %label
+              配送までの日数
+              %span.required
+                必須
+            .select-section
+              =deli.collection_select :delivery_date_id, DeliveryDate.all, :id, :name, {prompt: "---"}, {class: "form-select"}
+              %i.fas.fa-chevron-down
+            -#  ToDo バリデーションのエラーメッセージを表示する 
   .sell-content.clearfix
     %h1.left-section
       販売価格(300〜9,999,999)
@@ -137,20 +127,20 @@
           %p.price-form__left-side.bold 販売利益
           %p.price-form__right-side.bold -
   .sell-content.clearfix
-    -# .caution
-    -#   %p
-    -#     =link_to "禁止されている出品", "https://kari"
-    -#     、
-    -#     =link_to "行為", "https://kari"
-    -#     を必ずご確認ください。
-    -#   %p
-    -#     またブランド品でシリアルナンバー等がある場合はご記載ください。
-    -#     =link_to "偽ブランドの販売", "https://kari"
-    -#     は犯罪であり処罰される可能性があります。
-    -#   %p
-    -#     また、出品をもちまして
-    -#     =link_to "加盟店規約", "https://kari"
-    -#     に同意したことになります。
+    .caution
+      %p
+        =link_to "禁止されている出品", "https://kari"
+        、
+        =link_to "行為", "https://kari"
+        を必ずご確認ください。
+      %p
+        またブランド品でシリアルナンバー等がある場合はご記載ください。
+        =link_to "偽ブランドの販売", "https://kari"
+        は犯罪であり処罰される可能性があります。
+      %p
+        また、出品をもちまして
+        =link_to "加盟店規約", "https://kari"
+        に同意したことになります。
     =f.hidden_field :sale_status, value: 0
     =f.hidden_field :buy_status, value: 0
     =f.hidden_field :user_id, value: 1
