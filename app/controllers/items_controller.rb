@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, except: %i[index new]
+  # before_action :set_item, except: %i[index new]
   # before_action :move_to_index, except: [:index, :show]
   
   def index
@@ -14,21 +14,22 @@ class ItemsController < ApplicationController
   end
   
   def new
+    respond_to do |format|
+      format.html
+      format.json
+    end
+
     @item = Item.new
     @item.item_images.build
-    # @item.item_detail.build
-    # @item.shipping_origin.build
+    @item.build_item_detail
+    @item.build_shipping_origin
     render layout: "second_layout"
   end
 
   def create
     @item = Item.new(item_params)
-    # @item.item_image = ItemImage.new(item_image_params)
-    # @item.item_detail = ItemDetail.new(item_detail_params)
-    # @item.shipping_origin = ShippingOrigin.new(shipping_origin_params)
-    binding.pry
+binding.pry
     if @item.save 
-      # && @item.images.save && @item.detail.save && @item.shipping.save
       redirect_to root_path
     else
       redirect_to new_item_path
@@ -48,11 +49,16 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :description, :sale_status, :buy_status,
-                                  item_image_attributes: %i[url item_id],
-                                  item_detail_attributes: %i[size brand condition item_id],
-                                  shipping_origin_attributes: %i[origin_region shipping_day shipping_method shipping_burden item_id)])
-    # .marge(user_id: current_user.id)
+    params.require(:item).permit(
+      :name,
+      :price,
+      :description,
+      :sale_status,
+      :buy_status,
+      item_images_attributes: %i[ id image ],
+      item_detail_attributes: %i[ id condition_id ],
+      shipping_origin_attributes: %i[ id prefecture_id burden_id delivery_date_id ])
+      .merge(user_id: current_user.id)
   end
   
   # def set_item_new
