@@ -1,4 +1,4 @@
-class SDeliveryMethod < ActiveHash::Base
+class DeliveryMethod < ActiveHash::Base
   include ActiveHash::Associations
   self.data = [
       {id: 1, name: '未定'},
