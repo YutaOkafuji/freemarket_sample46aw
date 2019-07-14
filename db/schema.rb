@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_07_10_104544) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -19,6 +20,9 @@ ActiveRecord::Schema.define(version: 2019_07_10_104544) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+=======
+ActiveRecord::Schema.define(version: 2019_07_13_063255) do
+>>>>>>> master
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -142,9 +146,9 @@ ActiveRecord::Schema.define(version: 2019_07_10_104544) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "prefecture_id", null: false
-    t.integer "days_id", null: false
-    t.integer "method_id", null: false
     t.integer "burden_id", null: false
+    t.integer "delivery_date_id", null: false
+    t.integer "delivery_method_id"
     t.index ["item_id"], name: "index_shipping_origins_on_item_id"
   end
 
@@ -170,6 +174,9 @@ ActiveRecord::Schema.define(version: 2019_07_10_104544) do
     t.text "avatar"
     t.integer "profit", null: false
     t.integer "point", null: false
+    t.string "provider"
+    t.string "uid"
+    t.string "token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
