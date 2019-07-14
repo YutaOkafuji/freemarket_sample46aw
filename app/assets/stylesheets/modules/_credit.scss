@@ -2,6 +2,9 @@
   @include centering;
   @include clearfix;
   width: 700px;
+  &--margin-top{
+    margin-top:40px;
+  }
 }
 
 .credit-main{

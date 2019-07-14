@@ -1,11 +1,16 @@
-= content_for :header_content do
-  = render 'share/progress-bar'
+- if @path[:controller] == "delivery_addresses"
+  = content_for :header_content do
+    = render 'share/progress-bar'
+-else
+  - breadcrumb :new_card
+  =render partial: 'layouts/breadcrumbs'
+
 .devise-content
-  .signup-credit
+  .signup-credit{class:('signup-credit--margin-top' unless @path[:controller] == "delivery_addresses")}
     .credit-main
       %section.credit-content
         %h2.bold.credit-content__head クレジットカード情報入力
-        = form_with(create_) url: user_credits_path, local: true, class: "credit-content__menu" do |f|  
+        = form_with url: user_cards_path, local: true, class: "credit-content__menu" do |f|  
           .single-content
             -# 余裕があればtodo クレジットカードの有効期限が間違いがあった場合の文言を表示させる。
                 %p.error-text カードの有効期限に謝りがあるために、決済を完了できませんでした。有効期間を再度確認してください。
@@ -14,7 +19,7 @@
               %span.elective 任意
               -# todo バリデーション input要素とli要素のカラーを赤くする
                   inputの枠の色のcssは_credit.scssのform-group__errorクラスで設定済み
-              = f.text_field :credit_num, id: "credit-input", class: "input-default", placeholder: "半角数字のみ", maxlength: 19
+              = f.text_field :credit_num, id: "card-number", class: "input-default", placeholder: "半角数字のみ", maxlength: 19
               %ul.form-group__error--no-num
                 -# %li 必須項目です
               %ul.card-list
