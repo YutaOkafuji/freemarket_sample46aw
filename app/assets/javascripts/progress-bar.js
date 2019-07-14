@@ -4,7 +4,7 @@ $(window).on('load',function(){
       $('#progress-auth').addClass('active-after');
       $('#progress-address').removeClass('progress-address');
       $('#progress-address').addClass('active-before');
-    }else if (location.href.match(/credits/)){
+    }else if (location.href.match(/cards/)){
       $('#progress-auth').removeClass('progress-auth');
       $('#progress-auth').addClass('active-after');
       $('#progress-address').removeClass('progress-address');

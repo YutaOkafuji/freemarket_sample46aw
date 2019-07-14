@@ -27,16 +27,16 @@ crumb :logouts do
   parent :users
 end
 
-# credits#idex
-crumb :credits do
-  link '支払い方法', user_credits_path
+# cards#index
+crumb :cards do
+  link '支払い方法', user_cards_path
   parent :users
 end
 
-# credits#new
-crumb :new_credit do
-  link 'クレジットカード情報入力', new_credit_path
-  parent :credits
+# cards#new
+crumb :new_card do
+  link 'クレジットカード情報入力', new_user_cards_path
+  parent :cards
 end
 
 # crumb :user do |user|
