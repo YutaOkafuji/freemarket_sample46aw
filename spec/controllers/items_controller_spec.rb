@@ -25,6 +25,38 @@ RSpec.describe ItemsController, type: :controller do
     end
   end
 
+  describe 'GET #new' do
+    before :each do
+      @user = create(:user)
+      @item = create(:item, user_id: @user.id)
+      @item.item_detail = create(:item_detail)
+      @item.item_images = create(:item_images)
+      @item.shipping_origin = create(:shipping_origin)
+      login_user @user
+    end
+
+    it 'gets accurate request' do
+      get :new, params: { user_id: @item.user_id }
+      expect(response.status).to eq(200)
+    end
+  end
+
+  describe 'POST #create' do
+    before :each do
+      @user = create(:user)
+      @item = create(:item, user_id: @user.id)
+      @item.item_detail = create(:item_detail)
+      @item.item_images = create(:item_images)
+      @item.shipping_origin = create(:shipping_origin)
+      login_user @user
+    end
+
+    it 'gets accurate request' do
+      get :new, params: { user_id: @item.user_id }
+      expect(response.status).to eq(200)
+    end
+  end
+
   describe 'Get #edit' do
     before :each do
       @user = create(:user)
