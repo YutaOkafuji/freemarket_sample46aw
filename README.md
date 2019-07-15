@@ -6,6 +6,9 @@
 |avatar|text||
 |profit|integer|null: false|
 |point|integer|null: false|
+|provider|string||
+|uid|string||
+|token|string||
 ## Association
 - has_many :items, dependent: :destroy
 - has_many :comments
@@ -18,12 +21,12 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false, length: { maximum: 20 }|
-|introduction|text||
-|birthday|date||
-|family_name|string|null: false|
-|first_name|string|null: false|
-|family_name_kana|string|null: false|
-|first_name_kana|string|null: false|
+|introduction|text|length: { maximum: 1000 }|
+|birthday|date|null: false|
+|family_name|string|null: false ,length: { maximum: 35 }|
+|first_name|string|null: false, length: { maximum: 35 }|
+|family_name_kana|string|null: false, length: { maximum: 35 }|
+|first_name_kana|string|null: false, length: { maximum: 35 }|
 |user_id|references|null: false, foreign_key: true|
 ## Association
 - belongs_to :user
@@ -32,10 +35,10 @@
 |Column|Type|Options|
 |------|----|-------|
 |zip_code|string|length: { maximum: 8 }|
-|prefecture|string||
-|city|string||
-|street_number|string||
-|building|string||
+|prefecture_id|integer||
+|city|string|length: { maximum: 50 }|
+|street_number|string|length: { maximum: 100 }|
+|building|string|length: { maximum: 100 }|
 |user_id|references|null: false, foreign_key: true|
 ## Association
 - belongs_to :user
@@ -44,10 +47,10 @@
 |Column|Type|Options|
 |------|----|-------|
 |zip_code|string|null: false, length: { maximum: 8 }|
-|prefecture|string|null: false|
-|city|string|null: false|
-|street_number|string|null: false|
-|building|string||
+|prefecture_id|integer|null: false|
+|city|string|null: false, length: { maximum: 50 }|
+|street_number|string|null: false, length: { maximum: 100 }|
+|building|string|length: { maximum: 100 }|
 |telephone|string||
 |user_id|references|null: false, foreign_key: true|
 ## Association
@@ -81,10 +84,10 @@
 # shipping_originsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|origin_region|integer|null: false|
-|shipping_day|integer|null: false|
-|shipping_method|integer|null: false|
-|shipping_burden|boolean|null: false|
+|prefecture_id|integer|null: false|
+|delivery_date_id|integer|null: false|
+|delivery_method_id|integer||
+|burden_id|integer|null: false|
 |item_id|references|null: false, foreign_key: true|
 ## Association
 - belongs_to :item
@@ -125,12 +128,12 @@
 - belongs_to :deal
 - belongs_to :user
 
-# item_detailテーブル
+# item_detailsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|size|integer|null: false|
+|size_id|integer||
 |brand|string||
-|condition|integer|null: false|
+|condition_id|integer|null: false|
 |item_id|references|null: false, foreign_key: true|
 ## Association
 - belongs_to :item
@@ -140,7 +143,7 @@
 |------|----|-------|
 |name|string|null: false|
 |parent_id|string|null: false|
-|item_id|string|null: false|
+|item_id|references|null: false, foreign_key: true|
 ## Association
 - belongs_to :item
 - belongs_to :parent, class_name: :Category
