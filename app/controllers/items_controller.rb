@@ -1,15 +1,12 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  # before_action :set_item, except: %i[index new]
-  # before_action :move_to_index, except: [:index, :show]
+  before_action :set_item, except: %i[index new]
   
   def index
     @items = Item.all.includes(:item_images).order("created_at DESC")
   end
 
   def show
-    # find(1)は後でfind(params[:id])に修正する
-    @item = Item.find(1)
     render layout: "layout_items_show"
   end
 
@@ -74,8 +71,8 @@ binding.pry
       .merge(user_id: current_user.id)
   end
   
-  # def set_item_new
-  #   @item = Item.find(params[:id])
-  # end
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
 end
