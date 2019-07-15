@@ -12,7 +12,9 @@ class ItemsController < ApplicationController
     @item = Item.find(1)
     render layout: "layout_items_show"
   end
-  
+  def buy
+  end
+
   def new
     render layout: "second_layout"
   end

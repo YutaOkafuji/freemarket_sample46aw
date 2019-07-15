@@ -15,8 +15,8 @@ Rails.application.routes.draw do
     resource  :members, only: %i[show]
   end
   resources :items do
-    collection do
-      post 'purchase'
+    member do
+      get 'buy'
     end
   end
   # usersをネストし、indexをshowに修正すること
