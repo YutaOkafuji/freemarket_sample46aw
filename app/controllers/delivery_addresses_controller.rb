@@ -1,11 +1,11 @@
 class DeliveryAddressesController < ApplicationController
   before_action :authenticate_user!
-  # before_action :set_user, only: %i[new create edit]
   before_action -> { 
     set_user
     correct_user?(@user) 
-  }, only: %i[new create edit]
-  layout "second_layout", only: [:new, :create]
+  }, only: %i[new create edit update]
+  before_action :set_delivery_address, only: %i[edit update]
+  layout "second_layout", only: %i[new create]
 
   def new
     @delivery_address = DeliveryAddress.new
@@ -17,16 +17,19 @@ class DeliveryAddressesController < ApplicationController
     if @delivery_address.save
       redirect_to new_user_credits_path(user_id: @user.id)
     else
-      render action: :new
+      render :new and return
     end  
   end
 
   def edit
-    @delivery_address = DeliveryAddress.find(@user.delivery_address.id)
   end
 
   def update
-    binding.pry
+    if @delivery_address.update(delivery_address_params)
+      redirect_to edit_user_delivery_addresses_path(@user)
+    else
+      render :edit and return
+    end
   end
 
   private 
@@ -36,6 +39,10 @@ class DeliveryAddressesController < ApplicationController
 
   def set_user
     @user = User.find(params[:user_id]) 
+  end
+
+  def set_delivery_address
+    @delivery_address = DeliveryAddress.find(@user.delivery_address.id)
   end
 
   def correct_user?(user)
