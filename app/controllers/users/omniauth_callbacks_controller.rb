@@ -3,7 +3,11 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # before_action :authenticate_user!
   def google_oauth2
-  basic_action
+    basic_action
+  end
+
+  def facebook
+    basic_action
   end
 
   # You should configure your model like this:
