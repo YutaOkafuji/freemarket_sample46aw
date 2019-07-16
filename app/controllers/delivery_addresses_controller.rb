@@ -1,6 +1,10 @@
 class DeliveryAddressesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:new, :create]
+  # before_action :set_user, only: %i[new create edit]
+  before_action -> { 
+    set_user
+    correct_user?(@user) 
+  }, only: %i[new create edit]
   layout "second_layout", only: [:new, :create]
 
   def new
@@ -17,6 +21,14 @@ class DeliveryAddressesController < ApplicationController
     end  
   end
 
+  def edit
+    @delivery_address = DeliveryAddress.find(@user.delivery_address.id)
+  end
+
+  def update
+    binding.pry
+  end
+
   private 
   def delivery_address_params
     params.require(:delivery_address).permit(:zip_code, :prefecture_id, :city, :street_number, :building, :telephone).merge(user_id: current_user.id)
@@ -24,5 +36,9 @@ class DeliveryAddressesController < ApplicationController
 
   def set_user
     @user = User.find(params[:user_id]) 
+  end
+
+  def correct_user?(user)
+    redirect_to root_path, flash: { warning: '不正なアクセス' } unless current_user.id == user.id
   end
 end
