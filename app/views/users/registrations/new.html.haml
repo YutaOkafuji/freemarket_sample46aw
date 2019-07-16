@@ -4,7 +4,7 @@
 %main.devise-content
   %section.signup-section
     %h2.signup-title 会員情報入力
-    = form_with model: @user, url: user_registration_path, method: :post, local: true, class: "signup-form" do |f|
+    = form_with model: @user, url: user_registration_path(id: @user.id), method: :post, local: true, class: "signup-form" do |f|
       .signup-input
         -# TODO バリデーションのエラーメッセージが出るようにする。
         = f.fields_for :profile do |profile|

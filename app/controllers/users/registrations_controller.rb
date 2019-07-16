@@ -7,10 +7,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   #GET /resource/sign_up
   def new
-    if params[:id].present?
-      @user = User.find(params[:id])
-    else
-      @user = User.new
+    @user = User.new
+    if User.find_by(id: params[:id])
+      @user = User.find_by(id: params[:id])
     end
     @user.build_profile
     # super
@@ -18,16 +17,28 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    @user = User.new(user_profile_attr_params)
-    if @user.save && @user.profile.save
-      sign_in(:user, @user)
-      redirect_to new_user_delivery_addresses_path(user_id: @user.id)
+    if User.find_by(id: params[:id])
+      @user = User.find_by(id: params[:id])
+      @user.update(user_profile_attr_params)
+      if @user && @user.profile.save
+        sign_in(:user, @user)
+        redirect_to new_user_delivery_addresses_path(user_id: @user.id)
+      else
+        render action: :new
+      end
     else
-      # TODO バリデーションのエラーメッセージを飛ぶようにする。
-      # ToDo なぜかrenderするとURLが/usersになる 更新するとエラーになる
-      @user.destroy
-      render action: :new
+      @user = User.new(user_profile_attr_params)
+      if @user.save && @user.profile.save
+        sign_in(:user, @user)
+        redirect_to new_user_delivery_addresses_path(user_id: @user.id)
+      else
+        # TODO バリデーションのエラーメッセージを飛ぶようにする。
+        # ToDo なぜかrenderするとURLが/usersになる 更新するとエラーになる
+        # @user.destroy
+        render action: :new
+      end
     end
+
       # super
   end
 
