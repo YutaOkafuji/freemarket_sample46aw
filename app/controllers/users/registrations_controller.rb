@@ -9,37 +9,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
     @user = User.new
     if User.find_by(id: params[:id])
-      @user = User.find_by(id: params[:id])
+      set_user
     end
     @user.build_profile
-    # super
   end
 
   # POST /resource
   def create
+    # omniouthを利用して登録する時
     if User.find_by(id: params[:id])
-      @user = User.find_by(id: params[:id])
+      set_user
       @user.update(user_profile_attr_params)
-      if @user && @user.profile.save
-        sign_in(:user, @user)
-        redirect_to new_user_delivery_addresses_path(user_id: @user.id)
-      else
-        render action: :new
-      end
+      save_user(@user)
+    # メールアドレスで登録する時
     else
       @user = User.new(user_profile_attr_params)
-      if @user.save && @user.profile.save
-        sign_in(:user, @user)
-        redirect_to new_user_delivery_addresses_path(user_id: @user.id)
-      else
-        # TODO バリデーションのエラーメッセージを飛ぶようにする。
-        # ToDo なぜかrenderするとURLが/usersになる 更新するとエラーになる
-        # @user.destroy
-        render action: :new
-      end
+      save_user(@user)
     end
-
-      # super
   end
 
   # GET /resource/edit
@@ -96,5 +82,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
       :password_confirmation,
       profile_attributes: [:nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :birthday]
       ).merge(avatar: nil, profit: 0, point: 0)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def save_user(user)
+    if user.save && user.profile.save
+      sign_in(:user, @user)
+      redirect_to new_user_delivery_addresses_path(user_id: user.id)
+    else
+      # TODO バリデーションのエラーメッセージを飛ぶようにする。
+      # ToDo なぜかrenderするとURLが/usersになる 更新するとエラーになる
+      # @user.destroy
+      render action: :new
+    end
   end
 end
