@@ -29,13 +29,14 @@ RSpec.describe ItemsController, type: :controller do
     before :each do
       @user = create(:user)
       @item = create(:item, user_id: @user.id)
-      @item.item_detail = create(:item_detail)
-      @item.item_images = create(:item_images)
-      @item.shipping_origin = create(:shipping_origin)
+      @item_image = FactoryBot.build(:item_image).attributes
+      @item_detail = FactoryBot.build(:item_detail).attributes
+      @shipping_origin = FactoryBot.build(:shipping_origin).attributes
       login_user @user
     end
 
     it 'gets accurate request' do
+      puts @item_image
       get :new, params: { user_id: @item.user_id }
       expect(response.status).to eq(200)
     end
@@ -45,15 +46,22 @@ RSpec.describe ItemsController, type: :controller do
     before :each do
       @user = create(:user)
       @item = create(:item, user_id: @user.id)
-      @item.item_detail = create(:item_detail)
-      @item.item_images = create(:item_images)
-      @item.shipping_origin = create(:shipping_origin)
+      @item_image = FactoryBot.build(:item_image).attributes
+      @item_detail = FactoryBot.build(:item_detail).attributes
+      @shipping_origin = FactoryBot.build(:shipping_origin).attributes
       login_user @user
     end
 
-    it 'gets accurate request' do
-      get :new, params: { user_id: @item.user_id }
-      expect(response.status).to eq(200)
+    it "creates an item" do
+      item_params = FactoryBot.attributes_for(:item, name: "New Item Name")
+      expect(@item.name).to eq "New Item Name"
+
+    end
+
+    it "redirects to the item_page" do
+      item_params = FactoryBot.attributes_for(:item)
+      patch :create, params: { id: @item.id, item: item_params }
+      expect(response).to redirect_to item_path(@item)
     end
   end
 
