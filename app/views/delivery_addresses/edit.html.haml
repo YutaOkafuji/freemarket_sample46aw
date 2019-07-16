@@ -1,0 +1,9 @@
+= content_for :header_content do
+  = render 'share/progress-bar'
+.mypage-main
+  .delivery-address
+    .auth-info
+      %h2.auth-title 発送元・お届け先住所登録
+      = form_with url: user_delivery_addresses_path(@user, @delivery_address), method: :patch, local: true, class: "auth-form" do |f|
+        =render partial: 'form', locals: { user: @user, field: f }
+  = render partial: "users/mypage_side_bar", locals: { user: @user}
