@@ -59,6 +59,7 @@
               生年月日
               %span 必須
               %br
+              -# ToDo　バリデーションエラーの時に挿入される rield_with_errorsクラスによって「日」見た目がおかしくなるのを直す
               .birthday-select
                 = raw sprintf(profile.date_select(:birthday, use_month_numbers: true, include_blank: true, start_year: Time.now.year,
                 end_year: (Time.now.year - 119 ), date_separator: '%s'),'年 ', '月 ',{class: "form-select"} ) + '日'

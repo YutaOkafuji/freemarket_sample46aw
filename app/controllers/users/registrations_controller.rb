@@ -24,6 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to new_user_delivery_addresses_path(user_id: @user.id)
     else
       # TODO バリデーションのエラーメッセージを飛ぶようにする。
+      # ToDo なぜかrenderするとURLが/usersになる 更新するとエラーになる
       @user.destroy
       render action: :new
     end
