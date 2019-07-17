@@ -8,10 +8,12 @@
     = user.profile.family_name
     = user.profile.first_name
 .form-contents
-  = field.label "お名前カナ", class: "form-contents__label"
-  %p
-    = user.profile.family_name_kana
-    = user.profile.first_name_kana
+  - if controllser.action_name == "new"
+    = field.label "お名前カナ", class: "form-contents__label"
+    %p
+      = user.profile.family_name_kana
+      = user.profile.first_name_kana
+  - else
 .form-contents
   = field.label "生年月日", class: "form-contents__label"
   %p
@@ -42,5 +44,7 @@
   = field.label "電話番号", class: "form-contents__label"
   %span.elective 任意
   = field.text_field :telephone, class: "form-contents__input", placeholder: "例)09012345678"
--# ToDo editアクションの時は 「更新する」と表示するようにする
-= field.submit "次へ進む", class: "form-submit"
+- if controller.action_name == "new"
+  = field.submit "次へ進む", class: "form-submit"
+- else
+  = field.submit "更新する", class: "form-submit"
