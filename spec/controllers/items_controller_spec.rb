@@ -33,7 +33,7 @@ RSpec.describe ItemsController, type: :controller do
     end
 
     it 'gets accurate request' do
-      get :edit, params: { user_id: @item.user_id, id: @item.id}
+      get :edit, params: { id: @item.id }
       expect(response.status).to eq(200)
     end
   end
@@ -56,6 +56,19 @@ RSpec.describe ItemsController, type: :controller do
       item_params = FactoryBot.attributes_for(:item)
       patch :update, params: { id: @item.id, item: item_params }
       expect(response).to redirect_to item_path(@item)
+    end
+  end
+
+  describe 'GET #show' do
+    before :each do
+      @user = create(:user)
+      @item = create(:item, user_id: @user.id)
+      # login_user @user
+    end
+
+    it 'gets accurate request' do
+      get :show, params: {id: @item.id}
+      expect(response.status).to eq(200)
     end
   end
 end
