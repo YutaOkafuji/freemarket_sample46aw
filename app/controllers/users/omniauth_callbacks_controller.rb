@@ -3,11 +3,11 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # before_action :authenticate_user!
   def google_oauth2
-    basic_action
+    basic_action(:google)
   end
 
   def facebook
-    basic_action
+    basic_action(:facebook)
   end
 
   # You should configure your model like this:
@@ -36,26 +36,23 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def after_omniauth_failure_path_for(scope)
   #   super(scope)
   # end
+  
   private
   # Google認証結果を取得
-  def basic_action
+  def basic_action(provider)
     @omniauth = request.env["omniauth.auth"]
     if @omniauth.present?
       @user = User.where(provider: @omniauth[:provider], uid: @omniauth[:uid]).first
       # アカウントが登録されていなければ登録ページに遷移する
       unless @user
-        # アカウント情報を作成する
-        @user = User.create(
-          provider: @omniauth.provider,
-          uid: @omniauth.uid,
-          email: @omniauth.info.email,
-          token: @omniauth.credentials.token,
-          password: Devise.friendly_token[0, 20],
-          avatar: nil,
-          profit: 0,
-          point: 0
-        )
-        redirect_to new_user_registration_path(id: @user.id)
+        session[:nickname] = @omniauth['info']['name']
+        session[:email]    = @omniauth['info']['email']
+        session[:password] = Devise.friendly_token[0, 20]
+        session[:provider] = @omniauth['provider']
+        session[:uid]      = @omniauth['uid']
+        session[:token]    = @omniauth['credentials']['token']
+        # session["devise.#{provider}_data"] = request.env["omniauth.auth"].except("extra")
+        redirect_to new_user_registration_path
       else
         sign_in(:user, @user)
         redirect_to root_path
