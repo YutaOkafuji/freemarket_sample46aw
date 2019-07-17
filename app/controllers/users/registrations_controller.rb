@@ -1,29 +1,31 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  prepend_before_action :require_no_authentication, only: [:new, :create]
   layout "second_layout", only: [:new, :create]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   #GET /resource/sign_up
   def new
-    @user = User.new
-    if User.find_by(id: params[:id])
-      set_user
-    end
+    @user = User.new(email: session[:email], provider: session[:provider])
     @user.build_profile
+    @user.profile = Profile.new(nickname: session[:nickname])
   end
 
   # POST /resource
   def create
+    @user = User.new(user_profile_attr_params)
     # omniouthを利用して登録する時
-    if User.find_by(id: params[:id])
-      set_user
-      @user.update(user_profile_attr_params)
+    if session[:provider]
+      @user.password = session[:password]
+      @user.password_confirmation = session[:password]
+      @user.provider = session[:provider]
+      @user.uid      = session[:uid]
+      @user.token    = session[:token] 
       save_user(@user)
     # メールアドレスで登録する時
     else
-      @user = User.new(user_profile_attr_params)
       save_user(@user)
     end
   end
@@ -84,19 +86,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       ).merge(avatar: nil, profit: 0, point: 0)
   end
 
-  def set_user
-    @user = User.find(params[:id])
-  end
-
   def save_user(user)
     if user.save && user.profile.save
-      sign_in(:user, @user)
-      redirect_to new_user_delivery_addresses_path(user_id: user.id)
+      sign_in(:user, user)
+      redirect_to new_user_delivery_addresses_path(user)
     else
       # TODO バリデーションのエラーメッセージを飛ぶようにする。
-      # ToDo なぜかrenderするとURLが/usersになる 更新するとエラーになる
-      # @user.destroy
-      render action: :new
+      render action: :new and return
     end
   end
 end
