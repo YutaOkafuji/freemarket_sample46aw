@@ -23,30 +23,35 @@
       min-height: 420px;
       background-color: $mypage-white;
       &--big{
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        margin: auto;
-        // width: auto;
-        // max-width: 225px;
-        // max-height: 300px;
-        display: block;
-        max-width: 300px;
-        max-height: 300px;
+        img {
+          top: 0;
+          right: 0;
+          left: 0;
+          margin: auto;
+          display: block;
+          max-width: 300px;
+          max-height: 300px;
+        }
       }
       &--small{
-        position: absolute;
-        width: 300px;
         top: 300px;
         margin: 0;
         padding: 0;
         left: 2px;
-        img{
-          line-height: 0%;
+        li {
           display: inline-block;
-          text-align: center;
-          margin: 0 -2px;
+          img{
+            line-height: 0%;
+            display: inline-block;
+            text-align: center;
+            margin: 0 -2px;
+          }
+          .small-photo {
+            opacity: 0.3;
+          }
+          .active {
+            opacity: 1;
+          }
         }
       }
     }
@@ -167,7 +172,6 @@
   .item-button-container--clearfix{
     @include clearfix();
     margin-top: 16px;
-    // font-size: 0px;
     .item-button-content{
       &__left{
         float: left;
@@ -203,7 +207,6 @@
         margin-top: 8px;
       }
     }
-
-      }
-    }
+  }
+}
 
