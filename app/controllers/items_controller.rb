@@ -8,8 +8,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # find(1)は後でfind(params[:id])に修正する
-    @item = Item.find(1)
+    @like = Like.where(user_id: current_user.id).count
     render layout: "layout_items_show"
   end
 
