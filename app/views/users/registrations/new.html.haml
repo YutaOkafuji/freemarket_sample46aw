@@ -19,7 +19,7 @@
             メールアドレス
             %span 必須
           = f.email_field :email, class: "", placeholder: "PC・携帯どちらでも可"
-        - unless @user.id.present?
+        - unless @user.provider.present?
           .signup-input__block
             = f.label :password do
               パスワード
