@@ -5,11 +5,12 @@
     %section.cfm-section
       .cfm-section__product
         %h3
-          =image_tag 'https://placehold.jp/64x64.png'
-        %p.detail @item.name
-        =form_with  class: "cfm-form" do |f|
+          =image_tag @item.item_images.first.url
+        %p.detail 
+          = @item.name
+        .cfm-form
           %p.cfm-form__top 
-            ¥ 8,000
+            = "¥ #{@item.price}" 
             %span 送料込み
           %ul.cfm-form__point
             %li
@@ -18,31 +19,35 @@
               -#   %i.fas.fa-chevron-down#switch-awesome
               .point-btn--none ポイントはありません
               -# ポイントウインドウの処理は余裕があれば実装する
-              .point-window
-                %p.detail-point
-                  所持ポイント:P
-                  %span 300
-                .radio-button
-                  =f.radio_button :point, class: "radio_button__select"
-                  =f.label :ポイントを使わない
-                .radio-button
-                  =f.radio_button :point, class: "radio_button__select"
-                  =f.label :全てのポイントを使う
-                  %p P 300
-                .radio-button
-                  =f.radio_button :point, class: "radio_button__select"
-                  =f.label :一部のポイントを使う
-                =f.text_field :point, placeholder: "使うポイントを入力", class: "point-window__input"
-                -# 計算式はバックエンドに回す
+              -# .point-window
+              -#   %p.detail-point
+              -#     所持ポイント:P
+              -#     %span #{current_user.point}
+              -#   .radio-button
+              -#     =f.radio_button :point, class: "radio_button__select"
+              -#     =f.label :ポイントを使わない
+              -#   .radio-button
+              -#     =f.radio_button :point, class: "radio_button__select"
+              -#     =f.label :全てのポイントを使う
+              -#     %p P 300
+              -#   .radio-button
+              -#     =f.radio_button :point, class: "radio_button__select"
+              -#     =f.label :一部のポイントを使う
+              -#   =f.text_field :point, placeholder: "使うポイントを入力", class: "point-window__input"
           %ul.cfm-form__amount
             %li
               .left-block 支払い金額
               .right-block
-                %span ¥ 8,000
+                %span ¥ #{@item.price}
           -# 配送先と支払い方法の入力を完了してください。
           -# この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-          %p.error-massage 配送先と支払い方法の入力を完了してください。
-          =f.submit "購入する", class: "cfm-form__btn"
+          -# TODO delivery_addoressが登録されていない時、表示する。
+          - unless current_user.delivery_address.present?
+            %p.error-massage 配送先の入力を完了してください。
+            %button "購入する", class: "cfm-form__btn--disable"  
+          - else
+            = form_tag(action: :pay, method: :post)  do
+              %script.payjp-button{:src => "https://checkout.pay.jp",type: "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_e4856fd905ac999e97305b99"}
           %p.no-appli-message アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
           .logos
             %a.app-store-logo
@@ -52,15 +57,19 @@
     %section.userinfo-section
       .userinfo-section__box
         %h3 配送先
-        %p
+        %p 
+          = zipcode(current_user)
+        %p 
+          = address(current_user)
         =link_to "" do
           %span 変更する
           %i.fas.fa-chevron-right
-    %section.userinfo-section
-      .userinfo-section__box
-        %h3 支払い方法
-        %p
-        =link_to "" do
-          %span 変更する
-          %i.fas.fa-chevron-right
--# コメントTodo footer render
+    -# TODO クレジットカード登録画面を実装した時に以下も実装する。
+    -# %section.userinfo-section
+    -#   .userinfo-section__box
+    -#     %h3 支払い方法
+    -#     %p
+    -#     =link_to "" do
+    -#       %span 変更する
+    -#       %i.fas.fa-chevron-right
+
