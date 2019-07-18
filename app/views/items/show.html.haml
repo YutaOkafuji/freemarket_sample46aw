@@ -39,10 +39,10 @@
                   %span 0
             %tr
               %th カテゴリ
-              %td #{@item.category.name}
+              %td -
             %tr
               %th ブランド
-              %td #{@item.item_detail.brand}
+              %td -
             %tr
               %th 商品のサイズ
               %td #{@item.item_detail.size.name}
@@ -67,7 +67,7 @@
     %span.item-price-box__shipping-fee 送料込み
   - if @item.sale_status == 0
     .sales-balance
-      .sales-balance__messages 残高 ¥ 256をお持ちです
+      .sales-balance__messages 残高 ¥ #{@current_user.profit.to_s(:delimited)}をお持ちです
     -#TODO dealコントローラとを作成した時に下のcontrollerをitemsからdealsに変更する。
     =link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
   - if @item.sale_status == 1
