@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    @user = User.new(user_profile_attr_params)
+    @user = User.new(user_profile_params)
     # omniouthを利用して登録する時
     if session[:provider]
       @user.password = session[:password]
@@ -77,7 +77,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
   
   private
-  def user_profile_attr_params
+  def user_profile_params
     params.require(:user).permit(
       :email,
       :password,
@@ -87,7 +87,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def save_user(user)
-    if user.save && user.profile.save
+    if user.save
       sign_in(:user, user)
       redirect_to new_user_delivery_addresses_path(user)
     else
