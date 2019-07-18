@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, except: %i[index new]
   # before_action :move_to_index, except: [:index, :show
-  
+
   def index
     @items = Item.all.includes(:item_images).order("created_at DESC")
   end
@@ -12,17 +12,12 @@ class ItemsController < ApplicationController
     @item = Item.find(1)
     render layout: "layout_items_show"
   end
-  
-  def buy
-  end
 
   def new
     render layout: "second_layout"
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
     redirect_to root_path unless @item.user.id == current_user.id
@@ -43,6 +38,21 @@ class ItemsController < ApplicationController
     end
   end
 
+  def buy; end
+
+  def pay
+    require 'payjp'
+    Payjp.api_key = 'sk_test_dee871c5b4611010f667e809'
+    charge =Payjp::Charge.create(
+      amount: @item.price,
+      card: params['payjp-token'],
+      currency: 'jpy'
+    )
+    @item.user.profit += @item.price
+    @item.user.save
+    redirect_to item_path
+  end
+
   private
 
   def set_item
@@ -50,10 +60,10 @@ class ItemsController < ApplicationController
   end
 
   def update_item_params
-    params.require(:item).permit( :name,
-                                  :description,
-                                  :price,
-                                  item_image_attributes: %i[id url],
-                                  item_details_attributes: %i[id size brand condition])
+    params.require(:item).permit(:name,
+                                :description,
+                                :price,
+                                item_image_attributes: %i[id url],
+                                item_details_attributes: %i[id size brand condition])
   end
 end
