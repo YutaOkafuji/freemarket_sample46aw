@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     resource  :members, only: %i[show]
   end
   resources :items do
+    collection do
+      post 'pay/:id' => 'items#pay', as: 'pay'
+    end
     member do
       get 'buy'
     end
