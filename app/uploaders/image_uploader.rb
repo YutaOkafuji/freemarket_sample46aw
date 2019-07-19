@@ -4,6 +4,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
+  include CarrierWave::MiniMagick
+  process :convert => 'jpg'
+
+  def extension_white_list
+    %w(jpg jpeg png)
+  end
 
 case Rails.env
 when "development", "test"

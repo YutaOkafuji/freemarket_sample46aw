@@ -60,11 +60,11 @@
 
 //   function prependAddImagesHTML (image){
 //     var img = '<div class="preview-image">' +
-//                 '<img src="'+ image.image.url +'">' +
+//                 '<img src="'+ image.phot.url +'">' +
 //                 '<div class="btn-zone">' +
 //                   '<a class="remove-btn" id="remove-image[' + image.id +']">削除</a>' +
 //                 '</div>' +
-//                 '<input type="file" value="'+ image.image.url +'">' +
+//                 '<input type="file" value="'+ image.phot.url +'">' +
 //               '</div>';
 
 //     upload_box.prepend(img);
@@ -80,14 +80,16 @@
 
 //   $('.sell-content__upload-box--form').on('change', function(){
 
-//     var formdata = FormData.new
+//     var formData = Image.new;
 //     formdata = $(".sell-content__upload-box--form").val();
 
 //     $.ajax({
 //       type: 'GET',
 //       url: '/items/new',
-//       data: formdata,
-//       dataType: 'json'
+//       data: formData,
+//       dataType: 'json',
+//       processData: false,
+//       contentType: false
 //     })
 //     .done(function(images){
 //       $(".sell-content__upload-box").empty();

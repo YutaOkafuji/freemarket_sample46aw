@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, except: %i[index new]
+  before_action :set_item, except: %i[index new create]
   
   def index
     @items = Item.all.includes(:item_images).order("created_at DESC")
@@ -64,7 +64,7 @@ class ItemsController < ApplicationController
       :description,
       :sale_status,
       :buy_status,
-      item_images_attributes: %i[ id image ],
+      item_images_attributes: %i[ id phot ],
       item_detail_attributes: %i[ id condition_id ],
       shipping_origin_attributes: %i[ id prefecture_id burden_id delivery_date_id ])
       .merge(user_id: current_user.id)
