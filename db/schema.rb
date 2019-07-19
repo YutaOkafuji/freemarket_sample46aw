@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_13_132133) do
+ActiveRecord::Schema.define(version: 2019_07_18_130609) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2019_07_13_132133) do
     t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image", null: false
+    t.string "phot", null: false
     t.index ["item_id"], name: "index_item_images_on_item_id"
   end
 
@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(version: 2019_07_13_132133) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.bigint "buyer_id"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -171,6 +173,7 @@ ActiveRecord::Schema.define(version: 2019_07_13_132133) do
   add_foreign_key "item_details", "items"
   add_foreign_key "item_images", "items"
   add_foreign_key "items", "users"
+  add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"
   add_foreign_key "profiles", "users"
