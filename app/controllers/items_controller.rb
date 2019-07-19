@@ -11,10 +11,11 @@ class ItemsController < ApplicationController
   end
 
   def new
-    respond_to do |format|
-      format.html
-      format.json
-    end
+    #後から実装
+    # respond_to do |format|
+    #   format.html
+    #   format.json
+    # end
 
     @item = Item.new
     @item.item_images.build

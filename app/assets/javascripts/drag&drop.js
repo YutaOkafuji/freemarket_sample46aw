@@ -1,3 +1,4 @@
+// 実装後回し
 // $(function(){
 
 //   function receive(event, element){
