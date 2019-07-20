@@ -5,7 +5,7 @@ $(function(){
 })
 
 
-// 実装後回し
+//TO DO: 実装後回し
 // $(function(){
 
 //   function receive(event, element){
