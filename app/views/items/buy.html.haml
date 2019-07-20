@@ -47,7 +47,7 @@
             %button.cfm-form__btn--disable 購入する
           - else
             = form_tag(action: :pay, method: :post)  do
-              %script.payjp-button{:src => "https://checkout.pay.jp",type: "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_e4856fd905ac999e97305b99"}
+              %script.payjp-button{:src => "https://checkout.pay.jp",type: "text/javascript" ,"data-text" => "購入する" ,"data-key" => Rails.application.credentials.config[:PAYJP_PUBLIC_KEY]}
           %p.no-appli-message アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
           .logos
             %a.app-store-logo
