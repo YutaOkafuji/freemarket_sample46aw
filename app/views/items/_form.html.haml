@@ -11,11 +11,13 @@
       =f.fields_for :item_images do |image|
         =image.file_field :phot, class: "sell-content__upload-box--form"
         -# =image.hidden_field :id, value: image.item_images.id
+      .sell-content__upload-box--preview
       -# 文字の書いてあるところをクリックすると画像のアップロードができます。
-      %p
-        ドラッグアンドドロップ
-        %br
-        またはクリックしてファイルをアップロード
+      .sell-content__upload-box--click
+        %p
+          ドラッグアンドドロップ
+          %br
+          またはクリックしてファイルをアップロード
     -#  ToDo バリデーションのエラーメッセージを表示する 
   .sell-content
     .sell-content__form-group
