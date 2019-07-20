@@ -40,18 +40,21 @@ class ItemsController < ApplicationController
   def buy; end
 
   def pay
-    require 'payjp'
-    Payjp.api_key = Rails.application.credentials.config[:PAYJP_SECRET_KEY]
-    charge =Payjp::Charge.create(
-      amount: @item.price,
-      card: params['payjp-token'],
-      currency: 'jpy'
-    )
-    @item.user.profit += @item.price
-    @item.buyer_id = current_user.id
-    @item.save
-    redirect_to item_path
-
+    unless @item.buyer_id.present?
+      require 'payjp'
+      Payjp.api_key = Rails.application.credentials.config[:PAYJP_SECRET_KEY]
+      charge =Payjp::Charge.create(
+        amount: @item.price,
+        card: params['payjp-token'],
+        currency: 'jpy'
+      )
+      @item.user.profit += @item.price
+      @item.buyer_id = current_user.id
+      @item.save
+      redirect_to item_path
+    else 
+      redirect_to buy_item_path, flash:{alert:'この商品は既に購入されています。'}
+    end
   end
 
   private

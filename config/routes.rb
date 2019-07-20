@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
   resources :items do
     collection do
-      post 'pay/:id' => 'items#pay', as: 'pay'
+      post 'pay/:id', to:'items#pay', as: 'pay'
     end
     member do
       get 'buy'
