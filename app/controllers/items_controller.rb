@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @like = Like.where(user_id: current_user.id).count
+    @like = Like.where(user_id: @item.user_id).count
     render layout: "layout_items_show"
   end
 
