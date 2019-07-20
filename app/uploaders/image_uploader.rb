@@ -11,10 +11,12 @@ class ImageUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg png)
   end
 
-case Rails.env
-when "development", "test"
+
+if Rails.env.development?
   storage :file
-when "production"
+elsif Rails.env.test?
+  storage :file
+else
   storage :fog
 end
 
