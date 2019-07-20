@@ -9,7 +9,7 @@
     .sell-content__upload-box
       -# {dropzone: "move f:image", ondrop: "receive(event, this)"}
       =f.fields_for :item_images do |image|
-        =image.file_field :phot, class: "sell-content__upload-box--form"
+        =image.file_field :photo, class: "sell-content__upload-box--form"
         -# =image.hidden_field :id, value: image.item_images.id
       .sell-content__upload-box--preview
       -# 文字の書いてあるところをクリックすると画像のアップロードができます。
