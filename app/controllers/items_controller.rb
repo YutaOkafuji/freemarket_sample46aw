@@ -2,18 +2,17 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, except: %i[index new]
   # before_action :move_to_index, except: [:index, :show
-  
+
   def index
     if signed_in? && current_user.delivery_address.nil?
       redirect_to new_user_delivery_addresses_path(current_user.id),
       flash: { warning: 'お届け先情報を入力してください' }
     end
-    @items = Item.all.includes(:item_images).order("created_at DESC")
+      @items = Item.includes(:item_images).order("created_at DESC")
   end
 
   def show
     # find(1)は後でfind(params[:id])に修正する
-    @item = Item.find(1)
     render layout: "layout_items_show"
   end
 
@@ -21,8 +20,7 @@ class ItemsController < ApplicationController
     render layout: "second_layout"
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     redirect_to root_path unless @item.user.id == current_user.id
@@ -43,16 +41,36 @@ class ItemsController < ApplicationController
     end
   end
 
+  def buy; end
+
+  def pay
+    unless @item.buyer_id.present?
+      require 'payjp'
+      Payjp.api_key = Rails.application.credentials.config[:PAYJP_SECRET_KEY]
+      charge =Payjp::Charge.create(
+        amount: @item.price,
+        card: params['payjp-token'],
+        currency: 'jpy'
+      )
+      @item.user.profit += @item.price
+      @item.buyer_id = current_user.id
+      @item.save
+      redirect_to item_path
+    else 
+      redirect_to buy_item_path, flash:{alert:'この商品は既に購入されています。'}
+    end
+  end
+
   private
   def set_item
     @item = Item.find(params[:id])
   end
 
   def update_item_params
-    params.require(:item).permit( :name,
-                                  :description,
-                                  :price,
-                                  item_image_attributes: %i[id url],
-                                  item_details_attributes: %i[id size brand condition])
+    params.require(:item).permit(:name,
+                                :description,
+                                :price,
+                                item_image_attributes: %i[id url],
+                                item_details_attributes: %i[id size brand condition])
   end
 end
