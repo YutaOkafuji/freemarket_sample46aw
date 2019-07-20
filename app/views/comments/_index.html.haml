@@ -1,11 +1,9 @@
 .item-detail-message
   .message-container
-    -#TODO 以下にeach文を適用させる。 
     .message-content
       %ul.message-content__items
-        -#TODO unless current.id = comment.user.id みたいなのを追加する
         - @item.comments.each do |comment|
-          -unless current_user.id == comment.user_id
+          -unless @item.user.id == comment.user_id
             %li.message-item
               .message-item__user
                 =image_tag 'member_photo_noimage_thumb.png',class: "message-item__user--image"
@@ -37,15 +35,13 @@
                     -#TODO 出品者の場合にのみ削除ボタンを表示させるようにする。
                     %i.delete.fas.fa-trash-alt
                 %i.fas.fa-comment.icon-balloon
-    .message-content
-      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      -# if "sale_statusが１の時は以下を表示"
-      -if @item.sale_status == 0
-        =form_with(url: "https://kari",class: "message-content__form" ) do |f|
-          = f.text_area :content
-          = f.button ("コメントする")
-      
-        -# elseの時は以下を表示させ、コメントできないようにする。
-      -else
-        %textarea{disabled: "disabled", name: "content"}
-        %button{disabled: "disabled"}売り切れの為コメントできません
+    -if user_signed_in?
+      .message-content
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        -if @item.sale_status == 0
+          =form_with(url: "https://kari",class: "message-content__form" ) do |f|
+            = f.text_area :content
+            = f.button ("コメントする")
+        -else
+          %textarea{disabled: "disabled", name: "content"}
+          %button{disabled: "disabled"}売り切れの為コメントできません

@@ -39,13 +39,16 @@
                   %span 0
             %tr
               %th カテゴリ
+              -# 今回は実装しないのでハイフンとする
               %td -
             %tr
               %th ブランド
+              -# 今回は実装しないのでハイフンとする
               %td -
             %tr
               %th 商品のサイズ
-              %td #{@item.item_detail.size.name}
+              -# 今回は実装しないのでハイフンとする
+              %td -
             %tr
               %th 商品の状態
               %td #{@item.item_detail.condition.name}
@@ -65,19 +68,23 @@
     %span.item-price-box__price ¥ #{@item.price.to_s(:delimited)}
     %span.item-price-box__tax (税込)
     %span.item-price-box__shipping-fee 送料込み
-  - if @item.sale_status == 0
-    .sales-balance
-      .sales-balance__messages 残高 ¥ #{@current_user.profit.to_s(:delimited)}をお持ちです
-    -#TODO dealコントローラとを作成した時に下のcontrollerをitemsからdealsに変更する。
+  - if user_signed_in? && current_user.id != @item.user_id
+    - if @item.sale_status == 0
+      .sales-balance
+        .sales-balance__messages 残高 ¥ #{current_user.profit.to_s(:delimited)}をお持ちです
+      -#TODO dealコントローラとを作成した時に下のcontrollerをitemsからdealsに変更する。
+      =link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
+  - elsif user_signed_in? && current_user.id == @item.user_id
+  - else
     =link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
+  -#TODO itemsテーブルのbuyer_idが存在したら売り切れとなるようにする。
   - if @item.sale_status == 1
     .item-buy-btn--disabled 売り切れました
 
   .item-description
     %p.item-description__inner
-      めっちゃくちゃやす〜〜〜〜〜〜〜い！ほし〜〜〜〜〜〜〜〜〜い！
-      かいた〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜い
-  -unless current_user.id == @item.user_id 
+      #{@item.description}
+  -if user_signed_in? && current_user.id != @item.user_id 
     .item-button-container--clearfix
       .item-button-content__left
         .item-button-content__left--like
@@ -92,6 +99,6 @@
         =link_to "https://www.mercari.com/jp/safe/description/",target: "_blank" do
           %i.fas.fa-lock
           %span あんしん・あんぜんへの取り組み
--if current_user.id == @item.user_id 
+-if user_signed_in? && current_user.id == @item.user_id 
   =render partial: "show-edit-box" 
 =render partial: "comments/index"

@@ -13,7 +13,7 @@ $(function() {
   $('.thumb').slick({
     asNavFor:'.slider',
     focusOnSelect: true,
-    // スライダーの画像の表示数を5に設定
+    // スライダーの画像の表示数を5に設定。余裕があればナビゲーション画像が6枚以上の場合に2段で表示できるよう実装する。
     slidesToShow:5
   }); 
 
