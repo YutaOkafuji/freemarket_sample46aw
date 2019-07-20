@@ -1,3 +1,10 @@
+$(function(){
+  $('.sell-content__upload-box p').click(function(){
+    $('.sell-content__upload-box input').trigger('click');
+  })
+})
+
+
 // 実装後回し
 // $(function(){
 

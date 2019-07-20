@@ -55,10 +55,11 @@
 
         }
         &--form {
-          // display: none;
+          display: none;
           z-index: 2;
         }
         p {
+          margin-top: 10%;
           color: $black;
           @include centering;
           font-size: 14px;
