@@ -140,6 +140,8 @@
           margin: 16px 0 0;
             @include btn-default( $color: $mypage-icon );
             font-weight: 600;
+            border-radius: 0;
+            padding: 0;
       }
       }
       .no-appli-message{

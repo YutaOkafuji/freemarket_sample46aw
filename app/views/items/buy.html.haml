@@ -10,7 +10,7 @@
           = @item.name
         .cfm-form
           %p.cfm-form__top 
-            = "¥ #{@item.price}" 
+            = "¥ #{@item.price.to_s(:delimited)}" 
             %span 送料込み
           %ul.cfm-form__point
             %li
@@ -38,13 +38,13 @@
             %li
               .left-block 支払い金額
               .right-block
-                %span ¥ #{@item.price}
+                %span ¥ #{@item.price.to_s(:delimited)}
           -# 配送先と支払い方法の入力を完了してください。
           -# この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
           -# TODO delivery_addoressが登録されていない時、表示する。
           - unless current_user.delivery_address.present?
             %p.error-massage 配送先の入力を完了してください。
-            %button "購入する", class: "cfm-form__btn--disable"  
+            %button.cfm-form__btn--disable 購入する
           - else
             = form_tag(action: :pay, method: :post)  do
               %script.payjp-button{:src => "https://checkout.pay.jp",type: "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_e4856fd905ac999e97305b99"}
