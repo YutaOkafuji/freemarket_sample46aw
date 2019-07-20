@@ -39,7 +39,8 @@
       .message-content
         %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
         -if @item.sale_status == 0
-          =form_with(url: "https://kari",class: "message-content__form" ) do |f|
+          -# -binding.pry
+          =form_with model: [@item, @comment], url: item_comments_path(item_id: @item.id), local: true, class: "message-content__form" do |f|
             = f.text_area :content
             = f.button ("コメントする")
         -else
