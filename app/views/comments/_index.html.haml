@@ -16,7 +16,6 @@
                     %span #{distance_of_time_in_words_to_now(comment.created_at)}
                   .message-item__icon--right
                     %i.far.fa-flag
-                    %i.delete.fas.fa-trash-alt
                 %i.fas.fa-comment.icon-balloon
           -else
             %li.message-self-item
@@ -32,15 +31,16 @@
                     %span #{distance_of_time_in_words_to_now(comment.created_at)}
                   .message-self-item__icon--right
                     %i.far.fa-flag 
-                    -#TODO 出品者の場合にのみ削除ボタンを表示させるようにする。
-                    %i.delete.fas.fa-trash-alt
+                    -if user_signed_in?
+                      -#TODO 出品者の場合にのみ削除ボタンを表示させるようにする。
+                      %i.delete.fas.fa-trash-alt
                 %i.fas.fa-comment.icon-balloon
     -if user_signed_in?
       .message-content
         %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
         -if @item.sale_status == 0
           -# -binding.pry
-          =form_with model: [@item, @comment], url: item_comments_path(item_id: @item.id), local: true, class: "message-content__form" do |f|
+          =form_with url: item_comments_path(item_id: @item.id), local: true, class: "message-content__form" do |f|
             = f.text_area :content
             = f.button ("コメントする")
         -else

@@ -8,17 +8,17 @@
       .item-detail-content__photo--big
         %ul.slider
           %li
-            = image_tag @item.item_images.first.url
+            = image_tag @item.item_images.first.photo
           - @item.item_images[1,9].each do |item_image|
             %li
-              = image_tag item_image.url
+              = image_tag item_image.photo
       .item-detail-content__photo--small
         %ul.thumb
           %li
-            = image_tag @item.item_images.first.url, size: :"60x60", class: 'small-photo active'
+            = image_tag @item.item_images.first.photo, size: :"60x60", class: 'small-photo active'
           - @item.item_images[1,9].each do |item_image|
             %li
-              = image_tag item_image.url, size: :"60x60", class: 'small-photo'
+              = image_tag item_image.photo, size: :"60x60", class: 'small-photo'
 
     .item-detail-content__detail-table
       %table
