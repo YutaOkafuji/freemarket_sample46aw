@@ -64,16 +64,29 @@ $(function(){
 
 // $(function(){
 
-//   var upload_box = $('.sell-content__upload-box')
+//   var upload_box = $('.sell-content__upload-box--preview')
+
+//     function prependAddImagesHTMLdefault (image){
+//     var img = '<ul>' +
+//                 '<li class="preview-image" style="margin: 0 0 10px 10px;">' +
+//                   '<img src="'+ image +'">' +
+//                   '<div class="btn-zone">' +
+//                     '<a class="remove-btn" id="remove-image">削除</a>' +
+//                   '</div>' +
+//                 '</li>' +
+//               '</ul>';
+
+//     upload_box.prepend(img);
+//   }
 
 //   function prependAddImagesHTML (image){
-//     var img = '<div class="preview-image">' +
-//                 '<img src="'+ image.phot.url +'">' +
+//     var img = '<li class="preview-image">' +
+//                 '<img src="'+ image +'">' +
 //                 '<div class="btn-zone">' +
-//                   '<a class="remove-btn" id="remove-image[' + image.id +']">削除</a>' +
+//                   '<a class="remove-btn" id="remove-image">削除</a>' +
 //                 '</div>' +
-//                 '<input type="file" value="'+ image.phot.url +'">' +
-//               '</div>';
+//                 '<input type="file" value="'+ image +'">' +
+//               '</li>';
 
 //     upload_box.prepend(img);
 //   }
@@ -89,29 +102,8 @@ $(function(){
 //   $('.sell-content__upload-box--form').on('change', function(){
 
 //     var formData = Image.new;
-//     formdata = $(".sell-content__upload-box--form").val();
+//     formData = $(".sell-content__upload-box--form").val();
+//     prependAddImagesHTMLdefault(formData);
 
-//     $.ajax({
-//       type: 'GET',
-//       url: '/items/new',
-//       data: formData,
-//       dataType: 'json',
-//       processData: false,
-//       contentType: false
-//     })
-//     .done(function(images){
-//       $(".sell-content__upload-box").empty();
-//       if (images.length !== 0){
-//         images.forEach(function(image){
-//           prependAddImagesHTML(image);
-//         });
-//       }
-//       else {
-//         appendErrMsgToHTML("imageが入力されていません");
-//       };
-//     })
-//     .fail(function(){
-//       alert('通信に失敗しました');
-//     })
 //   })
 // })
