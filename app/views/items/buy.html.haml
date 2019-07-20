@@ -1,0 +1,76 @@
+-# コメントTodo header render
+= flash[:alert]
+%main.main
+  %section.purchase-cfm
+    %h2.purchase-cfm__title 購入内容の確認
+    %section.cfm-section
+      .cfm-section__product
+        %h3
+          =image_tag @item.item_images.first.url
+        %p.detail 
+          = @item.name
+        .cfm-form
+          %p.cfm-form__top 
+            = "¥ #{@item.price.to_s(:delimited)}" 
+            %span 送料込み
+          %ul.cfm-form__point
+            %li
+              -# .point-btn
+              -#   ポイントを使う
+              -#   %i.fas.fa-chevron-down#switch-awesome
+              .point-btn--none ポイントはありません
+              -# ポイントウインドウの処理は余裕があれば実装する
+              -# .point-window
+              -#   %p.detail-point
+              -#     所持ポイント:P
+              -#     %span #{current_user.point}
+              -#   .radio-button
+              -#     =f.radio_button :point, class: "radio_button__select"
+              -#     =f.label :ポイントを使わない
+              -#   .radio-button
+              -#     =f.radio_button :point, class: "radio_button__select"
+              -#     =f.label :全てのポイントを使う
+              -#     %p P 300
+              -#   .radio-button
+              -#     =f.radio_button :point, class: "radio_button__select"
+              -#     =f.label :一部のポイントを使う
+              -#   =f.text_field :point, placeholder: "使うポイントを入力", class: "point-window__input"
+          %ul.cfm-form__amount
+            %li
+              .left-block 支払い金額
+              .right-block
+                %span ¥ #{@item.price.to_s(:delimited)}
+          -# 配送先と支払い方法の入力を完了してください。
+          -# この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+          -# TODO delivery_addoressが登録されていない時、表示する。
+          - unless current_user.delivery_address.present?
+            %p.error-massage 配送先の入力を完了してください。
+            %button.cfm-form__btn--disable 購入する
+          - else
+            = form_tag(action: :pay, method: :post)  do
+              %script.payjp-button{src: "https://checkout.pay.jp",type: "text/javascript" ,"data-text" => "購入する" ,"data-key" => Rails.application.credentials.config[:PAYJP_PUBLIC_KEY]}
+          %p.no-appli-message アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
+          .logos
+            %a.app-store-logo
+              =image_tag "app-store.svg"
+            %a.google-play-logo
+              =image_tag "google-play.svg"
+    %section.userinfo-section
+      .userinfo-section__box
+        %h3 配送先
+        %p 
+          = zipcode(current_user)
+        %p 
+          = address(current_user)
+        =link_to "" do
+          %span 変更する
+          %i.fas.fa-chevron-right
+    -# TODO クレジットカード登録画面を実装した時に以下も実装する。
+    -# %section.userinfo-section
+    -#   .userinfo-section__box
+    -#     %h3 支払い方法
+    -#     %p
+    -#     =link_to "" do
+    -#       %span 変更する
+    -#       %i.fas.fa-chevron-right
+

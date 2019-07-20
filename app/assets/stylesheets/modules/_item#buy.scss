@@ -25,7 +25,7 @@
       h3{
         font-size: 22px;
         
-        image{
+        img{
           width: 64px;
         }
   
@@ -129,9 +129,21 @@
           margin: 16px 0 0;
           @include btn-default( $color: $mypage-icon );
           font-weight: 600;
+          &--disable{
+            margin: 16px 0 0;
+            @include btn-default( $color: $mypage-icon );
+            font-weight: 600;
+            cursor: not-allowed;
+          }
         }
+        #payjp_checkout_box input{
+          margin: 16px 0 0;
+            @include btn-default( $color: $mypage-icon );
+            font-weight: 600;
+            border-radius: 0;
+            padding: 0;
       }
-
+      }
       .no-appli-message{
         margin: 8px 0 0;
       }
