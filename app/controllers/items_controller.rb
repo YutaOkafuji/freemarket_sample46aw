@@ -9,7 +9,6 @@ class ItemsController < ApplicationController
 
   def show
     # find(1)は後でfind(params[:id])に修正する
-    @item = Item.find(1)
     render layout: "layout_items_show"
   end
 
@@ -49,8 +48,10 @@ class ItemsController < ApplicationController
       currency: 'jpy'
     )
     @item.user.profit += @item.price
-    @item.user.save
+    @item.buyer_id = current_user.id
+    @item.save
     redirect_to item_path
+
   end
 
   private
