@@ -4,7 +4,11 @@ class ItemsController < ApplicationController
   # before_action :move_to_index, except: [:index, :show
 
   def index
-    @items = Item.includes(:item_images).order("created_at DESC")
+    if signed_in? && current_user.delivery_address.nil?
+      redirect_to new_user_delivery_addresses_path(current_user.id),
+      flash: { warning: 'お届け先情報を入力してください' }
+    end
+      @items = Item.includes(:item_images).order("created_at DESC")
   end
 
   def show
