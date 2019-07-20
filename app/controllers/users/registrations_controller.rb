@@ -1,29 +1,33 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  prepend_before_action :require_no_authentication, only: [:new, :create]
   layout "second_layout", only: [:new, :create]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   #GET /resource/sign_up
   def new
-    @user = User.new
+    @user = User.new(email: session[:email], provider: session[:provider])
     @user.build_profile
-    # super
+    @user.profile = Profile.new(nickname: session[:nickname])
   end
 
   # POST /resource
   def create
-    @user = User.new(user_profile_attr_params)
-    if @user.save && @user.profile.save
-      sign_in(:user, @user)
-      redirect_to new_user_delivery_addresses_path(user_id: @user.id)
+    @user = User.new(user_profile_params)
+    # omniouthを利用して登録する時
+    if session[:provider]
+      @user.password = session[:password]
+      @user.password_confirmation = session[:password]
+      @user.provider = session[:provider]
+      @user.uid      = session[:uid]
+      @user.token    = session[:token] 
+      save_user(@user)
+    # メールアドレスで登録する時
     else
-      # TODO バリデーションのエラーメッセージを飛ぶようにする。
-      @user.destroy
-      render action: :new
+      save_user(@user)
     end
-      # super
   end
 
   # GET /resource/edit
@@ -73,12 +77,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
   
   private
-  def user_profile_attr_params
+  def user_profile_params
     params.require(:user).permit(
       :email,
       :password,
       :password_confirmation,
       profile_attributes: [:nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :birthday]
       ).merge(avatar: nil, profit: 0, point: 0)
+  end
+
+  def save_user(user)
+    if user.save
+      sign_in(:user, user)
+      redirect_to new_user_delivery_addresses_path(user)
+    else
+      # TODO バリデーションのエラーメッセージを飛ぶようにする。
+      flash.now[:notice] = "入力エラー"
+      render action: :new and return
+    end
   end
 end

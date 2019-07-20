@@ -1,6 +1,12 @@
 .signup-address{
   width: 700px;
   @include centering;
+
+  .errors{
+    // バリデーションエラーを書いたら修正する
+    font-size: 24px;
+    color: red;
+  }
 }
 
 .edit-address{
