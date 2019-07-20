@@ -3,6 +3,8 @@
 .devise-content
   .signup-address
     .auth-info
+      %h1.errors
+        = flash[:notice]
       %h2.auth-title 発送元・お届け先住所登録
       = form_with model: @user, url: user_delivery_addresses_path, method: :post, local: true, class: "auth-form" do |f|
         =render partial: 'form', locals: { user: @user, field: f, edit_flag: true }

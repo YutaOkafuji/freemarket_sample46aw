@@ -92,6 +92,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to new_user_delivery_addresses_path(user)
     else
       # TODO バリデーションのエラーメッセージを飛ぶようにする。
+      flash.now[:notice] = "入力エラー"
       render action: :new and return
     end
   end

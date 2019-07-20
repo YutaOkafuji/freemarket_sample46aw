@@ -16,6 +16,7 @@ class DeliveryAddressesController < ApplicationController
     if @user.update(user_profile_address_params)
       redirect_to new_user_credits_path(user_id: @user.id)
     else
+      flash.now[:notice] = "入力エラー"
       render :new and return
     end  
   end
