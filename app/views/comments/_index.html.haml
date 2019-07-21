@@ -18,22 +18,41 @@
                     %i.far.fa-flag
                 %i.fas.fa-comment.icon-balloon
           -else
-            %li.message-self-item
-              .message-self-item__user
-                =image_tag 'member_photo_noimage_thumb.png',class: "message-self-item__user--image"
-                .message-self-item__user--name #{comment.user.profile.nickname}
-                .message-self-item__user--seller 出品者
-              .message-self-item__body
-                .message-self-item__body--text #{comment.content}
-                .message-self-item__icon
-                  .message-self-item__icon--left
-                    %i.far.fa-clock
-                    %span #{distance_of_time_in_words_to_now(comment.created_at)}
-                  .message-self-item__icon--right
-                    %i.far.fa-flag 
-                    -if user_signed_in?
-                      %i.delete.fas.fa-trash-alt
-                %i.fas.fa-comment.icon-balloon
+            -if user_signed_in? && current_user.id == @item.user.id
+              %li.message-self-item
+                .message-self-item__user
+                  =image_tag 'member_photo_noimage_thumb.png',class: "message-self-item__user--image"
+                  .message-self-item__user--name #{comment.user.profile.nickname}
+                  .message-self-item__user--seller 出品者
+                .message-self-item__body
+                  .message-self-item__body--text #{comment.content}
+                  .message-self-item__icon
+                    .message-self-item__icon--left
+                      %i.far.fa-clock
+                      %span #{distance_of_time_in_words_to_now(comment.created_at)}
+                    .message-self-item__icon--right
+                      %i.far.fa-flag 
+                      -if user_signed_in?
+                        %i.delete.fas.fa-trash-alt
+                  %i.fas.fa-comment.icon-balloon
+            -else
+              %li.message-item
+                .message-item__user
+                  =image_tag 'member_photo_noimage_thumb.png',class: "message-item__user--image"
+                  .message-item__user--name-left #{comment.user.profile.nickname}
+                  .message-item__user--seller.other 出品者
+                .message-item__body
+                  .message-item__body--text #{comment.content}
+                  .message-item__icon
+                    .message-item__icon--left
+                      %i.far.fa-clock
+                      %span #{distance_of_time_in_words_to_now(comment.created_at)}
+                    .message-item__icon--right
+                      %i.far.fa-flag 
+                      -if user_signed_in?
+                        %i.delete.fas.fa-trash-alt
+                  %i.fas.fa-comment.icon-balloon
+
     -if user_signed_in?
       .message-content
         %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
