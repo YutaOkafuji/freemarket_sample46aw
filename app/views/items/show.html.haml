@@ -78,18 +78,18 @@
     %span.item-price-box__tax (税込)
     %span.item-price-box__shipping-fee 送料込み
   - if user_signed_in? && current_user.id != @item.user_id
-    - if @item.sale_status == 0
+    - unless @item.buyer_id.present?
       .sales-balance
         .sales-balance__messages 残高 ¥ #{current_user.profit.to_s(:delimited)}をお持ちです
-      -#TODO dealコントローラとを作成した時に下のcontrollerをitemsからdealsに変更する。
-      = link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
+      =link_to "購入画面に進む",buy_item_path(@item.id) ,{class:"item-buy-btn"}
+    - else
+      .item-buy-btn--disabled 売り切れました
   - elsif user_signed_in? && current_user.id == @item.user_id
   - else
-    = link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
-  -#TODO itemsテーブルのbuyer_idが存在したら売り切れとなるようにする。
-  - if @item.sale_status == 1
-    .item-buy-btn--disabled 売り切れました
-
+    - unless @item.buyer_id.present?
+      =link_to "購入画面に進む",new_user_session_path,{class:"item-buy-btn"}
+    - else
+      .item-buy-btn--disabled 売り切れました
   .item-description
     %p.item-description__inner
       #{@item.description}
