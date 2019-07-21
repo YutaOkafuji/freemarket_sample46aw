@@ -12,7 +12,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # find(1)は後でfind(params[:id])に修正する
+    @like = Like.where(user_id: @item.user_id).count
+    @comment = Comment.new
     render layout: "layout_items_show"
   end
 

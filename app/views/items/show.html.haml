@@ -2,28 +2,31 @@
 = render partial: 'layouts/breadcrumbs'
 
 .item-detail-container
-  %h1 品名
+  %h1 #{@item.name}
   .item-detail-content
     .item-detail-content__photo
-      = image_tag 'http://via.placeholder.com/225x300', class:'item-detail-content__photo--big'
+      .item-detail-content__photo--big
+        %ul.slider
+          %li
+            = image_tag @item.item_images.first.photo.url
+          - @item.item_images[1,9].each do |item_image|
+            %li
+              = image_tag item_image.photo.url
       .item-detail-content__photo--small
-        = image_tag 'http://via.placeholder.com/60x60'
-        = image_tag 'http://via.placeholder.com/60x60'
-        = image_tag 'http://via.placeholder.com/60x60'
-        = image_tag 'http://via.placeholder.com/60x60'
-        = image_tag 'http://via.placeholder.com/60x60'
-        = image_tag 'http://via.placeholder.com/60x60'
-        = image_tag 'http://via.placeholder.com/60x60'
-        = image_tag 'http://via.placeholder.com/60x60'
-        = image_tag 'http://via.placeholder.com/60x60'
-        = image_tag 'http://via.placeholder.com/60x60'
+        %ul.thumb
+          %li
+            = image_tag @item.item_images.first.photo.url, size: :"60x60", class: 'small-photo active'
+          - @item.item_images[1,9].each do |item_image|
+            %li
+              = image_tag item_image.photo.url, size: :"60x60", class: 'small-photo'
+
     .item-detail-content__detail-table
       %table
         %tbody
           %tr
             %th 出品者
             %td 
-              メルカリ売り太郎
+              #{@item.user.profile.nickname}
               .user-rating
                 .user-rating__inner
                   %i.fas.fa-grin.good
@@ -36,53 +39,65 @@
                   %span 0
             %tr
               %th カテゴリ
-              %td カテゴリ名
+              -if @item.category.present?
+                %td #{@item.category.name}
+              -else
+                %td -
             %tr
               %th ブランド
-              %td ブランド名
+              -if @item.item_detail.brand.present?
+                %td #{@item.item_detail.brand}
+              -else
+                %td -
             %tr
               %th 商品のサイズ
-              %td そこそこ
+              -if @item.item_detail.size_id.present?
+                %td #{@item.item_detail.size.name}
+              -else
+                %td -
             %tr
               %th 商品の状態
-              %td ボッロボロ
+              %td #{@item.item_detail.condition.name}
             %tr
               %th 配送料の負担
-              %td 送料込み(出品者負担)
+              %td #{@item.shipping_origin.burden.name}
             %tr
               %th 配送の方法
-              %td ゆうゆうメルカリ便
+              %td #{@item.shipping_origin.delivery_method.name}
             %tr
               %th 配送元地域
-              %td 北海道
+              %td #{@item.shipping_origin.prefecture.name}
             %tr
               %th 発送日の目安
-              %td 4~7日で発送
+              %td #{@item.shipping_origin.delivery_date.name}
   .item-price-box
-    %span.item-price-box__price ¥ 6,800
+    %span.item-price-box__price ¥ #{@item.price.to_s(:delimited)}
     %span.item-price-box__tax (税込)
     %span.item-price-box__shipping-fee 送料込み
-  -#TODO:if "itemのsale_statusが1の時下の２行を表示させる"
-  .sales-balance
-    .sales-balance__messages 残高 ¥ 256をお持ちです
-  -#TODO:dealコントローラとを作成した時に下のcontrollerをitemsからdealsに変更する。
-  =link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
-  -#TODO:sales_statusの実装を行う時処理を記入する。
+  - if user_signed_in? && current_user.id != @item.user_id
+    - if @item.sale_status == 0
+      .sales-balance
+        .sales-balance__messages 残高 ¥ #{current_user.profit.to_s(:delimited)}をお持ちです
+      -#TODO dealコントローラとを作成した時に下のcontrollerをitemsからdealsに変更する。
+      =link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
+  - elsif user_signed_in? && current_user.id == @item.user_id
+  - else
+    =link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
+  -#TODO itemsテーブルのbuyer_idが存在したら売り切れとなるようにする。
+  - if @item.sale_status == 1
     .item-buy-btn--disabled 売り切れました
 
   .item-description
     %p.item-description__inner
-      めっちゃくちゃやす〜〜〜〜〜〜〜い！ほし〜〜〜〜〜〜〜〜〜い！
-      かいた〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜い
-    -#TODO:ログイン機能を実装したらunlessのコメントアウトを外す
-    -# -unless current_user.id == item.user_id 
+      #{@item.description}
+  -if user_signed_in? && current_user.id != @item.user_id 
     .item-button-container--clearfix
       .item-button-content__left
         .item-button-content__left--like
           %button.like-button 
             %i.far.fa-heart
             %span いいね！
-            %span.fade-in-down 5 
+            %span.fade-in-down #{@like}
         .item-button-content__left--report
           %i.far.fa-flag
           %span 不適切な商品の報告
@@ -90,7 +105,6 @@
         =link_to "https://www.mercari.com/jp/safe/description/",target: "_blank" do
           %i.fas.fa-lock
           %span あんしん・あんぜんへの取り組み
-  -#TODO:ログイン機能を実装したらelse以下のコメントアウトを外す          
-  -# -else  
-    -# =render partial: "show-edit-box" 
+-if user_signed_in? && current_user.id == @item.user_id 
+  =render partial: "show-edit-box" 
 =render partial: "comments/index"

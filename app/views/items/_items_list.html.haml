@@ -3,7 +3,7 @@
 .item-content
   - @items[0,4].each do |item|
     .item-content__box
-      =link_to root_path do #仮パス アイテム詳細ページを実装した時に変更すること
+      =link_to item_path(id: item.id) do
         .item-content__box--item-image
           = image_tag item.item_images.first.photo.url, alt: '商品名'
         .content-body
