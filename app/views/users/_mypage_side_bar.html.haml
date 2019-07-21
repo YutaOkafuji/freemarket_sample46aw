@@ -2,7 +2,7 @@
   %nav.mypage-nav
     %ul.nav-list
       %li
-        = link_to root_path, class: "nav-list__item active" do
+        = link_to user_path(current_user), class: "nav-list__item active" do
           マイページ
           %i.fas.fa-chevron-right.arrow-hover
       %li
@@ -18,7 +18,7 @@
           いいね！一覧
           %i.fas.fa-chevron-right.arrow-hover
       %li
-        = link_to root_path, class: "nav-list__item" do
+        = link_to new_item_path, class: "nav-list__item" do
           出品する
           %i.fas.fa-chevron-right.arrow-hover
       %li

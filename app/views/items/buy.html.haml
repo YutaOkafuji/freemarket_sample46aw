@@ -6,7 +6,7 @@
     %section.cfm-section
       .cfm-section__product
         %h3
-          =image_tag @item.item_images.first.url
+          = image_tag @item.item_images.first.photo.url
         %p.detail 
           = @item.name
         .cfm-form
@@ -73,4 +73,3 @@
     -#     =link_to "" do
     -#       %span 変更する
     -#       %i.fas.fa-chevron-right
-

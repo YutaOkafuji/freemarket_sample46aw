@@ -3,7 +3,7 @@
 .item-content
   - @items[0,4].each do |item|
     .item-content__box
-      =link_to item_path(id: item.id) do
+      =link_to item_path(item.id) do
         .item-content__box--item-image
           = image_tag item.item_images.first.photo.url, alt: '商品名'
         .content-body

@@ -10,12 +10,12 @@
       %nav.left-navi
         %ul.left-navi__list
           %li.list-item
-            =link_to "https://kari", {class: "list-item__link"} do
+            =link_to root_path, {class: "list-item__link"} do
               %i.fas.fa-list-ul
               %span
                 カテゴリーから探す
           %li.list-item
-            =link_to "https://kari", {class: "list-item__link"} do
+            =link_to root_path, {class: "list-item__link"} do
               %i.fas.fa-tag
               %span
                 ブランドから探す
@@ -23,12 +23,12 @@
         -if user_signed_in?
           %ul.right-navi__list
             %li.list-item
-              =link_to "https://kari", {class: "list-item__icon"} do
+              =link_to root_path, {class: "list-item__icon"} do
                 %i.far.fa-bell.fa-lg{'aria-hidden': :true}
                 %span
                   お知らせ
             %li.list-item
-              =link_to "https://kari", {class: "list-item__icon"} do
+              =link_to root_path, {class: "list-item__icon"} do
                 %i.fa.fa-check.fa-lg{'aria-hidden': :true}
                 %span
                   やることリスト

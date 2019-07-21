@@ -6,14 +6,14 @@
       %p
         今すぐ無料ダウンロード！
       .inner-left__icon
-        =image_tag('custom-banner-icon.png', class: "inner-left__icon--img")
+        = image_tag('custom-banner-icon.png', class: "inner-left__icon--img")
         %ul
           %li
-            =link_to image_tag('app-store.svg', class: ""), "https://itunes.apple.com/jp/app/id667861049?l=ja&amp;mt=8"
+            = link_to image_tag('app-store.svg', class: ""), "https://itunes.apple.com/jp/app/id667861049?l=ja&amp;mt=8"
           %li
-            =link_to image_tag('google-play.svg', class: ""), "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&amp;hl=ja"
+            = link_to image_tag('google-play.svg', class: ""), "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&amp;hl=ja"
     .inner-right
-      =image_tag('download_content_pc.png')
+      = image_tag('download_content_pc.png')
 %footer.top-footer
   .top-footer__upper
     .footer-cell
@@ -21,76 +21,76 @@
         メルカリについて
       %ul
         %li
-          =link_to "会社概要（運営会社）", "https://kari"
+          = link_to "会社概要（運営会社）", root_path
         %li
-          =link_to "採用情報", "https://kari"
+          = link_to "採用情報", root_path
         %li
-          =link_to "プレスリリース", "https://kari"
+          = link_to "プレスリリース", root_path
         %li
-          =link_to "公式ブログ", "https://kari"
+          = link_to "公式ブログ", root_path
         %li
-          =link_to "メルカリロゴ利用ガイドライン", "https://kari"
+          = link_to "メルカリロゴ利用ガイドライン", root_path
         %li.social-link
-          =link_to "https://kari" do
+          = link_to root_path do
             %i.fab.fa-twitter
         %li.social-link
-          =link_to "https://kari" do
+          = link_to root_path do
             %i.fab.fa-facebook-square
     .footer-cell
       %h2
         ヘルプ＆ガイド
       %ul
         %li
-          =link_to "メルカリガイド", "https://kari"
+          = link_to "メルカリガイド", root_path
         %li
-          =link_to "らくらくメルカリ便", "https://kari"
+          = link_to "らくらくメルカリ便", root_path
         %li
-          =link_to "ゆうゆうメルカリ便", "https://kari"
+          = link_to "ゆうゆうメルカリ便", root_path
         %li
-          =link_to "大型メルカリ便", "https://kari"
+          = link_to "大型メルカリ便", root_path
         %li
-          =link_to "車体取引ガイド", "https://kari"
+          = link_to "車体取引ガイド", root_path
         %li
-          =link_to "メルカリあんしん・あんぜん宣言！", "https://kari"
+          = link_to "メルカリあんしん・あんぜん宣言！", root_path
         %li
-          =link_to "偽ブランド品撲滅への取り組み", "https://kari"
+          = link_to "偽ブランド品撲滅への取り組み", root_path
         %li
-          =link_to "メルカリボックス", "https://kari"
+          = link_to "メルカリボックス", root_path
     .footer-cell.full-width
       %h2
         プライバシーと利用規約
       .footer-cell__left
         %ul
           %li
-            =link_to "プライバシーポリシー", "https://kari"
+            = link_to "プライバシーポリシー", root_path
           %li
-            =link_to "メルカリ利用規約", "https://kari"
+            = link_to "メルカリ利用規約", root_path
           %li
-            =link_to "あんしんスマホサポート制度に関する利用特約", "https://kari"
+            = link_to "あんしんスマホサポート制度に関する利用特約", root_path
           %li
-            =link_to "コンプライアンスポリシー", "https://kari"
+            = link_to "コンプライアンスポリシー", root_path
       .footer-cell__right
         %ul
           %li
-            =link_to "個人データの安全管理に係る基本方針", "https://kari"
+            = link_to "個人データの安全管理に係る基本方針", root_path
           %li
-            =link_to "特定商取引に関する表記", "https://kari"
+            = link_to "特定商取引に関する表記", root_path
           %li
-            =link_to "資金決済法に基づく表示", "https://kari"
+            = link_to "資金決済法に基づく表示", root_path
           %li
-            =link_to "法令遵守と犯罪防止のために", "https://kari"
+            = link_to "法令遵守と犯罪防止のために", root_path
           %li
-            =link_to "返品・返金ポリシー", "https://kari"
+            = link_to "返品・返金ポリシー", root_path
     .footer-cell
       %h2
         国
       %ul
         %li
-          =link_to "日本", "https://kari"
+          = link_to "日本", root_path
         %li
-          =link_to "United States", "https://kari"
+          = link_to "United States", root_path
 
   .top-footer__lower
-    =link_to image_tag('logo-white.svg', alt: "mercari"), "https://www.mercari.com/jp/"
+    = link_to image_tag('logo-white.svg', alt: "mercari"), root_path
     %span.top-footer__lower--right
       © 2019 Mercari
