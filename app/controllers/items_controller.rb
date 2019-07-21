@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # find(1)は後でfind(params[:id])に修正する
     render layout: "layout_items_show"
   end
 
