@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def create
     comment = Comment.create(content: comment_params[:content], item_id: comment_params[:item_id], user_id: current_user.id)
-    redirect_to "/items/#{comment.item_id}"
+    redirect_to item_path(id: comment.item_id)
   end
 
   private
