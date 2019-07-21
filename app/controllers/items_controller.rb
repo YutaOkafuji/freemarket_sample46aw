@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, except: %i[index new create]
+  layout "second_layout", only: %i[buy]
+  # before_action :configure_sign_up_params, only: [
   # before_action :move_to_index, except: [:index, :show
 
   def index
