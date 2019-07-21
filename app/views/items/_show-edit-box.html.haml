@@ -1,6 +1,6 @@
 .item-detail-change
   .item-change-box
-    =link_to "商品の編集",{controller: "items", action: "edit"},{class:"item-change-box__btn--edit"}
+    = link_to "商品の編集",{controller: "items", action: "edit"},{class:"item-change-box__btn--edit"}
     %p or
     = link_to "出品を一旦停止する", {method: :patch}, {class:"item-change-box__btn--stop"}
     = link_to "この商品を削除する", item_path(item.id) , {method: :delete , class:"item-change-box__btn--delete"}

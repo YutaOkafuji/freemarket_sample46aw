@@ -39,21 +39,21 @@
                   %span 0
             %tr
               %th カテゴリ
-              -if @item.category.present?
+              - if @item.category.present?
                 %td #{@item.category.name}
-              -else
+              - else
                 %td -
             %tr
               %th ブランド
-              -if @item.item_detail.brand.present?
+              - if @item.item_detail.brand.present?
                 %td #{@item.item_detail.brand}
-              -else
+              - else
                 %td -
             %tr
               %th 商品のサイズ
-              -if @item.item_detail.size_id.present?
+              - if @item.item_detail.size_id.present?
                 %td #{@item.item_detail.size.name}
-              -else
+              - else
                 %td -
             %tr
               %th 商品の状態
@@ -63,9 +63,9 @@
               %td #{@item.shipping_origin.burden.name}
             %tr
               %th 配送の方法
-              -if @item.shipping_origin.delivery_method_id.present?
+              - if @item.shipping_origin.delivery_method_id.present?
                 %td #{@item.shipping_origin.delivery_method.name}
-              -else
+              - else
                 %td -
             %tr
               %th 配送元地域
@@ -82,10 +82,10 @@
       .sales-balance
         .sales-balance__messages 残高 ¥ #{current_user.profit.to_s(:delimited)}をお持ちです
       -#TODO dealコントローラとを作成した時に下のcontrollerをitemsからdealsに変更する。
-      =link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
+      = link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
   - elsif user_signed_in? && current_user.id == @item.user_id
   - else
-    =link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
+    = link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
   -#TODO itemsテーブルのbuyer_idが存在したら売り切れとなるようにする。
   - if @item.sale_status == 1
     .item-buy-btn--disabled 売り切れました
@@ -93,7 +93,7 @@
   .item-description
     %p.item-description__inner
       #{@item.description}
-  -if user_signed_in? && current_user.id != @item.user_id 
+  - if user_signed_in? && current_user.id != @item.user_id 
     .item-button-container--clearfix
       .item-button-content__left
         .item-button-content__left--like
@@ -105,9 +105,9 @@
           %i.far.fa-flag
           %span 不適切な商品の報告
       .item-button-content__right
-        =link_to root_path,target: "_blank" do
+        = link_to root_path,target: "_blank" do
           %i.fas.fa-lock
           %span あんしん・あんぜんへの取り組み
--if user_signed_in? && current_user.id == @item.user_id 
-  =render partial: "show-edit-box" 
-=render partial: "comments/index"
+- if user_signed_in? && current_user.id == @item.user_id 
+  = render partial: "show-edit-box", locals: { item: @item }
+= render partial: "comments/index"
