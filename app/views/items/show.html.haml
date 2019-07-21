@@ -63,7 +63,10 @@
               %td #{@item.shipping_origin.burden.name}
             %tr
               %th 配送の方法
-              %td #{@item.shipping_origin.delivery_method.name}
+              -if @item.shipping_origin.delivery_method_id.present?
+                %td #{@item.shipping_origin.delivery_method.name}
+              -else
+                %td -
             %tr
               %th 配送元地域
               %td #{@item.shipping_origin.prefecture.name}
