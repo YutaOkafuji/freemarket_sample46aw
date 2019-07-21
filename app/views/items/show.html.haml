@@ -82,7 +82,7 @@
       .sales-balance
         .sales-balance__messages 残高 ¥ #{current_user.profit.to_s(:delimited)}をお持ちです
       -#TODO dealコントローラとを作成した時に下のcontrollerをitemsからdealsに変更する。
-      =link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
+      =link_to "購入画面に進む", buy_item_path(item.id), {class:"item-buy-btn"}
   - elsif user_signed_in? && current_user.id == @item.user_id
   - else
     =link_to "購入画面に進む",{controller: "items", action: "show"},{class:"item-buy-btn"}
