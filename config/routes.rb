@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     member do
       get 'buy'
     end
+    resources :comments, only: [:create]
   end
   # usersをネストし、indexをshowに修正すること
 

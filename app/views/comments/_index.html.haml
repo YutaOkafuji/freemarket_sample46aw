@@ -1,47 +1,46 @@
 .item-detail-message
   .message-container
-    -#TODO 以下にeach文を適用させる。 
     .message-content
       %ul.message-content__items
-        -#TODO unless current.id = comment.user.id みたいなのを追加する
-        %li.message-item
-          .message-item__user
-            =image_tag 'member_photo_noimage_thumb.png',class: "message-item__user--image"
-            .message-item__user--name-left メルカリ買い太郎
-          .message-item__body
-            .message-item__body--text 安くして〜！
-            .message-item__icon
-              .message-item__icon--left
-                %i.far.fa-clock
-                %span 10日前
-              .message-item__icon--right
-                %i.far.fa-flag
-                %i.delete.fas.fa-trash-alt
-            %i.fas.fa-comment.icon-balloon
-        -# else -
-        %li.message-self-item
-          .message-self-item__user
-            =image_tag 'member_photo_noimage_thumb.png',class: "message-self-item__user--image"
-            .message-self-item__user--name メルカリ売り太郎
-            .message-self-item__user--seller 出品者
-          .message-self-item__body
-            .message-self-item__body--text 無理！
-            .message-self-item__icon
-              .message-self-item__icon--left
-                %i.far.fa-clock
-                %span 9日前
-              .message-self-item__icon--right
-                %i.far.fa-flag 
-                -#TODO 出品者の場合にのみ削除ボタンを表示させるようにする。
-                %i.delete.fas.fa-trash-alt
-            %i.fas.fa-comment.icon-balloon
-    .message-content
-      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      -# if "sale_statusが１の時は以下を表示"
-      =form_with(url: "https://kari",class: "message-content__form" ) do |f|
-        = f.text_area :content
-        = f.button ("コメントする")
-      
-        -# elseの時は以下を表示させ、コメントできないようにする。
-        -# %textarea{disabled: "disabled", name: "content"}
-        -# %button{disabled: "disabled"}売り切れの為コメントできません
+        - @item.comments.each do |comment|
+          -unless @item.user.id == comment.user_id
+            %li.message-item
+              .message-item__user
+                =image_tag 'member_photo_noimage_thumb.png',class: "message-item__user--image"
+                .message-item__user--name-left #{comment.user.profile.nickname}
+              .message-item__body
+                .message-item__body--text #{comment.content}
+                .message-item__icon
+                  .message-item__icon--left
+                    %i.far.fa-clock
+                    %span #{distance_of_time_in_words_to_now(comment.created_at)}
+                  .message-item__icon--right
+                    %i.far.fa-flag
+                %i.fas.fa-comment.icon-balloon
+          -else
+            %li.message-self-item
+              .message-self-item__user
+                =image_tag 'member_photo_noimage_thumb.png',class: "message-self-item__user--image"
+                .message-self-item__user--name #{comment.user.profile.nickname}
+                .message-self-item__user--seller 出品者
+              .message-self-item__body
+                .message-self-item__body--text #{comment.content}
+                .message-self-item__icon
+                  .message-self-item__icon--left
+                    %i.far.fa-clock
+                    %span #{distance_of_time_in_words_to_now(comment.created_at)}
+                  .message-self-item__icon--right
+                    %i.far.fa-flag 
+                    -if user_signed_in?
+                      %i.delete.fas.fa-trash-alt
+                %i.fas.fa-comment.icon-balloon
+    -if user_signed_in?
+      .message-content
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        -if @item.sale_status == 0
+          =form_with url: item_comments_path(item_id: @item.id), local: true, class: "message-content__form" do |f|
+            = f.text_area :content
+            = f.button ("コメントする")
+        -else
+          %textarea{disabled: "disabled", name: "content"}
+          %button{disabled: "disabled"}売り切れの為コメントできません

@@ -1,0 +1,23 @@
+.item-detail-change{
+  width: 700px;
+  margin: 24px auto;
+  .item-change-box {
+    padding: 24px;
+    background: $white;
+    &__btn--edit {
+      @include btn-default($color: $red,);
+    }
+    p {
+      text-align: center;
+      margin-top: 18px;
+    }
+    &__btn--stop {
+      @include btn-default($color: $mypage-icon,);
+      margin-top: 18px;
+    }
+    &__btn--delete {
+      @include btn-default($color: $mypage-icon,);
+      margin-top: 18px;
+    }
+  }
+}
