@@ -42,7 +42,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    redirect_to root_path unless @item.user.id == current_user.id
+  end
 
   def update
     redirect_to root_path unless @item.user.id == current_user.id
@@ -54,12 +56,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if current_user.id == @item.user_id
-      if @item.destroy
-        redirect_to root_path, flash: { success: '削除しました' }
-      else
-        redirect_to root_path, flash: { warning: '削除に失敗しました' }
-      end
+    redirect_to root_path unless @item.user.id == current_user.id
+    if @item.destroy
+      redirect_to root_path, flash: { success: '削除しました' }
+    else
+      redirect_to root_path, flash: { warning: '削除に失敗しました' }
     end
   end
 
