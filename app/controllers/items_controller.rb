@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
     # end
 
     @item = Item.new
-    @item.item_images.build
+    10.times{@item.item_images.build}
     @item.build_item_detail
     @item.build_shipping_origin
     render layout: "second_layout"
