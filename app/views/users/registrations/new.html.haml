@@ -4,7 +4,7 @@
 %main.devise-content
   %section.signup-section
     %h1.errors
-      = flash[:notice]
+      = flash[:notice] if flash[:notice] == "入力エラー"
     %h2.signup-title 会員情報入力
     = form_with model: @user, url: user_registration_path(@user), method: :post, local: true, class: "signup-form" do |f|
       .signup-input
