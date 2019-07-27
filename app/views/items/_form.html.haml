@@ -7,13 +7,23 @@
     %p.sell-content__explanation
       最大10枚までアップロードできます
     .sell-content__upload-box
-      -# {dropzone: "move f:image", ondrop: "receive(event, this)"}
-      =f.fields_for :item_images do |image|
-        =image.file_field :photo, class: "sell-content__upload-box--form"
-        -# =image.hidden_field :id, value: image.item_images.id
+      .sell-content__upload-box--input
+        =f.fields_for :item_images do |image|
+          =image.file_field :photo, class: "sell-content__upload-box--form"
       .sell-content__upload-box--preview
+        %ul
       -# 文字の書いてあるところをクリックすると画像のアップロードができます。
       .sell-content__upload-box--click
+        %p
+          ドラッグアンドドロップ
+          %br
+          またはクリックしてファイルをアップロード
+    .sell-content__upload-box2
+      -# {dropzone: "move f:image", ondrop: "receive(event, this)"}
+      .sell-content__upload-box2--preview2
+        %ul
+      -# 文字の書いてあるところをクリックすると画像のアップロードができます。
+      .sell-content__upload-box2--click2
         %p
           ドラッグアンドドロップ
           %br
@@ -39,7 +49,8 @@
         商品の詳細
       .right-section
         %ul
-      -# TODO:%li.form-group
+          -# TODO:
+          -# %li.form-group
           -#   %label
           -#     カテゴリー
           -#     %span.required
@@ -61,7 +72,7 @@
           -#       %option{value: "12"}自転車・オートバイ
           -#       %option{value: "13"}その他
           -#     %i.fas.fa-chevron-down
-            -#  ToDo バリデーションのエラーメッセージを表示する 
+            -# ToDo バリデーションのエラーメッセージを表示する 
           %li.form-group
             %label
               商品の状態
@@ -147,7 +158,7 @@
     =f.hidden_field :buy_status, value: 0
     =f.hidden_field :user_id, value: 1
     - if request.path_info == new_item_path
-      =f.submit "出品する", class: "btn"
+      =f.submit "出品する", class: "btn new-btn"
       .gray-btn
         =link_to "もどる", :back
     - else

@@ -26,35 +26,46 @@
       }
       &__upload-box {
         line-height: 1.5;
-        position: relative;
+        display: flex;
         text-align: center;
         cursor: pointer;
-
-        .preview-image{
-          float:left;
-          position: relative;
-          height: 161px;
-          width: 116px; 
-
-          img {
-            width: 100%;
-            height: 116px;
-            display: block;
-          }
-          .btn-zone{
-            background-color: $main_background;
-            padding: 2px;
-            width: 100%;
-            line-height: 44px;
-          }
-
+        &--trigger{
+          display: none;
         }
+
+        &--preview{
+          margin-top: 16px;
+
+          ul{
+            display: flex;
+            .preview-image{
+              position: relative;
+              height: 161px;
+              width: 116px; 
+
+              img {
+                width: 100%;
+                height: 115px;
+                display: block;
+              }
+
+              .btn-zone{
+                background-color: $main_background;
+                padding: 2px;
+                width: 100%;
+
+                line-height: 44px;
+              }
+            }
+          }
+        }
+
         &--form {
           display: none;
-          z-index: 2;
         }
 
         .sell-content__upload-box--click{
+          margin-left: 2%;
           border: 1px dashed $lightgray;
           background: $main_background;
           min-height: 162px;
@@ -70,16 +81,65 @@
             display: inline-block;
           }
         }
+      }
 
-        #file-btn{
-          position: absolute;
-          top: 0;
-          left: 0;
+      &__upload-box2 {
+        line-height: 1.5;
+        display: flex;
+        text-align: center;
+        cursor: pointer;
+
+        &--preview2{
+          margin-top: 16px;
+
+          ul{
+            display: flex;
+            .preview-image{
+              position: relative;
+              height: 161px;
+              width: 116px; 
+
+              img {
+                width: 100%;
+                height: 115px;
+                display: block;
+              }
+
+              .btn-zone{
+                background-color: $main_background;
+                padding: 2px;
+                width: 100%;
+
+                line-height: 44px;
+              }
+            }
+          }
+        }
+
+        &--form {
+          display: none;
+        }
+
+        &--click2{
+          margin-left: 2%;
+          border: 1px dashed $lightgray;
+          background: $main_background;
+          display: none;
+          min-height: 162px;
+          margin-top: 16px;
           width: 100%;
-          height: 100%;
-          text-indent:-999px;
+
+          p {
+            margin-top: 10%;
+            color: $black;
+            @include centering;
+            font-size: 14px;
+            font-family: monospace,monospace;
+            display: inline-block;
+          }
         }
       }
+
       &__form-group {
         &:nth-child(2) {
           margin-top: 40px;
