@@ -94,7 +94,7 @@ class ItemsController < ApplicationController
       :description,
       :sale_status,
       :buy_status,
-      item_images_attributes: [ :id, photo:[] ],
+      item_images_attributes: %i[ id photo ],
       item_detail_attributes: %i[ id condition_id ],
       shipping_origin_attributes: %i[ id prefecture_id burden_id delivery_date_id ])
       .merge(user_id: current_user.id)
