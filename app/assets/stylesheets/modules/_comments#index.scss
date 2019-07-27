@@ -27,6 +27,13 @@
               @include message-item__user--name();
               left: 56px;
             }
+            .message-item__user--seller.other {
+              margin: 8px 0 0;
+              padding: 4px;
+              background: #eef0f4;
+              color: #000;
+              font-size: 12px;
+            }
           }
           &__body{
             @include message-item__body();
@@ -86,6 +93,7 @@
               margin: 8px 0 0 ;
               padding: 4px;
               color: $black;
+              font-size: 12px;
             }
           }
           &__body{

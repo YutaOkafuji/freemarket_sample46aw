@@ -1,3 +1,9 @@
+.purchase_main{
+  @include centering;
+  @include clearfix;
+  width: 700px;
+  padding: 0 0 220px 0;
+}
 .purchase-cfm{
   width: 700px;
   @include centering;
