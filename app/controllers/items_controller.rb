@@ -35,10 +35,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save 
+    if @item.valid? && item_images_present?
+      @item.save
       redirect_to root_path
     else
-      render :new, layout: 'second_layout'
+      redirect_to new_item_path
     end
   end
 
@@ -97,6 +98,10 @@ class ItemsController < ApplicationController
       item_detail_attributes: %i[ id condition_id ],
       shipping_origin_attributes: %i[ id prefecture_id burden_id delivery_date_id ])
       .merge(user_id: current_user.id)
+  end
+
+  def item_images_present?
+    params.require(:item).permit(item_images_attributes: [:photo]).present?
   end
   
   def set_item

@@ -11,4 +11,12 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :item_detail
   accepts_nested_attributes_for :shipping_origin
   accepts_nested_attributes_for :category
+
+  with_options presence: true do
+    validates :name
+    validates :price
+    validates :description
+    validates :sale_status
+    validates :buy_status
+  end
 end
